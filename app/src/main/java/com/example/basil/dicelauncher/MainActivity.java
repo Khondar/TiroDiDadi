@@ -102,7 +102,9 @@ public class MainActivity extends AppCompatActivity {
                 setDadiSalvato[5] = setNumeroDadi(nD20Text);
                 setDadiSalvato[6] = setNumeroDadi(nD100Text);
 
-                stampaSetDadiSalvati(setDadiSalvato, stampaSetDadi);
+                SelectNameFragment fragment = new SelectNameFragment();
+
+                getSupportFragmentManager().beginTransaction().add(R.id.layout, fragment).addToBackStack(null).commit();
 
 
             }
