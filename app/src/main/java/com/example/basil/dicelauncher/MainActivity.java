@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     Button loadBotton;
     Button saveBotton;
     Button rollBotton;
+    Button resetBotton;
 
     int[] setDadiSalvato = new int[7];
     List<Player> players;
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         loadBotton = (Button) findViewById(R.id.load);
         saveBotton = (Button) findViewById(R.id.save);
         rollBotton = (Button) findViewById(R.id.roll);
+        resetBotton = (Button) findViewById(R.id.reset);
 
 
         rollBotton.setOnClickListener(new View.OnClickListener() {
@@ -73,14 +75,20 @@ public class MainActivity extends AppCompatActivity {
                 RisultatiLancio lancioD20 = lancioDadi(nD20Int, 20);
                 RisultatiLancio lancioD100 = lancioDadi(nD100Int, 100);
 
-
-                stampaSetDadi(lancioD4.getElencoLanci(), stampaDadi, 4);
-                stampaSetDadi(lancioD6.getElencoLanci(), stampaDadi, 6);
-                stampaSetDadi(lancioD8.getElencoLanci(), stampaDadi, 8);
-                stampaSetDadi(lancioD10.getElencoLanci(), stampaDadi, 10);
-                stampaSetDadi(lancioD12.getElencoLanci(), stampaDadi, 12);
-                stampaSetDadi(lancioD20.getElencoLanci(), stampaDadi, 20);
-                stampaSetDadi(lancioD100.getElencoLanci(), stampaDadi, 100);
+                if(nD4Int != 0){
+                stampaSetDadi(lancioD4.getElencoLanci(), stampaDadi, 4);}
+                if(nD6Int != 0){
+                stampaSetDadi(lancioD6.getElencoLanci(), stampaDadi, 6);}
+                if(nD8Int != 0){
+                stampaSetDadi(lancioD8.getElencoLanci(), stampaDadi, 8);}
+                if(nD10Int != 0){
+                stampaSetDadi(lancioD10.getElencoLanci(), stampaDadi, 10);}
+                if(nD12Int != 0){
+                stampaSetDadi(lancioD12.getElencoLanci(), stampaDadi, 12);}
+                if(nD20Int != 0){
+                stampaSetDadi(lancioD20.getElencoLanci(), stampaDadi, 20);}
+                if(nD100Int != 0){
+                stampaSetDadi(lancioD100.getElencoLanci(), stampaDadi, 100);}
 
 
                 int sommaTotale = lancioD4.getSommaLanci() + lancioD6.getSommaLanci() + lancioD8.getSommaLanci() + lancioD10.getSommaLanci() + lancioD12.getSommaLanci() + lancioD20.getSommaLanci() + lancioD100.getSommaLanci();
@@ -102,10 +110,25 @@ public class MainActivity extends AppCompatActivity {
                 setDadiSalvato[5] = setNumeroDadi(nD20Text);
                 setDadiSalvato[6] = setNumeroDadi(nD100Text);
 
-                SelectNameFragment fragment = new SelectNameFragment();
+//                SelectNameFragment fragment = new SelectNameFragment();
+//
+//                getSupportFragmentManager().beginTransaction().add(R.id.layout, fragment).addToBackStack(null).commit();
 
-                getSupportFragmentManager().beginTransaction().add(R.id.layout, fragment).addToBackStack(null).commit();
 
+            }
+        });
+
+        resetBotton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                nD4Text.setText("");
+                nD6Text.setText("");
+                nD8Text.setText("");
+                nD10Text.setText("");
+                nD12Text.setText("");
+                nD20Text.setText("");
+                nD100Text.setText("");
 
             }
         });
