@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        nD4Text = (EditText) findViewById(R.id.editD4);
+      /*  nD4Text = (EditText) findViewById(R.id.editD4);
         nD6Text = (EditText) findViewById(R.id.editD6);
         nD8Text = (EditText) findViewById(R.id.editD8);
         nD10Text = (EditText) findViewById(R.id.editD10);
@@ -170,6 +170,10 @@ public class MainActivity extends AppCompatActivity {
             textView.append(Integer.toString(args[j]) + " - ");
         }
         textView.append("\n");
+    }
+
+}
+*/
     }
 
 }
