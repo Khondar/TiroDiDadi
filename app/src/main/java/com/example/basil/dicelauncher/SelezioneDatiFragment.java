@@ -10,17 +10,12 @@ import android.view.ViewGroup;
 /**
  * Created by basil on 08/06/2016.
  */
-public class SelectPlayerFragment extends Fragment {
+public class SelezioneDatiFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.select_player_fragment_layout, container, false);
+        View v = inflater.inflate(R.layout.selezione_dati_fragment_layout, container, false);
         return v;
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
     }
 }
