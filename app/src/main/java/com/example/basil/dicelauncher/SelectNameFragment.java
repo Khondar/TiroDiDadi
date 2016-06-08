@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 
 /**
@@ -26,6 +27,9 @@ public class SelectNameFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         EditText namePlayerTxt = (EditText) view.findViewById(R.id.namePlayerEditText);
+        String namePlayerStr = namePlayerTxt.getEditableText().toString();
+
+        Button insert = (Button) view.findViewById(R.id.bottoneInsert);
     }
 
     }
