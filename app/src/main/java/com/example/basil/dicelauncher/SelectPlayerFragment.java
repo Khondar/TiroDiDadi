@@ -18,4 +18,9 @@ public class SelectPlayerFragment extends Fragment {
         View v = inflater.inflate(R.layout.selectplayerfragment_layout, container, false);
         return v;
     }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
 }
