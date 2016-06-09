@@ -51,6 +51,17 @@ public class SelezioneDatiFragment extends Fragment {
     TextView totaled100;
     TextView risultato;
 
+    TextView risulNumd4;
+    TextView risulNumd6;
+    TextView risulNumd8;
+    TextView risulNumd10;
+    TextView risulNumd12;
+    TextView risulNumd20;
+    TextView risulNumd100;
+
+
+
+
     Button resetBotton;
 
     int[] setDadiSalvato = new int[7];

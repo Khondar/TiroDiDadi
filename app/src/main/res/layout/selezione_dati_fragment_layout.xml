@@ -47,7 +47,8 @@
                 android:hint="0"
                 android:textColor="#ffffff"
                 android:textColorHint="#a4eeeeee"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:inputType="number" />
 
             <ImageView
                 android:id="@+id/d4"
@@ -74,6 +75,15 @@
                 android:id="@+id/totalD4"
                 />
 
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#ffffff"
+                android:gravity="end"
+                android:id="@+id/totalNumberD4"
+                />
+
 
         </LinearLayout>
 
@@ -90,7 +100,8 @@
                 android:hint="0"
                 android:textColor="#ffffff"
                 android:textColorHint="#a4eeeeee"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:inputType="number" />
 
             <ImageView
                 android:id="@+id/d6"
@@ -117,6 +128,15 @@
                 android:id="@+id/totalD6"
                 />
 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#ffffff"
+            android:gravity="end"
+            android:id="@+id/totalNumberD6"
+            />
+
 
         </LinearLayout>
 
@@ -133,7 +153,8 @@
                 android:hint="0"
                 android:textColor="#ffffff"
                 android:textColorHint="#a4eeeeee"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:inputType="number" />
 
             <ImageView
                 android:id="@+id/d8"
@@ -160,6 +181,15 @@
                 android:id="@+id/totalD8"
                 />
 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#ffffff"
+            android:gravity="end"
+            android:id="@+id/totalNumberD8"
+            />
+
 
         </LinearLayout>
 
@@ -176,7 +206,8 @@
                 android:hint="0"
                 android:textColor="#ffffff"
                 android:textColorHint="#a4eeeeee"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:inputType="number" />
 
             <ImageView
                 android:id="@+id/d10"
@@ -198,10 +229,21 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
+                android:layout_gravity="center"
                 android:textColor="#ffffff"
-                android:gravity="center"
                 android:id="@+id/totalD10"
                 />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="end"
+            android:textColor="#ffffff"
+            android:id="@+id/totalNumberD10"
+            />
+
+
 
 
         </LinearLayout>
@@ -219,7 +261,8 @@
             android:hint="0"
             android:textColor="#ffffff"
             android:textColorHint="#a4eeeeee"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:inputType="number" />
 
         <ImageView
             android:id="@+id/d12"
@@ -242,10 +285,17 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:textColor="#ffffff"
-            android:gravity="center"
             android:id="@+id/totalD12"
             />
 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="end"
+            android:textColor="#ffffff"
+            android:id="@+id/totalNumberD12"
+            />
 
     </LinearLayout>
 
@@ -262,7 +312,8 @@
             android:hint="0"
             android:textColor="#ffffff"
             android:textColorHint="#a4eeeeee"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:inputType="number" />
 
         <ImageView
             android:id="@+id/d20"
@@ -285,8 +336,17 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:textColor="#ffffff"
-            android:gravity="center"
+            android:layout_gravity="center"
             android:id="@+id/totalD20"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#ffffff"
+            android:gravity="end"
+            android:id="@+id/totalNumberD20"
             />
 
 
@@ -306,7 +366,8 @@
             android:hint="0"
             android:textColor="#ffffff"
             android:textColorHint="#a4eeeeee"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:inputType="number" />
 
         <ImageView
             android:id="@+id/d100"
@@ -331,6 +392,15 @@
             android:textColor="#ffffff"
             android:gravity="center"
             android:id="@+id/totalD100"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#ffffff"
+            android:gravity="end"
+            android:id="@+id/totalNumberD100"
             />
 
 
