@@ -14,8 +14,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         SelezioneDatiFragment dadi = new SelezioneDatiFragment();
 
         getSupportFragmentManager().beginTransaction().add(R.id.fragmentMenu, menu).addToBackStack(null).commit();
-        getSupportFragmentManager().beginTransaction().add(R.id.fragmentDadi, dadi).addToBackStack(null).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.fragmentDadi, dadi, "dadi").addToBackStack(null).commit();
 
     }
 
@@ -47,18 +45,25 @@ public class MainActivity extends AppCompatActivity {
     private DiceAndRollBroadcast broadcast = new DiceAndRollBroadcast() {
         @Override
         public void diceAndRoll(String tag) {
-            Intent diceIntent = new Intent(MainActivity.this, SelezioneDatiFragment.class);
+            String action = "no";
             switch (tag) {
                 case MenuFragment.ROLL:
-                    diceIntent.setAction(SelezioneDatiFragment.ROLL);
+                    action = SelezioneDatiFragment.ROLL;
+//                            SelezioneDatiFragment.ROLL;
                     break;
                 case MenuFragment.SAVE:
-                    diceIntent.setAction(SelezioneDatiFragment.SAVE);
+                    action = SelezioneDatiFragment.SAVE;
+                    // SelezioneDatiFragment.SAVE
                     break;
                 case MenuFragment.LOAD:
-                    diceIntent.setAction(SelezioneDatiFragment.LOAD);
+                    action = SelezioneDatiFragment.LOAD;
+                    //(SelezioneDatiFragment.LOAD);
                     break;
             }
+
+            SelezioneDatiFragment selezioneDatiFragment = (SelezioneDatiFragment) getSupportFragmentManager().findFragmentByTag("dadi");
+            selezioneDatiFragment.diceAndRoll(action);
+
 
         }
     };

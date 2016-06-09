@@ -1,5 +1,6 @@
 package com.example.basil.dicelauncher;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
@@ -55,7 +56,6 @@ public class SelezioneDatiFragment extends Fragment {
     List<Player> players;
 
     Dice dado = new Dice();
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -113,22 +113,22 @@ public class SelezioneDatiFragment extends Fragment {
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(DiceAndRollBroadcast.Action.ACTION_ROLL_DICE);
-        LocalBroadcastManager.getInstance(getView().getContext()).registerReceiver(broadcast, filter);
+       // IntentFilter filter = new IntentFilter();
+       // filter.addAction(DiceAndRollBroadcast.Action.ACTION_ROLL_DICE);
+       // LocalBroadcastManager.getInstance(getView().getContext()).registerReceiver(broadcast, filter);
         super.onActivityCreated(savedInstanceState);
     }
 
     @Override
     public void onStop() {
-       LocalBroadcastManager.getInstance(getView().getContext()).unregisterReceiver(broadcast);
+       //LocalBroadcastManager.getInstance(getView().getContext()).unregisterReceiver(broadcast);
         super.onStop();
     }
 
 
 
-        private DiceAndRollBroadcast broadcast = new DiceAndRollBroadcast() {
-            @Override
+        //private DiceAndRollBroadcast broadcast = new DiceAndRollBroadcast() {
+           // @Override
             public void diceAndRoll(String tag) {
 
                 switch (tag) {
@@ -206,7 +206,7 @@ public class SelezioneDatiFragment extends Fragment {
 
 
         }
-    };
+
 
     public int setNumeroDadi(EditText textView) {
         int nD;
