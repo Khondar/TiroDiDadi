@@ -10,7 +10,7 @@
     android:paddingTop="22dp"
     tools:context="com.example.basil.dicelauncher.MainActivity"
     android:id="@+id/layout"
-    android:background="@drawable/pergamena3originale">
+    android:background="@drawable/pergamena3">
 
 
 <LinearLayout
