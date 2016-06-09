@@ -61,7 +61,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/resultD4"
-                android:textColor="#1939a3"
+                android:textColor="#232324"
                 android:gravity="center"
                 android:layout_weight="5"
                 />
@@ -114,7 +114,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/resultD6"
-                android:textColor="#1939a3"
+                android:textColor="#232324"
                 android:gravity="center"
                 android:layout_weight="5"
                 />
@@ -184,7 +184,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/resultD8"
-                android:textColor="#1939a3"
+                android:textColor="#232324"
                 android:gravity="center"
                 android:layout_weight="5"
                 />
@@ -237,7 +237,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/resultD10"
-                android:textColor="#1939a3"
+                android:textColor="#232324"
                 android:gravity="center"
                 android:layout_weight="5"
 
@@ -293,7 +293,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/resultD12"
-            android:textColor="#1939a3"
+            android:textColor="#232324"
             android:gravity="center"
             android:layout_weight="5"
             />
@@ -345,7 +345,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/resultD20"
-            android:textColor="#1939a3"
+            android:textColor="#232324"
             android:gravity="center"
             android:layout_weight="5"
             />
@@ -399,7 +399,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/resultD100"
-            android:textColor="#1939a3"
+            android:textColor="#232324"
             android:gravity="center"
             android:layout_weight="5"
             />
