@@ -234,7 +234,7 @@ public class SelezioneDatiFragment extends Fragment {
             textView.append("[" + Integer.toString(args[j]) + "]");
             i = i+args[j];
         }
-        textView2.append("Totale: " + i +"\n");
+        textView2.append("Totale: " + i);
     }
 
 }
