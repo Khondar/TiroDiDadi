@@ -53,14 +53,14 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/resultD4"
                 android:layout_weight="5"
-                android:background="#cccccc"/>
+                />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:id="@+id/totalD4"
-                android:background="#ff0000"/>
+                />
 
 
         </LinearLayout>
@@ -90,14 +90,14 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/resultD6"
                 android:layout_weight="5"
-                android:background="#cccccc"/>
+                />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:id="@+id/totalD6"
-                android:background="#ff0000"/>
+                />
 
 
         </LinearLayout>
@@ -127,14 +127,14 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/resultD8"
                 android:layout_weight="5"
-                android:background="#cccccc"/>
+                />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:id="@+id/totalD8"
-                android:background="#ff0000"/>
+                />
 
 
         </LinearLayout>
@@ -164,14 +164,14 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/resultD10"
                 android:layout_weight="5"
-                android:background="#cccccc"/>
+                />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:id="@+id/totalD10"
-                android:background="#ff0000"/>
+                />
 
 
         </LinearLayout>
@@ -201,14 +201,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/resultD12"
             android:layout_weight="5"
-            android:background="#cccccc"/>
+            />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:id="@+id/totalD12"
-            android:background="#ff0000"/>
+            />
 
 
     </LinearLayout>
@@ -238,14 +238,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/resultD20"
             android:layout_weight="5"
-            android:background="#cccccc"/>
+            />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:id="@+id/totalD20"
-            android:background="#ff0000"/>
+            />
 
 
     </LinearLayout>
@@ -276,14 +276,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/resultD100"
             android:layout_weight="5"
-            android:background="#cccccc"/>
+            />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:id="@+id/totalD100"
-            android:background="#ff0000"/>
+            />
 
 
 
