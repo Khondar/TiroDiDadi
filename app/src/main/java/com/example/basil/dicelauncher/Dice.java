@@ -10,9 +10,7 @@ public class Dice {
     int facce;
     int risultato;
 
-    Dice( ){
-
-    }
+    Dice( ){    }
 
     public int rollable (int nFacce){
         facce = nFacce;
