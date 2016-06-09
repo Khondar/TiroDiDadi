@@ -4,15 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingBottom="26dp"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingTop="22dp"
     tools:context="com.example.basil.dicelauncher.MainActivity"
     android:id="@+id/layout"
-    android:foreground="@drawable/pergamena3"
-    android:background="#232324"
-    >
+    android:background="@drawable/pergamena3originale">
+
 
 <LinearLayout
     android:layout_width="match_parent"
