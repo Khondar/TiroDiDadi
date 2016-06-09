@@ -11,7 +11,7 @@
     tools:context="com.example.basil.dicelauncher.MainActivity"
     android:id="@+id/layout"
     android:background="@drawable/pergamena3originale">
-<!--questo + un commento-->
+
 
 <LinearLayout
     android:layout_width="match_parent"
