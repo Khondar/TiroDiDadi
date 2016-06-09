@@ -93,7 +93,7 @@ public class SelezioneDatiFragment extends Fragment {
         totaled100 = (TextView) view.findViewById(R.id.totalD100);
         risultato = (TextView) view.findViewById(R.id.resultTot);
 
-        ImageView imaged4 = (ImageView)view.findViewById(R.id.d4);
+       /* ImageView imaged4 = (ImageView)view.findViewById(R.id.d4);
         imaged4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,23 +106,70 @@ public class SelezioneDatiFragment extends Fragment {
             }
         });
 
-        /*ImageView imaged6 = (ImageView)view.findViewById(R.id.d6);
-        imaged4.setOnClickListener(());
+        ImageView imaged6 = (ImageView)view.findViewById(R.id.d6);
+        imaged6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                risultatod6.setText("");
+                totaled6.setText("");
+                int nD6Int = setNumeroDadiDiretto(nD6Text);
+                RisultatiLancio lancioD6 = lancioDadi(nD6Int, 4);
+                stampaSetDadi(lancioD6.getElencoLanci(), risultatod6, totaled6, 6);
 
-        ImageView imaged8 = (ImageView)view.findViewById(R.id.d8);
-        imaged4.setOnClickListener(());
 
-        ImageView imaged10 = (ImageView)view.findViewById(R.id.d10);
-        imaged4.setOnClickListener(());
+                ImageView imaged8 = (ImageView)view.findViewById(R.id.d8);
+                imaged8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                risultatod8.setText("");
+                totaled8.setText("");
+                int nD8Int = setNumeroDadiDiretto(nD8Text);
+                RisultatiLancio lancioD8 = lancioDadi(nD8Int, 8);
+                stampaSetDadi(lancioD8.getElencoLanci(), risultatod8, totaled8, 8);
 
-        ImageView imaged12 = (ImageView)view.findViewById(R.id.d12);
-        imaged4.setOnClickListener(());
 
-        ImageView imaged20 = (ImageView)view.findViewById(R.id.d20);
-        imaged4.setOnClickListener(());
+                ImageView imaged10 = (ImageView)view.findViewById(R.id.d10);
+        imaged10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                risultatod10.setText("");
+                totaled10.setText("");
+                int nD10Int = setNumeroDadiDiretto(nD10Text);
+                RisultatiLancio lancioD10 = lancioDadi(nD10Int, 10);
+                stampaSetDadi(lancioD10.getElencoLanci(), risultatod10, totaled10, 10);
 
-        ImageView imaged100 = (ImageView)view.findViewById(R.id.d100);
-        imaged4.setOnClickListener(());*/
+
+                ImageView imaged12 = (ImageView)view.findViewById(R.id.d12);
+        imaged12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                risultatod12.setText("");
+                totaled12.setText("");
+                int nD12Int = setNumeroDadiDiretto(nD12Text);
+                RisultatiLancio lancioD12 = lancioDadi(nD12Int, 12);
+                stampaSetDadi(lancioD12.getElencoLanci(), risultatod12, totaled12, 12);
+
+
+                ImageView imaged20 = (ImageView)view.findViewById(R.id.d20);
+        imaged20.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                risultatod20.setText("");
+                totaled20.setText("");
+                int nD20Int = setNumeroDadiDiretto(nD20Text);
+                RisultatiLancio lancioD20 = lancioDadi(nD20Int, 20);
+                stampaSetDadi(lancioD20.getElencoLanci(), risultatod20, totaled20, 20);
+
+
+                ImageView imaged100 = (ImageView)view.findViewById(R.id.d100);
+        imaged100.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                risultatod100.setText("");
+                totaled100.setText("");
+                int nD100Int = setNumeroDadiDiretto(nD100Text);
+                RisultatiLancio lancioD100 = lancioDadi(nD100Int, 100);
+                stampaSetDadi(lancioD100.getElencoLanci(), risultatod100, totaled100, 100);*/
 
 
 
