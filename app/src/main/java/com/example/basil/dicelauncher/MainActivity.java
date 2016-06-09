@@ -1,5 +1,8 @@
 package com.example.basil.dicelauncher;
 
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,25 +14,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText nD4Text;
-    EditText nD6Text;
-    EditText nD8Text;
-    EditText nD10Text;
-    EditText nD12Text;
-    EditText nD20Text;
-    EditText nD100Text;
-
-    TextView risultato;
-    TextView stampaDadi;
-    TextView stampaSetDadi;
-
-    Button loadBotton;
-    Button saveBotton;
-    Button rollBotton;
-    Button resetBotton;
-
-    int[] setDadiSalvato = new int[7];
-    List<Player> players;
 
 
     @Override
@@ -37,21 +21,52 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-      /*  nD4Text = (EditText) findViewById(R.id.editD4);
-        nD6Text = (EditText) findViewById(R.id.editD6);
-        nD8Text = (EditText) findViewById(R.id.editD8);
-        nD10Text = (EditText) findViewById(R.id.editD10);
-        nD12Text = (EditText) findViewById(R.id.editD12);
-        nD20Text = (EditText) findViewById(R.id.editD20);
-        nD100Text = (EditText) findViewById(R.id.editD100);
-        risultato = (TextView) findViewById(R.id.result);
-        stampaDadi = (TextView) findViewById(R.id.result2);
-        stampaSetDadi = (TextView) findViewById(R.id.setDadi);
-        loadBotton = (Button) findViewById(R.id.load);
-        saveBotton = (Button) findViewById(R.id.save);
-        rollBotton = (Button) findViewById(R.id.roll);
-        resetBotton = (Button) findViewById(R.id.reset);
+        MenuFragment menu = new MenuFragment();
+        SelezioneDatiFragment dadi = new SelezioneDatiFragment();
 
+        getSupportFragmentManager().beginTransaction().add(R.id.fragmentMenu, menu).addToBackStack(null).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.fragmentDadi, dadi).addToBackStack(null).commit();
+
+    }
+
+    @Override
+    protected void onStart() {
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(DiceAndRollBroadcast.Action.ACTION_ROLL_DICE);
+        LocalBroadcastManager.getInstance(this).registerReceiver(broadcast, filter);
+        super.onStart();
+    }
+
+
+    @Override
+    protected void onStop() {
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(broadcast);
+        super.onStop();
+    }
+
+    private DiceAndRollBroadcast broadcast = new DiceAndRollBroadcast() {
+        @Override
+        public void diceAndRoll(String tag) {
+            Intent diceIntent = new Intent(MainActivity.this, SelezioneDatiFragment.class);
+            switch (tag) {
+                case MenuFragment.ROLL:
+                    diceIntent.setAction(SelezioneDatiFragment.ROLL);
+                    break;
+                case MenuFragment.SAVE:
+                    diceIntent.setAction(SelezioneDatiFragment.SAVE);
+                    break;
+                case MenuFragment.LOAD:
+                    diceIntent.setAction(SelezioneDatiFragment.LOAD);
+                    break;
+            }
+
+        }
+    };
+}
+
+
+
+      /*
 
         rollBotton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -174,6 +189,5 @@ public class MainActivity extends AppCompatActivity {
 
 }
 */
-    }
 
-}
+
