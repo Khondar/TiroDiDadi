@@ -49,15 +49,12 @@ public class MainActivity extends AppCompatActivity {
             switch (tag) {
                 case MenuFragment.ROLL:
                     action = SelezioneDatiFragment.ROLL;
-//                            SelezioneDatiFragment.ROLL;
                     break;
                 case MenuFragment.SAVE:
                     action = SelezioneDatiFragment.SAVE;
-                    // SelezioneDatiFragment.SAVE
                     break;
                 case MenuFragment.LOAD:
                     action = SelezioneDatiFragment.LOAD;
-                    //(SelezioneDatiFragment.LOAD);
                     break;
             }
 

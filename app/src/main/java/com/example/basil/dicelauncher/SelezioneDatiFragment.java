@@ -59,13 +59,9 @@ public class SelezioneDatiFragment extends Fragment {
     TextView risulNumd20;
     TextView risulNumd100;
 
-
-
-
     Button resetBotton;
 
     int[] setDadiSalvato = new int[7];
-    List<Player> players;
 
     Dice dado = new Dice();
 
@@ -104,7 +100,15 @@ public class SelezioneDatiFragment extends Fragment {
         totaled100 = (TextView) view.findViewById(R.id.totalD100);
         risultato = (TextView) view.findViewById(R.id.resultTot);
 
-       /* ImageView imaged4 = (ImageView)view.findViewById(R.id.d4);
+        risulNumd4 =(TextView) view.findViewById(R.id.totalNumberD4);
+        risulNumd6=(TextView) view.findViewById(R.id.totalNumberD6);
+        risulNumd8=(TextView) view.findViewById(R.id.totalNumberD8);
+        risulNumd10=(TextView) view.findViewById(R.id.totalNumberD10);
+        risulNumd12=(TextView) view.findViewById(R.id.totalNumberD12);
+        risulNumd20=(TextView) view.findViewById(R.id.totalNumberD20);
+        risulNumd100=(TextView) view.findViewById(R.id.totalNumberD100);
+
+        ImageView imaged4 = (ImageView)view.findViewById(R.id.d4);
         imaged4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,7 +116,7 @@ public class SelezioneDatiFragment extends Fragment {
                 totaled4.setText("");
                 int nD4Int = setNumeroDadiDiretto(nD4Text);
                 RisultatiLancio lancioD4 = lancioDadi(nD4Int, 4);
-                stampaSetDadi(lancioD4.getElencoLanci(), risultatod4, totaled4, 4);
+                stampaSetDadi(lancioD4.getElencoLanci(), risultatod4, totaled4, risulNumd4);
 
             }
         });
@@ -125,8 +129,9 @@ public class SelezioneDatiFragment extends Fragment {
                 totaled6.setText("");
                 int nD6Int = setNumeroDadiDiretto(nD6Text);
                 RisultatiLancio lancioD6 = lancioDadi(nD6Int, 4);
-                stampaSetDadi(lancioD6.getElencoLanci(), risultatod6, totaled6, 6);
-
+                stampaSetDadi(lancioD6.getElencoLanci(), risultatod6, totaled6, risulNumd6);
+            }
+        });
 
                 ImageView imaged8 = (ImageView)view.findViewById(R.id.d8);
                 imaged8.setOnClickListener(new View.OnClickListener() {
@@ -136,8 +141,9 @@ public class SelezioneDatiFragment extends Fragment {
                 totaled8.setText("");
                 int nD8Int = setNumeroDadiDiretto(nD8Text);
                 RisultatiLancio lancioD8 = lancioDadi(nD8Int, 8);
-                stampaSetDadi(lancioD8.getElencoLanci(), risultatod8, totaled8, 8);
-
+                stampaSetDadi(lancioD8.getElencoLanci(), risultatod8, totaled8, risulNumd8);
+            }
+                });
 
                 ImageView imaged10 = (ImageView)view.findViewById(R.id.d10);
         imaged10.setOnClickListener(new View.OnClickListener() {
@@ -147,8 +153,9 @@ public class SelezioneDatiFragment extends Fragment {
                 totaled10.setText("");
                 int nD10Int = setNumeroDadiDiretto(nD10Text);
                 RisultatiLancio lancioD10 = lancioDadi(nD10Int, 10);
-                stampaSetDadi(lancioD10.getElencoLanci(), risultatod10, totaled10, 10);
-
+                stampaSetDadi(lancioD10.getElencoLanci(), risultatod10, totaled10, risulNumd10);
+            }
+        });
 
                 ImageView imaged12 = (ImageView)view.findViewById(R.id.d12);
         imaged12.setOnClickListener(new View.OnClickListener() {
@@ -158,8 +165,9 @@ public class SelezioneDatiFragment extends Fragment {
                 totaled12.setText("");
                 int nD12Int = setNumeroDadiDiretto(nD12Text);
                 RisultatiLancio lancioD12 = lancioDadi(nD12Int, 12);
-                stampaSetDadi(lancioD12.getElencoLanci(), risultatod12, totaled12, 12);
-
+                stampaSetDadi(lancioD12.getElencoLanci(), risultatod12, totaled12, risulNumd12);
+            }
+        });
 
                 ImageView imaged20 = (ImageView)view.findViewById(R.id.d20);
         imaged20.setOnClickListener(new View.OnClickListener() {
@@ -169,8 +177,9 @@ public class SelezioneDatiFragment extends Fragment {
                 totaled20.setText("");
                 int nD20Int = setNumeroDadiDiretto(nD20Text);
                 RisultatiLancio lancioD20 = lancioDadi(nD20Int, 20);
-                stampaSetDadi(lancioD20.getElencoLanci(), risultatod20, totaled20, 20);
-
+                stampaSetDadi(lancioD20.getElencoLanci(), risultatod20, totaled20, risulNumd20);
+            }
+        });
 
                 ImageView imaged100 = (ImageView)view.findViewById(R.id.d100);
         imaged100.setOnClickListener(new View.OnClickListener() {
@@ -180,8 +189,9 @@ public class SelezioneDatiFragment extends Fragment {
                 totaled100.setText("");
                 int nD100Int = setNumeroDadiDiretto(nD100Text);
                 RisultatiLancio lancioD100 = lancioDadi(nD100Int, 100);
-                stampaSetDadi(lancioD100.getElencoLanci(), risultatod100, totaled100, 100);*/
-
+                stampaSetDadi(lancioD100.getElencoLanci(), risultatod100, totaled100, risulNumd100);
+            }
+        });
 
 
 
@@ -199,6 +209,14 @@ public class SelezioneDatiFragment extends Fragment {
                 nD12Text.setText("");
                 nD20Text.setText("");
                 nD100Text.setText("");
+
+                risulNumd4.setText("");
+                risulNumd6.setText("");
+                risulNumd8.setText("");
+                risulNumd10.setText("");
+                risulNumd12.setText("");
+                risulNumd20.setText("");
+                risulNumd100.setText("");
 
             }
         });
@@ -245,19 +263,19 @@ public class SelezioneDatiFragment extends Fragment {
                 RisultatiLancio lancioD100 = lancioDadi(nD100Int, 100);
 
                 if(nD4Int != 0){
-                stampaSetDadi(lancioD4.getElencoLanci(), risultatod4, totaled4, 4);}
+                stampaSetDadi(lancioD4.getElencoLanci(), risultatod4, totaled4, risulNumd4);}
                 if(nD6Int != 0){
-                stampaSetDadi(lancioD6.getElencoLanci(), risultatod6, totaled6, 6);}
+                stampaSetDadi(lancioD6.getElencoLanci(), risultatod6, totaled6, risulNumd6);}
                 if(nD8Int != 0){
-                stampaSetDadi(lancioD8.getElencoLanci(), risultatod8, totaled8, 8);}
+                stampaSetDadi(lancioD8.getElencoLanci(), risultatod8, totaled8, risulNumd8);}
                 if(nD10Int != 0){
-                stampaSetDadi(lancioD10.getElencoLanci(), risultatod10, totaled10, 10);}
+                stampaSetDadi(lancioD10.getElencoLanci(), risultatod10, totaled10, risulNumd10);}
                 if(nD12Int != 0){
-                stampaSetDadi(lancioD12.getElencoLanci(), risultatod12, totaled12, 12);}
+                stampaSetDadi(lancioD12.getElencoLanci(), risultatod12, totaled12, risulNumd12);}
                 if(nD20Int != 0){
-                stampaSetDadi(lancioD20.getElencoLanci(), risultatod20, totaled20, 20);}
+                stampaSetDadi(lancioD20.getElencoLanci(), risultatod20, totaled20, risulNumd20);}
                 if(nD100Int != 0){
-                stampaSetDadi(lancioD100.getElencoLanci(), risultatod100, totaled100, 100);}
+                stampaSetDadi(lancioD100.getElencoLanci(), risultatod100, totaled100, risulNumd100);}
 
 
                 int sommaTotale = lancioD4.getSommaLanci() + lancioD6.getSommaLanci() + lancioD8.getSommaLanci() + lancioD10.getSommaLanci() + lancioD12.getSommaLanci() + lancioD20.getSommaLanci() + lancioD100.getSommaLanci();
@@ -311,14 +329,15 @@ public class SelezioneDatiFragment extends Fragment {
         return lancio;
     }
 
-    public void stampaSetDadi(int[] args, TextView textView, TextView textView2, int facce){
+    public void stampaSetDadi(int[] args, TextView textView, TextView textView2, TextView textView3){
 
         int i=0;
         for(int j=0; j<args.length; j++){
             textView.append(" [" + Integer.toString(args[j]) + "] ");
             i = i+args[j];
         }
-        textView2.append("Totale: " + i);
+        textView2.append("Totale:");
+        textView3.append(""+ i);
     }
 
 
