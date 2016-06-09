@@ -208,10 +208,10 @@ public class SelezioneDatiFragment extends Fragment {
     }
 
     public void stampaSetDadi(int[] args, TextView textView, TextView textView2, int facce){
-        textView.append("Risultati d" + facce +": ");
+
         int i=0;
         for(int j=0; j<args.length; j++){
-            textView.append("[" + Integer.toString(args[j]) + "]");
+            textView.append(" [" + Integer.toString(args[j]) + "] ");
             i = i+args[j];
         }
         textView2.append("Totale: " + i);
