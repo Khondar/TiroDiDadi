@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -91,6 +92,41 @@ public class SelezioneDatiFragment extends Fragment {
         risultatod100 = (TextView) view.findViewById(R.id.resultD100);
         totaled100 = (TextView) view.findViewById(R.id.totalD100);
         risultato = (TextView) view.findViewById(R.id.resultTot);
+
+        ImageView imaged4 = (ImageView)view.findViewById(R.id.d4);
+        imaged4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                risultatod4.setText("");
+                totaled4.setText("");
+                int nD4Int = setNumeroDadiDiretto(nD4Text);
+                RisultatiLancio lancioD4 = lancioDadi(nD4Int, 4);
+                stampaSetDadi(lancioD4.getElencoLanci(), risultatod4, totaled4, 4);
+
+            }
+        });
+
+        /*ImageView imaged6 = (ImageView)view.findViewById(R.id.d6);
+        imaged4.setOnClickListener(());
+
+        ImageView imaged8 = (ImageView)view.findViewById(R.id.d8);
+        imaged4.setOnClickListener(());
+
+        ImageView imaged10 = (ImageView)view.findViewById(R.id.d10);
+        imaged4.setOnClickListener(());
+
+        ImageView imaged12 = (ImageView)view.findViewById(R.id.d12);
+        imaged4.setOnClickListener(());
+
+        ImageView imaged20 = (ImageView)view.findViewById(R.id.d20);
+        imaged4.setOnClickListener(());
+
+        ImageView imaged100 = (ImageView)view.findViewById(R.id.d100);
+        imaged4.setOnClickListener(());*/
+
+
+
+
 
         resetBotton = (Button) view.findViewById(R.id.reset);
 
@@ -198,6 +234,16 @@ public class SelezioneDatiFragment extends Fragment {
         return nD;
     }
 
+    public int setNumeroDadiDiretto(EditText textView) {
+        int nD;
+        try {
+            nD = Integer.parseInt(textView.getEditableText().toString());
+        } catch (NumberFormatException e) {
+            nD = 1;
+        }
+        return nD;
+    }
+
     public RisultatiLancio lancioDadi (int nD, int nFacce){
         RisultatiLancio lancio = new RisultatiLancio(nD);
         for (int j = 0; j < nD; j++) {
@@ -216,5 +262,8 @@ public class SelezioneDatiFragment extends Fragment {
         }
         textView2.append("Totale: " + i);
     }
+
+
+
 
 }
