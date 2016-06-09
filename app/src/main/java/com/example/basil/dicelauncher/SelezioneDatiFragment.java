@@ -110,25 +110,6 @@ public class SelezioneDatiFragment extends Fragment {
         });
 
     }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-       // IntentFilter filter = new IntentFilter();
-       // filter.addAction(DiceAndRollBroadcast.Action.ACTION_ROLL_DICE);
-       // LocalBroadcastManager.getInstance(getView().getContext()).registerReceiver(broadcast, filter);
-        super.onActivityCreated(savedInstanceState);
-    }
-
-    @Override
-    public void onStop() {
-       //LocalBroadcastManager.getInstance(getView().getContext()).unregisterReceiver(broadcast);
-        super.onStop();
-    }
-
-
-
-        //private DiceAndRollBroadcast broadcast = new DiceAndRollBroadcast() {
-           // @Override
             public void diceAndRoll(String tag) {
 
                 switch (tag) {
@@ -203,7 +184,6 @@ public class SelezioneDatiFragment extends Fragment {
                     default:
                         break;
                 }
-
 
         }
 
