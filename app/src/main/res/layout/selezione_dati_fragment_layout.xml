@@ -137,6 +137,23 @@
             android:id="@+id/totalNumberD6"
             />
 
+        <!--<TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textColor="#ffffff"
+            android:id="@+id/totalD12"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="end"
+            android:textColor="#ffffff"
+            android:id="@+id/totalNumberD12"
+            />-->
+
 
         </LinearLayout>
 
@@ -223,13 +240,14 @@
                 android:textColor="#1939a3"
                 android:gravity="center"
                 android:layout_weight="5"
+
                 />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:textColor="#ffffff"
                 android:id="@+id/totalD10"
                 />
@@ -238,7 +256,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_gravity="end"
+            android:gravity="end"
             android:textColor="#ffffff"
             android:id="@+id/totalNumberD10"
             />
@@ -285,6 +303,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:textColor="#ffffff"
+            android:gravity="center"
             android:id="@+id/totalD12"
             />
 
@@ -292,7 +311,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_gravity="end"
+            android:gravity="end"
             android:textColor="#ffffff"
             android:id="@+id/totalNumberD12"
             />
@@ -336,7 +355,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:textColor="#ffffff"
-            android:layout_gravity="center"
+            android:gravity="center"
             android:id="@+id/totalD20"
             />
 
