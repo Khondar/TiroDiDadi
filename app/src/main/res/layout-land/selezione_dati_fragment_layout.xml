@@ -19,7 +19,8 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:gravity="center">
 
             <EditText
                 android:id="@+id/editD4"
@@ -61,16 +62,22 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:textColor="#ffffff"
-                android:gravity="end"
+                android:gravity="center_vertical|end"
                 android:id="@+id/totalNumberD4"
                 />
 
         </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="7">
 
         <Button
             android:layout_width="wrap_content"
@@ -79,25 +86,25 @@
             android:id="@+id/reset"
             android:gravity="center"/>
 
+           </LinearLayout>
+
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_alignTop="@+id/resultNumTot"
-                android:layout_alignBottom="@+id/resultNumTot"
                 android:textColor="#ffffff"
+                android:layout_weight="2"
                 android:id="@+id/resultTot"
-                android:layout_marginRight="15dp"
                 android:gravity="center"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/resultNumTot"
+            android:layout_weight="1"
+            android:gravity="center_vertical|end"
             android:textColor="#ffffff"
-            android:gravity="end"
-            android:layout_alignParentRight="true"
             />
-        </RelativeLayout>
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -147,7 +154,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textColor="#ffffff"
-            android:gravity="end"
+            android:gravity="center_vertical|end"
             android:id="@+id/totalNumberD6"
             />
 
@@ -190,7 +197,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="end"
+            android:gravity="center_vertical|end"
             android:textColor="#ffffff"
             android:id="@+id/totalNumberD12"
             />
@@ -245,7 +252,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textColor="#ffffff"
-            android:gravity="end"
+            android:gravity="center_vertical|end"
             android:id="@+id/totalNumberD8"
             />
 
@@ -291,7 +298,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textColor="#ffffff"
-            android:gravity="end"
+            android:gravity="center_vertical|end"
             android:id="@+id/totalNumberD20"
             />
 
@@ -345,7 +352,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="end"
+            android:gravity="center_vertical|end"
             android:textColor="#ffffff"
             android:id="@+id/totalNumberD10"
             />
@@ -391,7 +398,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textColor="#ffffff"
-            android:gravity="end"
+            android:gravity="center_vertical|end"
             android:id="@+id/totalNumberD100"
             />
 
