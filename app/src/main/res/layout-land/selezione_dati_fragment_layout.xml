@@ -11,11 +11,7 @@
             android:orientation="horizontal"
             android:layout_weight="1">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center">
+
 
             <EditText
                 android:id="@+id/editD4"
@@ -63,13 +59,7 @@
 <!--
 Questo è un commento
 -->
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -78,7 +68,7 @@ Questo è un commento
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="6">
+                android:layout_weight="7">
 
         <Button
             android:layout_width="wrap_content"
@@ -107,7 +97,7 @@ Questo è un commento
             android:gravity="center_vertical|end"
             android:textColor="#ffffff"
             />
-        </LinearLayout>
+
 
     </LinearLayout>
 
@@ -320,8 +310,7 @@ Questo è un commento
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        android:layout_weight="1"
-        android:weightSum="20">
+        android:layout_weight="1">
 
         <EditText
             android:id="@+id/editD10"
