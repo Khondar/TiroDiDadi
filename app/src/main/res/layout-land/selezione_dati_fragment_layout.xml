@@ -35,7 +35,7 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/resultD4"
                 android:textColor="#232324"
                 android:gravity="center"
@@ -44,7 +44,7 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:textColor="#ffffff"
                 android:gravity="center"
@@ -53,12 +53,36 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:textColor="#ffffff"
                 android:gravity="end"
                 android:id="@+id/totalNumberD4"
                 />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="reset"
+            android:layout_weight="1"
+            android:id="@+id/reset" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/resultTot"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:layout_weight="6"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
 
         <EditText
             android:id="@+id/editD6"
@@ -79,7 +103,7 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/resultD6"
             android:textColor="#232324"
             android:gravity="center"
@@ -88,7 +112,7 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="2"
             android:textColor="#ffffff"
             android:gravity="center"
@@ -97,118 +121,12 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:textColor="#ffffff"
             android:gravity="end"
             android:id="@+id/totalNumberD6"
             />
-
-    </LinearLayout>
-
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="horizontal"
-            android:layout_weight="1">
-        <EditText
-            android:id="@+id/editD8"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="0"
-            android:textColor="#ffffff"
-            android:textColorHint="#a4eeeeee"
-            android:layout_weight="1"
-            android:inputType="number" />
-
-        <ImageView
-            android:id="@+id/d8"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/d8"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/resultD8"
-            android:textColor="#232324"
-            android:gravity="center"
-            android:layout_weight="5"
-            />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:textColor="#ffffff"
-            android:gravity="center"
-            android:id="@+id/totalD8"
-            />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="#ffffff"
-            android:gravity="end"
-            android:id="@+id/totalNumberD8"
-            />
-
-        <EditText
-            android:id="@+id/editD10"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="0"
-            android:textColor="#ffffff"
-            android:textColorHint="#a4eeeeee"
-            android:layout_weight="1"
-            android:inputType="number" />
-
-        <ImageView
-            android:id="@+id/d10"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/d10"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/resultD10"
-            android:textColor="#232324"
-            android:gravity="center"
-            android:layout_weight="5"
-
-            />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:textColor="#ffffff"
-            android:id="@+id/totalD10"
-            />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="end"
-            android:textColor="#ffffff"
-            android:id="@+id/totalNumberD10"
-            />
-
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_weight="1">
 
         <EditText
             android:id="@+id/editD12"
@@ -229,7 +147,7 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/resultD12"
             android:textColor="#232324"
             android:gravity="center"
@@ -238,7 +156,7 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="2"
             android:textColor="#ffffff"
             android:gravity="center"
@@ -247,12 +165,68 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="end"
             android:textColor="#ffffff"
             android:id="@+id/totalNumberD12"
             />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+        <EditText
+            android:id="@+id/editD8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:textColor="#ffffff"
+            android:textColorHint="#a4eeeeee"
+            android:layout_weight="1"
+            android:inputType="number" />
+
+        <ImageView
+            android:id="@+id/d8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/d8"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/resultD8"
+            android:textColor="#232324"
+            android:gravity="center"
+            android:layout_weight="5"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:id="@+id/totalD8"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="#ffffff"
+            android:gravity="end"
+            android:id="@+id/totalNumberD8"
+            />
+
+
 
         <EditText
             android:id="@+id/editD20"
@@ -273,7 +247,7 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/resultD20"
             android:textColor="#232324"
             android:gravity="center"
@@ -282,7 +256,7 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="2"
             android:textColor="#ffffff"
             android:gravity="center"
@@ -291,7 +265,7 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:textColor="#ffffff"
             android:gravity="end"
@@ -307,6 +281,52 @@
         android:orientation="horizontal"
         android:layout_weight="1"
         android:weightSum="20">
+
+        <EditText
+            android:id="@+id/editD10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:textColor="#ffffff"
+            android:textColorHint="#a4eeeeee"
+            android:layout_weight="1"
+            android:inputType="number" />
+
+        <ImageView
+            android:id="@+id/d10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/d10"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/resultD10"
+            android:textColor="#232324"
+            android:gravity="center"
+            android:layout_weight="5"
+
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:id="@+id/totalD10"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:textColor="#ffffff"
+            android:id="@+id/totalNumberD10"
+            />
+
 
         <EditText
             android:id="@+id/editD100"
@@ -327,7 +347,7 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/resultD100"
             android:textColor="#232324"
             android:gravity="center"
@@ -336,7 +356,7 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="2"
             android:textColor="#ffffff"
             android:gravity="center"
@@ -345,38 +365,12 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:textColor="#ffffff"
             android:gravity="end"
             android:id="@+id/totalNumberD100"
             />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="reset"
-            android:id="@+id/reset" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/resultTot"
-                android:textColor="#ffffff"
-                android:gravity="center"
-                />
-
-        </LinearLayout>
-
-
-
-
-
 
     </LinearLayout>
 
