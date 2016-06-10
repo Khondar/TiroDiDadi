@@ -447,6 +447,6 @@ public class SelezioneDatiFragment extends Fragment {
 
    public void stampaTotale (TextView textView1, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView stampa, TextView totale){
        totale.setText("TOTALE:");
-       stampa.setText(""+(textView1.getText().toString()+textView2.getText().toString()+textView3.getText().toString()+textView3.getText().toString()+textView4.getText().toString()+textView5.getText().toString()+textView6.getText().toString()+textView7.getText().toString()));
+       stampa.setText(""+(Integer.parseInt(textView1.getText().toString())+Integer.parseInt(textView2.getText().toString())+Integer.parseInt(textView3.getText().toString())+Integer.parseInt(textView3.getText().toString())+Integer.parseInt(textView4.getText().toString())+Integer.parseInt(textView5.getText().toString())+Integer.parseInt(textView6.getText().toString())+Integer.parseInt(textView7.getText().toString())));
    }
 }
