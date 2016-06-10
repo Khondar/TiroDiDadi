@@ -50,6 +50,7 @@ public class SelezioneDatiFragment extends Fragment {
     TextView risultatod100;
     TextView totaled100;
     TextView risultato;
+    TextView risultatoTot;
 
     TextView risulNumd4;
     TextView risulNumd6;
@@ -100,6 +101,7 @@ public class SelezioneDatiFragment extends Fragment {
         risultatod100 = (TextView) view.findViewById(R.id.resultD100);
         totaled100 = (TextView) view.findViewById(R.id.totalD100);
         risultato = (TextView) view.findViewById(R.id.resultTot);
+        risultatoTot = (TextView) view.findViewById(R.id.resultNumTot);
 
         risulNumd4 = (TextView) view.findViewById(R.id.totalNumberD4);
         risulNumd6 = (TextView) view.findViewById(R.id.totalNumberD6);
@@ -351,7 +353,8 @@ public class SelezioneDatiFragment extends Fragment {
 
 
                 int sommaTotale = lancioD4.getSommaLanci() + lancioD6.getSommaLanci() + lancioD8.getSommaLanci() + lancioD10.getSommaLanci() + lancioD12.getSommaLanci() + lancioD20.getSommaLanci() + lancioD100.getSommaLanci();
-                risultato.setText("Somma totale: " + Integer.toString(sommaTotale));
+                risultato.setText("TOTALE:");
+                risultatoTot.setText(Integer.toString(sommaTotale));
 
 
                 break;
