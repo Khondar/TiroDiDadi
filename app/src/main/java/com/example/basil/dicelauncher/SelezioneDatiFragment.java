@@ -226,6 +226,23 @@ public class SelezioneDatiFragment extends Fragment {
                 risulNumd20.setText("");
                 risulNumd100.setText("");
 
+                risultatod4.setText("");
+                totaled4.setText("");
+                risultatod6.setText("");
+                totaled6.setText("");
+                risultatod8.setText("");
+                totaled8.setText("");
+                risultatod10.setText("");
+                totaled10.setText("");
+                risultatod12.setText("");
+                totaled12.setText("");
+                risultatod20.setText("");
+                totaled20.setText("");
+                risultatod100.setText("");
+                totaled100.setText("");
+                risultato.setText("");
+                risultatoTot.setText("");
+
             }
         });
 
