@@ -85,7 +85,9 @@ Questo è un commento
             android:layout_height="wrap_content"
             android:text="reset"
             android:id="@+id/reset"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:background="@drawable/smallredbuttonpatch"
+            android:textColor="#ffffff"/>
 
            </LinearLayout>
 
