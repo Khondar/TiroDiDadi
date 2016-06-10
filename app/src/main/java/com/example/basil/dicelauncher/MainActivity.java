@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        startService((new Intent(this, ShakeAndRollService.class)).setAction(ShakeAndRollService.NULLA));
+
         if(savedInstanceState != null){
             //Ripristina l'istanza del fragment
             dadi = (SelezioneDatiFragment)getSupportFragmentManager().getFragment(savedInstanceState, "mContent1");
@@ -67,10 +69,12 @@ public class MainActivity extends AppCompatActivity {
     private DiceAndRollBroadcast broadcast = new DiceAndRollBroadcast() {
         @Override
         public void diceAndRoll(String tag) {
+            Intent serviceIntent = new Intent(MainActivity.this, ShakeAndRollService.class);
             String action = "no";
             switch (tag) {
                 case MenuFragment.ROLL:
                     action = SelezioneDatiFragment.ROLL;
+                    serviceIntent.setAction(ShakeAndRollService.ROLL);
                     break;
                 case MenuFragment.SAVE:
                     action = SelezioneDatiFragment.SAVE;
@@ -79,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                     action = SelezioneDatiFragment.LOAD;
                     break;
             }
-
+            getBaseContext().startService(serviceIntent);
             SelezioneDatiFragment selezioneDatiFragment = (SelezioneDatiFragment) getSupportFragmentManager().findFragmentByTag("dadi");
             selezioneDatiFragment.diceAndRoll(action);
 
