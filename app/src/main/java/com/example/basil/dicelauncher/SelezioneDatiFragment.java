@@ -383,7 +383,7 @@ public class SelezioneDatiFragment extends Fragment {
 
 
                 int sommaTotale = lancioD4.getSommaLanci() + lancioD6.getSommaLanci() + lancioD8.getSommaLanci() + lancioD10.getSommaLanci() + lancioD12.getSommaLanci() + lancioD20.getSommaLanci() + lancioD100.getSommaLanci();
-                risultato.setText("TOTALE:");
+                risultato.setText("TOT:");
                 risultatoTot.setText(Integer.toString(sommaTotale));
 
 
@@ -446,7 +446,7 @@ public class SelezioneDatiFragment extends Fragment {
     }
 
    public void stampaTotale (TextView textView1, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView stampa, TextView totale){
-       totale.setText("TOTALE:");
+       totale.setText("TOT:");
        stampa.setText(""+(prendiValore(textView1)+prendiValore(textView2)+prendiValore(textView3)+prendiValore(textView4)+prendiValore(textView5)+prendiValore(textView6)+prendiValore(textView7)));
    }
 
