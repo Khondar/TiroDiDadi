@@ -14,7 +14,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Roll"
-            android:background="@drawable/smallgreenbuttonpatch"/>
+            android:background="@drawable/smallgreenbuttonpatch"
+            android:textColor="#ffffff"/>
 
     </LinearLayout>
 
@@ -29,7 +30,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="save"
-            android:background="@drawable/smallblubuttonpatch"/>
+            android:background="@drawable/smallblubuttonpatch"
+            android:textColor="#ffffff"/>
 
     </LinearLayout>
 
@@ -44,7 +46,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="load"
-            android:background="@drawable/smallyellowbuttonpatch"/>
+            android:background="@drawable/smallyellowbuttonpatch"
+            android:textColor="#ffffff"/>
 
         </LinearLayout>
 
