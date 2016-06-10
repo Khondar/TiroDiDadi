@@ -29,6 +29,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/resultNumTot"
+            android:layout_alignTop="@+id/reset"
+            android:layout_alignBottom="@+id/reset"
             android:layout_alignParentRight="true"
             android:gravity="end"/>
 
