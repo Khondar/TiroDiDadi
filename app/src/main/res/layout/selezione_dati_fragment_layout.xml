@@ -3,38 +3,44 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
         android:layout_weight="1">
 
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="7">
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="reset"
-            android:id="@+id/reset" />
+            android:id="@+id/reset"
+            />
+
+        </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/resultTot"
             android:textColor="#ffffff"
-            android:layout_alignTop="@+id/reset"
-            android:layout_alignBottom="@+id/reset"
             android:gravity="center"
-            />
+            android:layout_weight="2"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/resultNumTot"
-            android:layout_alignTop="@+id/reset"
-            android:layout_alignBottom="@+id/reset"
-            android:layout_alignParentRight="true"
+            android:textColor="#ffffff"
+            android:layout_weight="1"
             android:gravity="end"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
