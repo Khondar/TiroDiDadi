@@ -82,14 +82,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_alignTop="@+id/resultTot"
-                android:layout_alignBottom="@+id/resultTot"
+                android:layout_alignTop="@+id/resultNumTot"
+                android:layout_alignBottom="@+id/resultNumTot"
+                android:id="@+id/resultTot"
                 android:gravity="center"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/resultTot"
+            android:id="@+id/resultNumTot"
             android:textColor="#ffffff"
             android:gravity="end"
             android:layout_alignParentRight="true"
