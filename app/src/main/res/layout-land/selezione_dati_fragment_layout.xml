@@ -16,6 +16,11 @@
             android:orientation="horizontal"
             android:layout_weight="1">
 
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
             <EditText
                 android:id="@+id/editD4"
                 android:layout_width="0dp"
@@ -60,21 +65,36 @@
                 android:id="@+id/totalNumberD4"
                 />
 
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="reset"
-            android:layout_weight="1"
-            android:id="@+id/reset" />
+            android:id="@+id/reset"
+            android:gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignTop="@+id/resultTot"
+                android:layout_alignBottom="@+id/resultTot"
+                android:gravity="center"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/resultTot"
             android:textColor="#ffffff"
-            android:gravity="center"
-            android:layout_weight="6"
+            android:gravity="end"
+            android:layout_alignParentRight="true"
             />
+        </RelativeLayout>
 
     </LinearLayout>
 
