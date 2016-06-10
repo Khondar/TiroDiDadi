@@ -60,10 +60,11 @@ public class SelezioneDatiFragment extends Fragment {
     TextView risulNumd100;
 
     Button resetBotton;
+    Dice dado = new Dice();
 
     int[] setDadiSalvato = new int[7];
 
-    Dice dado = new Dice();
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -302,6 +303,13 @@ public class SelezioneDatiFragment extends Fragment {
                 risultatod100.setText("");
                 totaled100.setText("");
 
+                risulNumd4.setText("");
+                risulNumd6.setText("");
+                risulNumd8.setText("");
+                risulNumd10.setText("");
+                risulNumd12.setText("");
+                risulNumd20.setText("");
+                risulNumd100.setText("");
 
                 int nD4Int = setNumeroDadi(nD4Text);
                 int nD6Int = setNumeroDadi(nD6Text);
@@ -400,7 +408,7 @@ public class SelezioneDatiFragment extends Fragment {
             textView.append(" [" + Integer.toString(args[j]) + "] ");
             i = i + args[j];
         }
-        textView2.append("Totale:");
-        textView3.append("" + i);
+        textView2.setText("Totale:");
+        textView3.setText("" + i);
     }
 }

@@ -16,6 +16,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     SelezioneDatiFragment dadi;
+    MenuFragment menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,15 +25,19 @@ public class MainActivity extends AppCompatActivity {
 
         if(savedInstanceState != null){
             //Ripristina l'istanza del fragment
-            dadi = (SelezioneDatiFragment)getSupportFragmentManager().getFragment(savedInstanceState, "mContent");
+            dadi = (SelezioneDatiFragment)getSupportFragmentManager().getFragment(savedInstanceState, "mContent1");
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentDadi, dadi, "dadi").addToBackStack(null).commit();
+
+            menu = (MenuFragment)getSupportFragmentManager().getFragment(savedInstanceState, "mContent2");
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentMenu, menu, "menu").addToBackStack(null).commit();
         }else{
             dadi = new SelezioneDatiFragment();
             getSupportFragmentManager().beginTransaction().add(R.id.fragmentDadi, dadi, "dadi").addToBackStack(null).commit();
+            menu = new MenuFragment();
+            getSupportFragmentManager().beginTransaction().add(R.id.fragmentMenu, menu, "menu").addToBackStack(null).commit();
         }
 
-        MenuFragment menu = new MenuFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.fragmentMenu, menu).addToBackStack(null).commit();
+
 
     }
 
@@ -55,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle outState){
         super.onSaveInstanceState(outState);
 
-        getSupportFragmentManager().putFragment(outState,"mContent", dadi);
+        getSupportFragmentManager().putFragment(outState,"mContent1", dadi);
+        getSupportFragmentManager().putFragment(outState,"mContent2", menu);
     }
 
     private DiceAndRollBroadcast broadcast = new DiceAndRollBroadcast() {
