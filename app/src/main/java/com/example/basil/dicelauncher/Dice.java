@@ -5,15 +5,13 @@ import java.util.Random;
 /**
  * Created by basil on 07/06/2016.
  */
-public class Dice {
+public class Dice implements IRollable {
 
     int facce;
     int risultato;
 
+    @Override
     public int rollable (int nFacce){
-        facce = nFacce;
-        Random r = new Random();
-        risultato = r.nextInt(facce)+1;
 
         return (int)( Math.random()*nFacce )+ 1;
     }

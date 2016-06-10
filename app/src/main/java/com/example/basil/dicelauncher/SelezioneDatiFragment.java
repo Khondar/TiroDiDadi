@@ -447,6 +447,16 @@ public class SelezioneDatiFragment extends Fragment {
 
    public void stampaTotale (TextView textView1, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView stampa, TextView totale){
        totale.setText("TOTALE:");
-       stampa.setText(""+(Integer.parseInt(textView1.getText().toString())+Integer.parseInt(textView2.getText().toString())+Integer.parseInt(textView3.getText().toString())+Integer.parseInt(textView3.getText().toString())+Integer.parseInt(textView4.getText().toString())+Integer.parseInt(textView5.getText().toString())+Integer.parseInt(textView6.getText().toString())+Integer.parseInt(textView7.getText().toString())));
+       stampa.setText(""+(prendiValore(textView1)+prendiValore(textView2)+prendiValore(textView3)+prendiValore(textView4)+prendiValore(textView5)+prendiValore(textView6)+prendiValore(textView7)));
    }
+
+    public int prendiValore(TextView textView) {
+        int nD;
+        try {
+            nD = Integer.parseInt(textView.getText().toString());
+        } catch (NumberFormatException e) {
+            nD = 0;
+        }
+        return nD;
+    }
 }
