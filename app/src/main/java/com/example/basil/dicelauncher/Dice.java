@@ -15,6 +15,6 @@ public class Dice {
         Random r = new Random();
         risultato = r.nextInt(facce)+1;
 
-        return risultato;
+        return (int)( Math.random()*nFacce )+ 1;
     }
 }
