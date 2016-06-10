@@ -406,7 +406,7 @@ Questo è un commento
             android:gravity="center"
             android:id="@+id/totalD100"
             />
-
+<!--tfktfk-->
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
