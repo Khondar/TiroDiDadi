@@ -252,6 +252,9 @@ public class SelezioneDatiFragment extends Fragment {
             risulNumd12.setText(savedInstanceState.getString("risulNumd12"));
             risulNumd20.setText(savedInstanceState.getString("risulNumd20"));
             risulNumd100.setText(savedInstanceState.getString("risulNumd100"));
+
+            risultato.setText(savedInstanceState.getString("TotaleTot"));
+            risultatoTot.setText(savedInstanceState.getString("TotaleRes"));
         }
     }
 
@@ -282,6 +285,9 @@ public class SelezioneDatiFragment extends Fragment {
         outState.putString("risulNumd12",risulNumd12.getText().toString());
         outState.putString("risulNumd20",risulNumd20.getText().toString());
         outState.putString("risulNumd100",risulNumd100.getText().toString());
+
+        outState.putString("totaleTot", risultato.getText().toString());
+        outState.putString("totaleRes", risultatoTot.getText().toString());
 
     }
 
