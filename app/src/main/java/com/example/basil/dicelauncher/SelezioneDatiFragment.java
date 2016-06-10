@@ -120,6 +120,7 @@ public class SelezioneDatiFragment extends Fragment {
                 int nD4Int = setNumeroDadiDiretto(nD4Text);
                 RisultatiLancio lancioD4 = lancioDadi(nD4Int, 4);
                 stampaSetDadi(lancioD4.getElencoLanci(), risultatod4, totaled4, risulNumd4);
+                stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
 
             }
         });
@@ -133,6 +134,7 @@ public class SelezioneDatiFragment extends Fragment {
                 int nD6Int = setNumeroDadiDiretto(nD6Text);
                 RisultatiLancio lancioD6 = lancioDadi(nD6Int, 4);
                 stampaSetDadi(lancioD6.getElencoLanci(), risultatod6, totaled6, risulNumd6);
+                stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
             }
         });
 
@@ -145,6 +147,7 @@ public class SelezioneDatiFragment extends Fragment {
                 int nD8Int = setNumeroDadiDiretto(nD8Text);
                 RisultatiLancio lancioD8 = lancioDadi(nD8Int, 8);
                 stampaSetDadi(lancioD8.getElencoLanci(), risultatod8, totaled8, risulNumd8);
+                stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
             }
         });
 
@@ -157,6 +160,7 @@ public class SelezioneDatiFragment extends Fragment {
                 int nD10Int = setNumeroDadiDiretto(nD10Text);
                 RisultatiLancio lancioD10 = lancioDadi(nD10Int, 10);
                 stampaSetDadi(lancioD10.getElencoLanci(), risultatod10, totaled10, risulNumd10);
+                stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
             }
         });
 
@@ -169,6 +173,7 @@ public class SelezioneDatiFragment extends Fragment {
                 int nD12Int = setNumeroDadiDiretto(nD12Text);
                 RisultatiLancio lancioD12 = lancioDadi(nD12Int, 12);
                 stampaSetDadi(lancioD12.getElencoLanci(), risultatod12, totaled12, risulNumd12);
+                stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
             }
         });
 
@@ -181,6 +186,7 @@ public class SelezioneDatiFragment extends Fragment {
                 int nD20Int = setNumeroDadiDiretto(nD20Text);
                 RisultatiLancio lancioD20 = lancioDadi(nD20Int, 20);
                 stampaSetDadi(lancioD20.getElencoLanci(), risultatod20, totaled20, risulNumd20);
+                stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
             }
         });
 
@@ -193,6 +199,7 @@ public class SelezioneDatiFragment extends Fragment {
                 int nD100Int = setNumeroDadiDiretto(nD100Text);
                 RisultatiLancio lancioD100 = lancioDadi(nD100Int, 100);
                 stampaSetDadi(lancioD100.getElencoLanci(), risultatod100, totaled100, risulNumd100);
+                stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
             }
         });
 
@@ -420,4 +427,9 @@ public class SelezioneDatiFragment extends Fragment {
         textView2.setText("Totale:");
         textView3.setText("" + i);
     }
+
+   public void stampaTotale (TextView textView1, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView stampa, TextView totale){
+       totale.setText("TOTALE:");
+       stampa.setText(""+(textView1.getText().toString()+textView2.getText().toString()+textView3.getText().toString()+textView3.getText().toString()+textView4.getText().toString()+textView5.getText().toString()+textView6.getText().toString()+textView7.getText().toString()));
+   }
 }
