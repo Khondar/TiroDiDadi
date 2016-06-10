@@ -4,12 +4,7 @@
     android:layout_height="match_parent">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:layout_weight="9">
-        
+
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -75,11 +70,15 @@ Questo è un commento
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="7">
+                android:layout_weight="6">
 
         <Button
             android:layout_width="wrap_content"
@@ -111,10 +110,10 @@ Questo è un commento
     </LinearLayout>
 
     <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="horizontal"
-            android:layout_weight="1">
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1">
 
         <EditText
             android:id="@+id/editD6"
@@ -159,6 +158,11 @@ Questo è un commento
             android:gravity="center_vertical|end"
             android:id="@+id/totalNumberD6"
             />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
 
         <EditText
             android:id="@+id/editD12"
@@ -258,7 +262,10 @@ Questo è un commento
             android:id="@+id/totalNumberD8"
             />
 
-
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
 
         <EditText
             android:id="@+id/editD20"
@@ -359,6 +366,11 @@ Questo è un commento
             android:id="@+id/totalNumberD10"
             />
 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
 
         <EditText
             android:id="@+id/editD100"
@@ -406,6 +418,5 @@ Questo è un commento
 
     </LinearLayout>
 
-    </LinearLayout>
-
 </LinearLayout>
+
