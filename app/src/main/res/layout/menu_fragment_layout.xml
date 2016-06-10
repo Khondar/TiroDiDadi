@@ -13,7 +13,8 @@
             android:id="@+id/roll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Roll"/>
+            android:text="Roll"
+            android:background="@drawable/smallgreenbuttonpatch"/>
 
     </LinearLayout>
 
@@ -27,7 +28,8 @@
             android:id="@+id/save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="save"/>
+            android:text="save"
+            android:background="@drawable/smallblubuttonpatch"/>
 
     </LinearLayout>
 
@@ -41,7 +43,8 @@
             android:id="@+id/load"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="load"/>
+            android:text="load"
+            android:background="@drawable/smallyellowbuttonpatch"/>
 
         </LinearLayout>
 
