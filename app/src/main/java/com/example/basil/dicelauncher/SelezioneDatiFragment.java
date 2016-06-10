@@ -277,8 +277,8 @@ public class SelezioneDatiFragment extends Fragment {
             risulNumd20.setText(savedInstanceState.getString("risulNumd20"));
             risulNumd100.setText(savedInstanceState.getString("risulNumd100"));
 
-            risultato.setText(savedInstanceState.getString("TotaleTot"));
-            risultatoTot.setText(savedInstanceState.getString("TotaleRes"));
+            risultato.setText(savedInstanceState.getString("totaleTot"));
+            risultatoTot.setText(savedInstanceState.getString("totaleRes"));
         }
     }
 
