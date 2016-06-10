@@ -2,6 +2,7 @@ package com.example.basil.dicelauncher;
 
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,16 +15,24 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    SelezioneDatiFragment dadi;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        MenuFragment menu = new MenuFragment();
-        SelezioneDatiFragment dadi = new SelezioneDatiFragment();
+        if(savedInstanceState != null){
+            //Ripristina l'istanza del fragment
+            dadi = (SelezioneDatiFragment)getSupportFragmentManager().getFragment(savedInstanceState, "mContent");
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentDadi, dadi, "dadi").addToBackStack(null).commit();
+        }else{
+            dadi = new SelezioneDatiFragment();
+            getSupportFragmentManager().beginTransaction().add(R.id.fragmentDadi, dadi, "dadi").addToBackStack(null).commit();
+        }
 
+        MenuFragment menu = new MenuFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.fragmentMenu, menu).addToBackStack(null).commit();
-        getSupportFragmentManager().beginTransaction().add(R.id.fragmentDadi, dadi, "dadi").addToBackStack(null).commit();
 
     }
 
@@ -40,6 +49,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(broadcast);
         super.onStop();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState){
+        super.onSaveInstanceState(outState);
+
+        getSupportFragmentManager().putFragment(outState,"mContent", dadi);
     }
 
     private DiceAndRollBroadcast broadcast = new DiceAndRollBroadcast() {

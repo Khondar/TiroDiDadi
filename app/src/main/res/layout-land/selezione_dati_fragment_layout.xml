@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="9">
+        
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/editD4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="0"
+                android:textColor="#ffffff"
+                android:textColorHint="#a4eeeeee"
+                android:layout_weight="1"
+                android:inputType="number" />
+
+            <ImageView
+                android:id="@+id/d4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/d4"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/resultD4"
+                android:textColor="#232324"
+                android:gravity="center"
+                android:layout_weight="5"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:textColor="#ffffff"
+                android:gravity="center"
+                android:id="@+id/totalD4"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#ffffff"
+                android:gravity="end"
+                android:id="@+id/totalNumberD4"
+                />
+
+        <EditText
+            android:id="@+id/editD6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:textColor="#ffffff"
+            android:textColorHint="#a4eeeeee"
+            android:layout_weight="1"
+            android:inputType="number" />
+
+        <ImageView
+            android:id="@+id/d6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/d6"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/resultD6"
+            android:textColor="#232324"
+            android:gravity="center"
+            android:layout_weight="5"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:id="@+id/totalD6"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#ffffff"
+            android:gravity="end"
+            android:id="@+id/totalNumberD6"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+        <EditText
+            android:id="@+id/editD8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:textColor="#ffffff"
+            android:textColorHint="#a4eeeeee"
+            android:layout_weight="1"
+            android:inputType="number" />
+
+        <ImageView
+            android:id="@+id/d8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/d8"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/resultD8"
+            android:textColor="#232324"
+            android:gravity="center"
+            android:layout_weight="5"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:id="@+id/totalD8"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#ffffff"
+            android:gravity="end"
+            android:id="@+id/totalNumberD8"
+            />
+
+        <EditText
+            android:id="@+id/editD10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:textColor="#ffffff"
+            android:textColorHint="#a4eeeeee"
+            android:layout_weight="1"
+            android:inputType="number" />
+
+        <ImageView
+            android:id="@+id/d10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/d10"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/resultD10"
+            android:textColor="#232324"
+            android:gravity="center"
+            android:layout_weight="5"
+
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:id="@+id/totalD10"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:textColor="#ffffff"
+            android:id="@+id/totalNumberD10"
+            />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+        <EditText
+            android:id="@+id/editD12"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:textColor="#ffffff"
+            android:textColorHint="#a4eeeeee"
+            android:layout_weight="1"
+            android:inputType="number" />
+
+        <ImageView
+            android:id="@+id/d12"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/d12"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/resultD12"
+            android:textColor="#232324"
+            android:gravity="center"
+            android:layout_weight="5"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:id="@+id/totalD12"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:textColor="#ffffff"
+            android:id="@+id/totalNumberD12"
+            />
+
+        <EditText
+            android:id="@+id/editD20"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:textColor="#ffffff"
+            android:textColorHint="#a4eeeeee"
+            android:layout_weight="1"
+            android:inputType="number" />
+
+        <ImageView
+            android:id="@+id/d20"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/d20"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/resultD20"
+            android:textColor="#232324"
+            android:gravity="center"
+            android:layout_weight="5"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:id="@+id/totalD20"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#ffffff"
+            android:gravity="end"
+            android:id="@+id/totalNumberD20"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:weightSum="20">
+
+        <EditText
+            android:id="@+id/editD100"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:textColor="#ffffff"
+            android:textColorHint="#a4eeeeee"
+            android:layout_weight="1"
+            android:inputType="number" />
+
+        <ImageView
+            android:id="@+id/d100"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/d100"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/resultD100"
+            android:textColor="#232324"
+            android:gravity="center"
+            android:layout_weight="5"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:id="@+id/totalD100"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#ffffff"
+            android:gravity="end"
+            android:id="@+id/totalNumberD100"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="reset"
+            android:id="@+id/reset" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/resultTot"
+                android:textColor="#ffffff"
+                android:gravity="center"
+                />
+
+        </LinearLayout>
+
+
+
+
+
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
