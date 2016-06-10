@@ -65,7 +65,9 @@
                 android:gravity="center_vertical|end"
                 android:id="@+id/totalNumberD4"
                 />
-
+<!--
+Questo è un commento
+-->
         </LinearLayout>
 
         <LinearLayout
