@@ -56,9 +56,6 @@
                 android:gravity="center_vertical|end"
                 android:id="@+id/totalNumberD4"
                 />
-<!--
-Questo è un commento
--->
 
             <TextView
                 android:layout_width="0dp"
@@ -76,8 +73,10 @@ Questo è un commento
             android:text="reset"
             android:id="@+id/reset"
             android:gravity="center"
-            android:background="@drawable/smallredbuttonpatch"
+            android:background="@drawable/bottonerossopatch"
             android:textColor="#ffffff"/>
+            <!--android:background="@drawable/smallredbuttonpatch"-->
+
 
            </LinearLayout>
 

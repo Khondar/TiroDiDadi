@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center">
@@ -14,13 +14,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Roll"
-            android:background="@drawable/smallgreenbuttonpatch"
+            android:background="@drawable/bottoneazzurropatch"
             android:textColor="#ffffff"/>
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center">
@@ -30,13 +30,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="save"
-            android:background="@drawable/smallblubuttonpatch"
+            android:background="@drawable/bottoneblupatch"
             android:textColor="#ffffff"/>
 
     </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center">
@@ -46,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="load"
-            android:background="@drawable/smallyellowbuttonpatch"
+            android:background="@drawable/bottoneviolapatch"
             android:textColor="#ffffff"/>
 
         </LinearLayout>

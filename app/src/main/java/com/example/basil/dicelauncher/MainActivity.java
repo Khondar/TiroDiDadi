@@ -23,8 +23,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        startService((new Intent(this, ShakeAndRollService.class)).setAction(ShakeAndRollService.NULLA));
-
         if(savedInstanceState != null){
             //Ripristina l'istanza del fragment
             dadi = (SelezioneDatiFragment)getSupportFragmentManager().getFragment(savedInstanceState, "mContent1");
@@ -39,8 +37,6 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().add(R.id.fragmentMenu, menu, "menu").addToBackStack(null).commit();
         }
 
-
-
     }
 
     @Override
@@ -48,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         IntentFilter filter = new IntentFilter();
         filter.addAction(DiceAndRollBroadcast.Action.ACTION_ROLL_DICE);
         LocalBroadcastManager.getInstance(this).registerReceiver(broadcast, filter);
+        startService((new Intent(this, ShakeAndRollService.class)).setAction(ShakeAndRollService.NULLA));
         super.onStart();
     }
 
@@ -55,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(broadcast);
+        stopService(new Intent(getBaseContext(), ShakeAndRollService.class));
         super.onStop();
     }
 
@@ -78,9 +76,11 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case MenuFragment.SAVE:
                     action = SelezioneDatiFragment.SAVE;
+                    serviceIntent.setAction(ShakeAndRollService.SAVE);
                     break;
                 case MenuFragment.LOAD:
                     action = SelezioneDatiFragment.LOAD;
+                    serviceIntent.setAction(ShakeAndRollService.LOAD);
                     break;
             }
             getBaseContext().startService(serviceIntent);

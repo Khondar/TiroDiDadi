@@ -17,6 +17,8 @@ public class ShakeAndRollService extends Service {
 
     public static final String ROLL = "roll";
     public static final String NULLA = "nulla";
+    public static final String SAVE = "save";
+    public static final String LOAD = "load";
 
     @Nullable
     @Override
@@ -26,7 +28,6 @@ public class ShakeAndRollService extends Service {
 
     public void onCreate() {
         super.onCreate();
-        //mPlayer = MediaPlayer.create(this, R.raw.sei_un_mito);
         mPlayer = new MediaPlayer();
         mPlayer = MediaPlayer.create(this, R.raw.shakeandrolldice);
         Context context = ShakeAndRollService.this.getApplicationContext();
@@ -39,8 +40,13 @@ public class ShakeAndRollService extends Service {
 
         switch (azione) {
             case ROLL:
-              //  mPlayer.reset();
                 mPlayer.start();
+                break;
+            case SAVE:
+                break;
+            case LOAD:
+                break;
+            default:
                 break;
         }
 
