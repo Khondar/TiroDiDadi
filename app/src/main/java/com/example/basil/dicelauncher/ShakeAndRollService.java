@@ -19,6 +19,7 @@ public class ShakeAndRollService extends Service {
     public static final String NULLA = "nulla";
     public static final String SAVE = "save";
     public static final String LOAD = "load";
+    public static final String NATURAL20 = "natural20";
 
     @Nullable
     @Override
@@ -45,6 +46,8 @@ public class ShakeAndRollService extends Service {
             case SAVE:
                 break;
             case LOAD:
+                break;
+            case NATURAL20:
                 break;
             default:
                 break;

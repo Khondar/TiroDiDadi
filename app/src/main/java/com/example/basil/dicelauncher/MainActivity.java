@@ -91,6 +91,9 @@ public class MainActivity extends AppCompatActivity {
                     action = SelezioneDatiFragment.NULLA;
                     serviceIntent.setAction(ShakeAndRollService.ROLL);
                     break;
+                case SelezioneDatiFragment.NATURAL20:
+                    action = SelezioneDatiFragment.NULLA;
+                    serviceIntent.setAction(ShakeAndRollService.NATURAL20);
             }
             getBaseContext().startService(serviceIntent);
             SelezioneDatiFragment selezioneDatiFragment = (SelezioneDatiFragment) getSupportFragmentManager().findFragmentByTag("dadi");

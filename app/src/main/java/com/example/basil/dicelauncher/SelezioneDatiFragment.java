@@ -3,6 +3,7 @@ package com.example.basil.dicelauncher;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -29,6 +30,7 @@ public class SelezioneDatiFragment extends Fragment {
     public static final String LOAD = "load";
     public static final String SOUND = "sound";
     public static final String NULLA = "nulla";
+    public static final String NATURAL20 = "natural20";
 
     EditText nD4Text;
     EditText nD6Text;
@@ -509,12 +511,20 @@ public class SelezioneDatiFragment extends Fragment {
         int[] args= lancio.getElencoLanci();
         int counter=0;
         for (int j = 0; j < args.length; j++) {
-            textView.append(" [" + Integer.toString(args[j]) + "] ");
             if(args[j] == 20){
                 counter++;
+             //   textView.setTextColor(Color.parseColor("#be1e09"));
+                textView.append("<font color='#be1e09'> [" + Integer.toString(args[j]) + "] </font>");
+            }else{
+                textView.append(" [" + Integer.toString(args[j]) + "] ");
+           //     textView.setTextColor(Color.parseColor("#232324"));
             }
+
         }
-        Toast.makeText(getContext(), "Hai fatto "+ counter+ " critici!", Toast.LENGTH_LONG).show();
+        if(counter>0){
+            String tag = NATURAL20;
+            invioTag(tag);
+        }
         textView2.setText("Totale:");
         textView3.setText("" + i);
     }
