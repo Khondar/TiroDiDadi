@@ -119,7 +119,7 @@ public class SelezioneDatiFragment extends Fragment {
                 totaled4.setText("");
                 int nD4Int = setNumeroDadiDiretto(nD4Text);
                 RisultatiLancio lancioD4 = lancioDadi(nD4Int, 4);
-                stampaSetDadi(lancioD4.getElencoLanci(), risultatod4, totaled4, risulNumd4);
+                stampaSetDadi(lancioD4, risultatod4, totaled4, risulNumd4);
                 stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
 
             }
@@ -133,7 +133,7 @@ public class SelezioneDatiFragment extends Fragment {
                 totaled6.setText("");
                 int nD6Int = setNumeroDadiDiretto(nD6Text);
                 RisultatiLancio lancioD6 = lancioDadi(nD6Int, 4);
-                stampaSetDadi(lancioD6.getElencoLanci(), risultatod6, totaled6, risulNumd6);
+                stampaSetDadi(lancioD6, risultatod6, totaled6, risulNumd6);
                 stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
             }
         });
@@ -146,7 +146,7 @@ public class SelezioneDatiFragment extends Fragment {
                 totaled8.setText("");
                 int nD8Int = setNumeroDadiDiretto(nD8Text);
                 RisultatiLancio lancioD8 = lancioDadi(nD8Int, 8);
-                stampaSetDadi(lancioD8.getElencoLanci(), risultatod8, totaled8, risulNumd8);
+                stampaSetDadi(lancioD8, risultatod8, totaled8, risulNumd8);
                 stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
             }
         });
@@ -159,7 +159,7 @@ public class SelezioneDatiFragment extends Fragment {
                 totaled10.setText("");
                 int nD10Int = setNumeroDadiDiretto(nD10Text);
                 RisultatiLancio lancioD10 = lancioDadi(nD10Int, 10);
-                stampaSetDadi(lancioD10.getElencoLanci(), risultatod10, totaled10, risulNumd10);
+                stampaSetDadi(lancioD10, risultatod10, totaled10, risulNumd10);
                 stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
             }
         });
@@ -172,7 +172,7 @@ public class SelezioneDatiFragment extends Fragment {
                 totaled12.setText("");
                 int nD12Int = setNumeroDadiDiretto(nD12Text);
                 RisultatiLancio lancioD12 = lancioDadi(nD12Int, 12);
-                stampaSetDadi(lancioD12.getElencoLanci(), risultatod12, totaled12, risulNumd12);
+                stampaSetDadi(lancioD12, risultatod12, totaled12, risulNumd12);
                 stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
             }
         });
@@ -185,7 +185,7 @@ public class SelezioneDatiFragment extends Fragment {
                 totaled20.setText("");
                 int nD20Int = setNumeroDadiDiretto(nD20Text);
                 RisultatiLancio lancioD20 = lancioDadi(nD20Int, 20);
-                stampaSetDadi(lancioD20.getElencoLanci(), risultatod20, totaled20, risulNumd20);
+                stampaSetDadi(lancioD20, risultatod20, totaled20, risulNumd20);
                 stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
             }
         });
@@ -198,7 +198,7 @@ public class SelezioneDatiFragment extends Fragment {
                 totaled100.setText("");
                 int nD100Int = setNumeroDadiDiretto(nD100Text);
                 RisultatiLancio lancioD100 = lancioDadi(nD100Int, 100);
-                stampaSetDadi(lancioD100.getElencoLanci(), risultatod100, totaled100, risulNumd100);
+                stampaSetDadi(lancioD100, risultatod100, totaled100, risulNumd100);
                 stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
             }
         });
@@ -360,25 +360,25 @@ public class SelezioneDatiFragment extends Fragment {
                 RisultatiLancio lancioD100 = lancioDadi(nD100Int, 100);
 
                 if (nD4Int != 0) {
-                    stampaSetDadi(lancioD4.getElencoLanci(), risultatod4, totaled4, risulNumd4);
+                    stampaSetDadi(lancioD4, risultatod4, totaled4, risulNumd4);
                 }
                 if (nD6Int != 0) {
-                    stampaSetDadi(lancioD6.getElencoLanci(), risultatod6, totaled6, risulNumd6);
+                    stampaSetDadi(lancioD6, risultatod6, totaled6, risulNumd6);
                 }
                 if (nD8Int != 0) {
-                    stampaSetDadi(lancioD8.getElencoLanci(), risultatod8, totaled8, risulNumd8);
+                    stampaSetDadi(lancioD8, risultatod8, totaled8, risulNumd8);
                 }
                 if (nD10Int != 0) {
-                    stampaSetDadi(lancioD10.getElencoLanci(), risultatod10, totaled10, risulNumd10);
+                    stampaSetDadi(lancioD10, risultatod10, totaled10, risulNumd10);
                 }
                 if (nD12Int != 0) {
-                    stampaSetDadi(lancioD12.getElencoLanci(), risultatod12, totaled12, risulNumd12);
+                    stampaSetDadi(lancioD12, risultatod12, totaled12, risulNumd12);
                 }
                 if (nD20Int != 0) {
-                    stampaSetDadi(lancioD20.getElencoLanci(), risultatod20, totaled20, risulNumd20);
+                    stampaSetDadi(lancioD20, risultatod20, totaled20, risulNumd20);
                 }
                 if (nD100Int != 0) {
-                    stampaSetDadi(lancioD100.getElencoLanci(), risultatod100, totaled100, risulNumd100);
+                    stampaSetDadi(lancioD100, risultatod100, totaled100, risulNumd100);
                 }
 
 
@@ -434,12 +434,12 @@ public class SelezioneDatiFragment extends Fragment {
         return lancio;
     }
 
-    public void stampaSetDadi(int[] args, TextView textView, TextView textView2, TextView textView3) {
+    public void stampaSetDadi(RisultatiLancio lancio, TextView textView, TextView textView2, TextView textView3) {
 
-        int i = 0;
+        int i = lancio.getSommaLanci();
+        int[] args= lancio.getElencoLanci();
         for (int j = 0; j < args.length; j++) {
             textView.append(" [" + Integer.toString(args[j]) + "] ");
-            i = i + args[j];
         }
         textView2.setText("Totale:");
         textView3.setText("" + i);
