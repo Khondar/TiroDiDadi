@@ -69,6 +69,7 @@ public class SelezioneDatiFragment extends Fragment {
     Dice dado = new Dice();
 
     int[] setDadiSalvato = new int[7];
+    Sacchetta miaSacchetta;
 
 
 
@@ -428,13 +429,15 @@ public class SelezioneDatiFragment extends Fragment {
                 break;
             case SAVE:
 
-                Toast.makeText(getContext(), "SAVE", Toast.LENGTH_SHORT).show();
+                setDadiSalvato = recuperaIDadi();
+                miaSacchetta = new Sacchetta();
+                miaSacchetta.riempiLaSacchetta(setDadiSalvato);
 
                 break;
             case LOAD:
 
-                Toast.makeText(getContext(), "LOAD", Toast.LENGTH_SHORT).show();
-
+                setDadiSalvato = miaSacchetta.svuotaLaSacchetta();
+                svuotaIDadi(setDadiSalvato);
                 break;
             default:
                 break;
@@ -527,5 +530,29 @@ public class SelezioneDatiFragment extends Fragment {
         }
         textView2.setText("Totale:");
         textView3.setText("" + i);
+    }
+
+    public int[] recuperaIDadi(){
+        int[] nDadi = new int[7];
+
+        nDadi[0]= setNumeroDadi(nD4Text);
+        nDadi[1]= setNumeroDadi(nD6Text);
+        nDadi[2]= setNumeroDadi(nD8Text);
+        nDadi[3]= setNumeroDadi(nD10Text);
+        nDadi[4]= setNumeroDadi(nD12Text);
+        nDadi[5]= setNumeroDadi(nD20Text);
+        nDadi[6]= setNumeroDadi(nD100Text);
+
+        return  nDadi;
+    }
+
+    public void svuotaIDadi(int[] mieiDadi){
+        nD4Text.setText(""+mieiDadi[0]);
+        nD6Text.setText(""+mieiDadi[1]);
+        nD8Text.setText(""+mieiDadi[2]);
+        nD10Text.setText(""+mieiDadi[3]);
+        nD12Text.setText(""+mieiDadi[4]);
+        nD20Text.setText(""+mieiDadi[5]);
+        nD100Text.setText(""+mieiDadi[6]);
     }
 }

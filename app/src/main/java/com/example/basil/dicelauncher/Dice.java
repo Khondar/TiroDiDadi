@@ -31,4 +31,8 @@ public class Dice implements IRollable {
     public void setFacce(int facce) {
         this.facce = facce;
     }
+
+    public int getFacce() {
+        return facce;
+    }
 }
