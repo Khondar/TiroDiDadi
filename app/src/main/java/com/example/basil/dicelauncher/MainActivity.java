@@ -87,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
                     action = SelezioneDatiFragment.LOAD;
                     serviceIntent.setAction(ShakeAndRollService.LOAD);
                     break;
+                case SelezioneDatiFragment.SOUND:
+                    action = SelezioneDatiFragment.NULLA;
+                    serviceIntent.setAction(ShakeAndRollService.ROLL);
+                    break;
             }
             getBaseContext().startService(serviceIntent);
             SelezioneDatiFragment selezioneDatiFragment = (SelezioneDatiFragment) getSupportFragmentManager().findFragmentByTag("dadi");

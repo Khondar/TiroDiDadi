@@ -27,6 +27,8 @@ public class SelezioneDatiFragment extends Fragment {
     public static final String ROLL = "roll";
     public static final String SAVE = "save";
     public static final String LOAD = "load";
+    public static final String SOUND = "sound";
+    public static final String NULLA = "nulla";
 
     EditText nD4Text;
     EditText nD6Text;
@@ -139,8 +141,9 @@ public class SelezioneDatiFragment extends Fragment {
                 RisultatiLancio lancioD4 = lancioDadi(nD4Int, 4);
                 stampaSetDadi(lancioD4, risultatod4, totaled4, risulNumd4);
                 stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
-                //settare il suono;
 
+                String tag=SOUND;
+                invioTag(tag);
             }
         });
 
@@ -154,6 +157,9 @@ public class SelezioneDatiFragment extends Fragment {
                 RisultatiLancio lancioD6 = lancioDadi(nD6Int, 4);
                 stampaSetDadi(lancioD6, risultatod6, totaled6, risulNumd6);
                 stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
+
+                String tag=SOUND;
+                invioTag(tag);
             }
         });
 
@@ -167,6 +173,9 @@ public class SelezioneDatiFragment extends Fragment {
                 RisultatiLancio lancioD8 = lancioDadi(nD8Int, 8);
                 stampaSetDadi(lancioD8, risultatod8, totaled8, risulNumd8);
                 stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
+
+                String tag=SOUND;
+                invioTag(tag);
             }
         });
 
@@ -180,6 +189,9 @@ public class SelezioneDatiFragment extends Fragment {
                 RisultatiLancio lancioD10 = lancioDadi(nD10Int, 10);
                 stampaSetDadi(lancioD10, risultatod10, totaled10, risulNumd10);
                 stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
+
+                String tag=SOUND;
+                invioTag(tag);
             }
         });
 
@@ -193,6 +205,9 @@ public class SelezioneDatiFragment extends Fragment {
                 RisultatiLancio lancioD12 = lancioDadi(nD12Int, 12);
                 stampaSetDadi(lancioD12, risultatod12, totaled12, risulNumd12);
                 stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
+
+                String tag=SOUND;
+                invioTag(tag);
             }
         });
 
@@ -206,6 +221,9 @@ public class SelezioneDatiFragment extends Fragment {
                 RisultatiLancio lancioD20 = lancioDadi(nD20Int, 20);
                 stampaSetDadi(lancioD20, risultatod20, totaled20, risulNumd20);
                 stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
+
+                String tag=SOUND;
+                invioTag(tag);
             }
         });
 
@@ -219,6 +237,9 @@ public class SelezioneDatiFragment extends Fragment {
                 RisultatiLancio lancioD100 = lancioDadi(nD100Int, 100);
                 stampaSetDadi(lancioD100, risultatod100, totaled100, risulNumd100);
                 stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
+
+                String tag=SOUND;
+                invioTag(tag);
             }
         });
 
@@ -473,5 +494,12 @@ public class SelezioneDatiFragment extends Fragment {
             nD = 0;
         }
         return nD;
+    }
+
+    public void invioTag(String tag) {
+        Intent intent = new Intent();
+        intent.setAction(DiceAndRollBroadcast.Action.ACTION_ROLL_DICE);
+        intent.putExtra(DiceAndRollBroadcast.Extras.BUTTOM_TAG, tag);
+        LocalBroadcastManager.getInstance(getView().getContext()).sendBroadcast(intent);
     }
 }
