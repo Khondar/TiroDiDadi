@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -110,6 +111,23 @@ public class SelezioneDatiFragment extends Fragment {
         risulNumd12 = (TextView) view.findViewById(R.id.totalNumberD12);
         risulNumd20 = (TextView) view.findViewById(R.id.totalNumberD20);
         risulNumd100 = (TextView) view.findViewById(R.id.totalNumberD100);
+
+        risultatod4.setMovementMethod(new ScrollingMovementMethod());
+        risultatod6.setMovementMethod(new ScrollingMovementMethod());
+        risultatod8.setMovementMethod(new ScrollingMovementMethod());
+        risultatod10.setMovementMethod(new ScrollingMovementMethod());
+        risultatod12.setMovementMethod(new ScrollingMovementMethod());
+        risultatod20.setMovementMethod(new ScrollingMovementMethod());
+        risultatod100.setMovementMethod(new ScrollingMovementMethod());
+
+        risulNumd4.setMovementMethod(new ScrollingMovementMethod());
+        risulNumd6.setMovementMethod(new ScrollingMovementMethod());
+        risulNumd8.setMovementMethod(new ScrollingMovementMethod());
+        risulNumd10.setMovementMethod(new ScrollingMovementMethod());
+        risulNumd12.setMovementMethod(new ScrollingMovementMethod());
+        risulNumd20.setMovementMethod(new ScrollingMovementMethod());
+        risulNumd100.setMovementMethod(new ScrollingMovementMethod());
+        risultatoTot.setMovementMethod(new ScrollingMovementMethod());
 
         ImageView imaged4 = (ImageView) view.findViewById(R.id.d4);
         imaged4.setOnClickListener(new View.OnClickListener() {
@@ -381,11 +399,7 @@ public class SelezioneDatiFragment extends Fragment {
                     stampaSetDadi(lancioD100, risultatod100, totaled100, risulNumd100);
                 }
 
-
-                int sommaTotale = lancioD4.getSommaLanci() + lancioD6.getSommaLanci() + lancioD8.getSommaLanci() + lancioD10.getSommaLanci() + lancioD12.getSommaLanci() + lancioD20.getSommaLanci() + lancioD100.getSommaLanci();
-                risultato.setText("TOT:");
-                risultatoTot.setText(Integer.toString(sommaTotale));
-
+                stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
 
                 break;
             case SAVE:

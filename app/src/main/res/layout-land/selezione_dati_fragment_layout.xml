@@ -37,6 +37,7 @@
                 android:textColor="#232324"
                 android:gravity="center"
                 android:layout_weight="5"
+                android:scrollbars="vertical"
                 />
 
             <TextView
@@ -55,6 +56,7 @@
                 android:textColor="#ffffff"
                 android:gravity="center_vertical|end"
                 android:id="@+id/totalNumberD4"
+                android:scrollbars="horizontal"
                 />
 
             <TextView
@@ -95,6 +97,7 @@
             android:layout_weight="1"
             android:gravity="center_vertical|end"
             android:textColor="#ffffff"
+            android:scrollbars="horizontal"
             />
 
 
@@ -130,6 +133,7 @@
             android:textColor="#232324"
             android:gravity="center"
             android:layout_weight="5"
+            android:scrollbars="vertical"
             />
 
         <TextView
@@ -148,6 +152,7 @@
             android:textColor="#ffffff"
             android:gravity="center_vertical|end"
             android:id="@+id/totalNumberD6"
+            android:scrollbars="horizontal"
             />
 
         <TextView
@@ -179,6 +184,7 @@
             android:textColor="#232324"
             android:gravity="center"
             android:layout_weight="5"
+            android:scrollbars="vertical"
             />
 
         <TextView
@@ -197,6 +203,7 @@
             android:gravity="center_vertical|end"
             android:textColor="#ffffff"
             android:id="@+id/totalNumberD12"
+            android:scrollbars="horizontal"
             />
 
 
@@ -233,6 +240,7 @@
             android:textColor="#232324"
             android:gravity="center"
             android:layout_weight="5"
+            android:scrollbars="vertical"
             />
 
         <TextView
@@ -251,6 +259,7 @@
             android:textColor="#ffffff"
             android:gravity="center_vertical|end"
             android:id="@+id/totalNumberD8"
+            android:scrollbars="horizontal"
             />
 
         <TextView
@@ -282,6 +291,7 @@
             android:textColor="#232324"
             android:gravity="center"
             android:layout_weight="5"
+            android:scrollbars="vertical"
             />
 
         <TextView
@@ -300,6 +310,7 @@
             android:textColor="#ffffff"
             android:gravity="center_vertical|end"
             android:id="@+id/totalNumberD20"
+            android:scrollbars="horizontal"
             />
 
 
@@ -335,7 +346,7 @@
             android:textColor="#232324"
             android:gravity="center"
             android:layout_weight="5"
-
+            android:scrollbars="vertical"
             />
 
         <TextView
@@ -354,6 +365,7 @@
             android:gravity="center_vertical|end"
             android:textColor="#ffffff"
             android:id="@+id/totalNumberD10"
+            android:scrollbars="horizontal"
             />
 
         <TextView
@@ -386,6 +398,7 @@
             android:textColor="#232324"
             android:gravity="center"
             android:layout_weight="5"
+            android:scrollbars="vertical"
             />
 
         <TextView
@@ -404,6 +417,7 @@
             android:textColor="#ffffff"
             android:gravity="center_vertical|end"
             android:id="@+id/totalNumberD100"
+            android:scrollbars="horizontal"
             />
 
     </LinearLayout>

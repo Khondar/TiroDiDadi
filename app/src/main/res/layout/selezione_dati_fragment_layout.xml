@@ -39,7 +39,8 @@
             android:id="@+id/resultNumTot"
             android:textColor="#ffffff"
             android:layout_weight="1"
-            android:gravity="end"/>
+            android:gravity="end"
+            android:scrollbars="horizontal"/>
 
     </LinearLayout>
 
@@ -74,16 +75,17 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/resultD4"
                 android:textColor="#232324"
                 android:gravity="center"
                 android:layout_weight="5"
+                android:scrollbars="vertical"
                 />
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:textColor="#ffffff"
                 android:gravity="center"
@@ -92,10 +94,10 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:textColor="#ffffff"
-                android:gravity="end"
+                android:gravity="center_vertical|end"
                 android:id="@+id/totalNumberD4"
                 />
 
@@ -127,16 +129,17 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/resultD6"
                 android:textColor="#232324"
                 android:gravity="center"
                 android:layout_weight="5"
+                android:scrollbars="vertical"
                 />
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:textColor="#ffffff"
                 android:gravity="center"
@@ -145,11 +148,12 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:textColor="#ffffff"
-            android:gravity="end"
+            android:gravity="center_vertical|end"
             android:id="@+id/totalNumberD6"
+            android:scrollbars="horizontal"
             />
 
         <!--<TextView
@@ -197,16 +201,17 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/resultD8"
                 android:textColor="#232324"
                 android:gravity="center"
                 android:layout_weight="5"
+                android:scrollbars="vertical"
                 />
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:textColor="#ffffff"
                 android:gravity="center"
@@ -215,11 +220,12 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:textColor="#ffffff"
-            android:gravity="end"
+            android:gravity="center_vertical|end"
             android:id="@+id/totalNumberD8"
+            android:scrollbars="horizontal"
             />
 
 
@@ -250,17 +256,17 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/resultD10"
                 android:textColor="#232324"
                 android:gravity="center"
                 android:layout_weight="5"
-
+                android:scrollbars="vertical"
                 />
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:gravity="center"
                 android:textColor="#ffffff"
@@ -269,15 +275,13 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="end"
+            android:gravity="center_vertical|end"
             android:textColor="#ffffff"
             android:id="@+id/totalNumberD10"
+            android:scrollbars="horizontal"
             />
-
-
-
 
         </LinearLayout>
 
@@ -306,16 +310,17 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/resultD12"
             android:textColor="#232324"
             android:gravity="center"
             android:layout_weight="5"
+            android:scrollbars="vertical"
             />
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="2"
             android:textColor="#ffffff"
             android:gravity="center"
@@ -324,11 +329,12 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="end"
             android:textColor="#ffffff"
             android:id="@+id/totalNumberD12"
+            android:scrollbars="horizontal"
             />
 
     </LinearLayout>
@@ -358,16 +364,17 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/resultD20"
             android:textColor="#232324"
             android:gravity="center"
             android:layout_weight="5"
+            android:scrollbars="vertical"
             />
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="2"
             android:textColor="#ffffff"
             android:gravity="center"
@@ -376,11 +383,12 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:textColor="#ffffff"
-            android:gravity="end"
+            android:gravity="center_vertical|end"
             android:id="@+id/totalNumberD20"
+            android:scrollbars="horizontal"
             />
 
 
@@ -412,16 +420,17 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/resultD100"
             android:textColor="#232324"
             android:gravity="center"
             android:layout_weight="5"
+            android:scrollbars="vertical"
             />
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="2"
             android:textColor="#ffffff"
             android:gravity="center"
@@ -430,15 +439,13 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:textColor="#ffffff"
-            android:gravity="end"
+            android:gravity="center_vertical|end"
             android:id="@+id/totalNumberD100"
+            android:scrollbars="horizontal"
             />
-
-
-
 
     </LinearLayout>
 
