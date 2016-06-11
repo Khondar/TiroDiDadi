@@ -514,7 +514,7 @@ public class SelezioneDatiFragment extends Fragment {
                 counter++;
             }
         }
-        Toast.makeText(getContext(), "Hai fatto "+ counter+ " critici!", Toast.LENGTH_LONG);
+        Toast.makeText(getContext(), "Hai fatto "+ counter+ " critici!", Toast.LENGTH_LONG).show();
         textView2.setText("Totale:");
         textView3.setText("" + i);
     }
