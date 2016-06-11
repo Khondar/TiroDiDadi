@@ -139,6 +139,7 @@ public class SelezioneDatiFragment extends Fragment {
                 RisultatiLancio lancioD4 = lancioDadi(nD4Int, 4);
                 stampaSetDadi(lancioD4, risultatod4, totaled4, risulNumd4);
                 stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
+                //settare il suono;
 
             }
         });
