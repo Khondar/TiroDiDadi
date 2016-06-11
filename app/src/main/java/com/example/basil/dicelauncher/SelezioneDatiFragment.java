@@ -415,7 +415,7 @@ public class SelezioneDatiFragment extends Fragment {
                     stampaSetDadi(lancioD12, risultatod12, totaled12, risulNumd12);
                 }
                 if (nD20Int != 0) {
-                    stampaSetDadi(lancioD20, risultatod20, totaled20, risulNumd20);
+                    stampaSetDadi20(lancioD20, risultatod20, totaled20, risulNumd20);
                 }
                 if (nD100Int != 0) {
                     stampaSetDadi(lancioD100, risultatod100, totaled100, risulNumd100);
@@ -501,5 +501,21 @@ public class SelezioneDatiFragment extends Fragment {
         intent.setAction(DiceAndRollBroadcast.Action.ACTION_ROLL_DICE);
         intent.putExtra(DiceAndRollBroadcast.Extras.BUTTOM_TAG, tag);
         LocalBroadcastManager.getInstance(getView().getContext()).sendBroadcast(intent);
+    }
+
+    public void stampaSetDadi20(RisultatiLancio lancio, TextView textView, TextView textView2, TextView textView3) {
+
+        int i = lancio.getSommaLanci();
+        int[] args= lancio.getElencoLanci();
+        int counter=0;
+        for (int j = 0; j < args.length; j++) {
+            textView.append(" [" + Integer.toString(args[j]) + "] ");
+            if(args[j] == 20){
+                counter++;
+            }
+        }
+        Toast.makeText(getContext(), "Hai fatto "+ counter+ " critici!", Toast.LENGTH_LONG);
+        textView2.setText("Totale:");
+        textView3.setText("" + i);
     }
 }
