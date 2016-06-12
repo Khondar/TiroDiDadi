@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
+import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -575,11 +576,10 @@ public class SelezioneDatiFragment extends Fragment {
         for (int j = 0; j < args.length; j++) {
             if(args[j] == 20){
                 counter++;
-             //   textView.setTextColor(Color.parseColor("#be1e09"));
-                textView.append(" [" + Integer.toString(args[j]) + "] ");
+                String first = "<font color='#be1e09'> [20] </font>";
+                textView.append(Html.fromHtml(first));
             }else{
                 textView.append(" [" + Integer.toString(args[j]) + "] ");
-           //     textView.setTextColor(Color.parseColor("#232324"));
             }
 
         }
