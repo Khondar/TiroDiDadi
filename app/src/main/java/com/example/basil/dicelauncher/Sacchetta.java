@@ -15,6 +15,7 @@ import java.util.ListIterator;
 public class Sacchetta implements Serializable {
 
     List<Dice> setDiDadi = new ArrayList<>();
+    String nomeProprietario;
 
     public void riempiLaSacchetta (int[] setDadi){
 
@@ -88,6 +89,14 @@ public class Sacchetta implements Serializable {
 
     public List<Dice> getSetDiDadi() {
         return setDiDadi;
+    }
+
+    public void setNomeProprietario(String nomeProprietario) {
+        this.nomeProprietario = nomeProprietario;
+    }
+
+    public String getNomeProprietario() {
+        return nomeProprietario;
     }
 }
 
