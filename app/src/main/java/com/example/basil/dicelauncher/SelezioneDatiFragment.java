@@ -82,6 +82,8 @@ public class SelezioneDatiFragment extends Fragment {
     int[] setDadiSalvato = new int[7];
     Sacchetta miaSacchetta = new Sacchetta();
 
+    RisultatiLancio lancioD20;
+
 
 
     @Override
@@ -269,7 +271,7 @@ public class SelezioneDatiFragment extends Fragment {
                 risultatod20.setText("");
                 totaled20.setText("");
                 int nD20Int = setNumeroDadiDiretto(nD20Text);
-                RisultatiLancio lancioD20 = lancioDadi(nD20Int, 20);
+                lancioD20 = lancioDadi(nD20Int, 20);
                 stampaSetDadi20(lancioD20, risultatod20, totaled20, risulNumd20);
                 stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
 
@@ -351,7 +353,21 @@ public class SelezioneDatiFragment extends Fragment {
             risultatod8.setText(savedInstanceState.getString("risultatod8"));
             risultatod10.setText(savedInstanceState.getString("risultatod10"));
             risultatod12.setText(savedInstanceState.getString("risultatod12"));
-            risultatod20.setText(savedInstanceState.getString("risultatod20"));
+          //  risultatod20.setText(savedInstanceState.getString("risultatod20"));
+            try {
+                int[] risultatiDelD20 = savedInstanceState.getIntArray("risultati del 20");
+                for (int j = 0; j < risultatiDelD20.length; j++) {
+                    if(risultatiDelD20[j] == 20){
+                        String first = "<font color='#be1e09'> [20] </font>";
+                        risultatod20.append(Html.fromHtml(first));
+                    }else{
+                        risultatod20.append(" [" + Integer.toString(risultatiDelD20[j]) + "] ");
+                    }
+
+                }
+
+            }catch (Exception e){ }
+
             risultatod100.setText(savedInstanceState.getString("risultatod100"));
 
             totaled4.setText(savedInstanceState.getString("totaled4"));
@@ -373,7 +389,6 @@ public class SelezioneDatiFragment extends Fragment {
             risultato.setText(savedInstanceState.getString("totaleTot"));
             risultatoTot.setText(savedInstanceState.getString("totaleRes"));
 
-           // miaSacchetta.riempiLaSacchetta(savedInstanceState.getIntArray("miaSacchetta"));
         }
     }
 
@@ -386,7 +401,7 @@ public class SelezioneDatiFragment extends Fragment {
         outState.putString("risultatod8",risultatod8.getText().toString());
         outState.putString("risultatod10",risultatod10.getText().toString());
         outState.putString("risultatod12",risultatod12.getText().toString());
-        outState.putString("risultatod20",risultatod20.getText().toString());
+        //outState.putString("risultatod20",risultatod20.getText().toString());
         outState.putString("risultatod100",risultatod100.getText().toString());
 
         outState.putString("totaled4",totaled4.getText().toString());
@@ -408,7 +423,9 @@ public class SelezioneDatiFragment extends Fragment {
         outState.putString("totaleTot", risultato.getText().toString());
         outState.putString("totaleRes", risultatoTot.getText().toString());
 
-       // outState.putIntArray("miaSacchetta", miaSacchetta.svuotaLaSacchetta());
+        try{
+            outState.putIntArray("risultati del 20", lancioD20.getElencoLanci());
+        }catch (Exception e){        }
 
     }
 
@@ -453,7 +470,7 @@ public class SelezioneDatiFragment extends Fragment {
                 RisultatiLancio lancioD8 = lancioDadi(nD8Int, 8);
                 RisultatiLancio lancioD10 = lancioDadi(nD10Int, 10);
                 RisultatiLancio lancioD12 = lancioDadi(nD12Int, 12);
-                RisultatiLancio lancioD20 = lancioDadi(nD20Int, 20);
+                lancioD20 = lancioDadi(nD20Int, 20);
                 RisultatiLancio lancioD100 = lancioDadi(nD100Int, 100);
 
                 if (nD4Int != 0) {
