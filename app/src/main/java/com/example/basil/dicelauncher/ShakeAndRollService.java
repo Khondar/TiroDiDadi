@@ -35,7 +35,7 @@ public class ShakeAndRollService extends Service {
         mPlayerRoll = new MediaPlayer();
         mPlayerRoll = MediaPlayer.create(this, R.raw.shakeandrolldice);
         mPlayerNatural = new MediaPlayer();
-        mPlayerNatural = MediaPlayer.create(this, R.raw.squilloditromba);
+        mPlayerNatural = MediaPlayer.create(this, R.raw.colpito);
         mPlayerLoad = new MediaPlayer();
         mPlayerLoad = MediaPlayer.create(this, R.raw.magicload);
         mPlayerSave = new MediaPlayer();
