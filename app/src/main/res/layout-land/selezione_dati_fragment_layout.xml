@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-
     <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="10">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="horizontal"
@@ -61,57 +65,14 @@
                 android:scrollbars="horizontal"
                 android:textSize="15dp"/>
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:textSize="15dp"/>
+        </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="7">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Reset"
-            android:id="@+id/reset"
-            android:gravity="center"
-            android:background="@drawable/bottonerossopatch"
-            android:textColor="#ffffff"
-            android:textAllCaps="false"
-            android:textSize="15dp"/>
-
-           </LinearLayout>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:textColor="#ffffff"
-                android:layout_weight="2"
-                android:id="@+id/resultTot"
-                android:gravity="center"
-                android:textSize="15dp"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/resultNumTot"
-            android:layout_weight="1"
-            android:gravity="center_vertical|end"
-            android:textColor="#ffffff"
-            android:scrollbars="horizontal"
-            android:textSize="15dp"/>
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_weight="1">
 
         <EditText
             android:id="@+id/editD6"
@@ -161,285 +122,356 @@
             android:scrollbars="horizontal"
             android:textSize="15dp"/>
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:textSize="15dp"/>
+            </LinearLayout>
 
-        <EditText
-            android:id="@+id/editD12"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="0"
-            android:textColor="#ffffff"
-            android:textColorHint="#a4eeeeee"
-            android:layout_weight="1"
-            android:inputType="number"
-            android:gravity="center"
-            android:textSize="15dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
 
-        <ImageView
-            android:id="@+id/d12"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/d12"
-            android:layout_weight="1"/>
+            <EditText
+                android:id="@+id/editD8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="0"
+                android:textColor="#ffffff"
+                android:textColorHint="#a4eeeeee"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:textSize="15dp"/>
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/resultD12"
-            android:textColor="#232324"
-            android:gravity="center"
-            android:layout_weight="5"
-            android:scrollbars="vertical"
-            android:textSize="15dp"/>
+            <ImageView
+                android:id="@+id/d8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/d8"
+                android:layout_weight="1"/>
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:textColor="#ffffff"
-            android:gravity="center"
-            android:id="@+id/totalD12"
-            android:textSize="15dp"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/resultD8"
+                android:textColor="#232324"
+                android:gravity="center"
+                android:layout_weight="5"
+                android:scrollbars="vertical"
+                android:textSize="15dp"/>
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical|end"
-            android:textColor="#ffffff"
-            android:id="@+id/totalNumberD12"
-            android:scrollbars="horizontal"
-            android:textSize="15dp"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:textColor="#ffffff"
+                android:gravity="center"
+                android:id="@+id/totalD8"
+                android:textSize="15dp"/>
 
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="#ffffff"
+                android:gravity="center_vertical|end"
+                android:id="@+id/totalNumberD8"
+                android:scrollbars="horizontal"
+                android:textSize="15dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+
+            <EditText
+                android:id="@+id/editD10"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="0"
+                android:textColor="#ffffff"
+                android:textColorHint="#a4eeeeee"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:gravity="center"
+                android:textSize="15dp"/>
+
+            <ImageView
+                android:id="@+id/d10"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/d10"
+                android:layout_weight="1"
+                android:textSize="15dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/resultD10"
+                android:textColor="#232324"
+                android:gravity="center"
+                android:layout_weight="5"
+                android:scrollbars="vertical"
+                android:textSize="15dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:id="@+id/totalD10"
+                android:textSize="15dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical|end"
+                android:textColor="#ffffff"
+                android:id="@+id/totalNumberD10"
+                android:scrollbars="horizontal"
+                android:textSize="15dp"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
-
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         android:layout_weight="1">
-
-        <EditText
-            android:id="@+id/editD8"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="0"
-            android:textColor="#ffffff"
-            android:textColorHint="#a4eeeeee"
-            android:layout_weight="1"
-            android:inputType="number"
-            android:textSize="15dp"/>
-
-        <ImageView
-            android:id="@+id/d8"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/d8"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/resultD8"
-            android:textColor="#232324"
-            android:gravity="center"
-            android:layout_weight="5"
-            android:scrollbars="vertical"
-            android:textSize="15dp"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:textColor="#ffffff"
-            android:gravity="center"
-            android:id="@+id/totalD8"
-            android:textSize="15dp"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:textColor="#ffffff"
-            android:gravity="center_vertical|end"
-            android:id="@+id/totalNumberD8"
-            android:scrollbars="horizontal"
-            android:textSize="15dp"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:textSize="15dp"/>
-
-        <EditText
-            android:id="@+id/editD20"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="0"
-            android:textColor="#ffffff"
-            android:textColorHint="#a4eeeeee"
-            android:layout_weight="1"
-            android:inputType="number"
-            android:gravity="center"
-            android:textSize="15dp"/>
-
-        <ImageView
-            android:id="@+id/d20"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/d20"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/resultD20"
-            android:textColor="#232324"
-            android:gravity="center"
-            android:layout_weight="5"
-            android:scrollbars="vertical"
-            android:textSize="15dp"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:textColor="#ffffff"
-            android:gravity="center"
-            android:id="@+id/totalD20"
-            android:textSize="15dp"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:textColor="#ffffff"
-            android:gravity="center_vertical|end"
-            android:id="@+id/totalNumberD20"
-            android:scrollbars="horizontal"
-            android:textSize="15dp"/>
 
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_weight="1">
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="10">
 
-        <EditText
-            android:id="@+id/editD10"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="0"
-            android:textColor="#ffffff"
-            android:textColorHint="#a4eeeeee"
-            android:layout_weight="1"
-            android:inputType="number"
-            android:gravity="center"
-            android:textSize="15dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
 
-        <ImageView
-            android:id="@+id/d10"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/d10"
-            android:layout_weight="1"
-            android:textSize="15dp"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="7">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/resultD10"
-            android:textColor="#232324"
-            android:gravity="center"
-            android:layout_weight="5"
-            android:scrollbars="vertical"
-            android:textSize="15dp"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reset"
+                    android:id="@+id/reset"
+                    android:gravity="center"
+                    android:background="@drawable/bottonerossopatch"
+                    android:textColor="#ffffff"
+                    android:textAllCaps="false"
+                    android:textSize="15dp"/>
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:textColor="#ffffff"
-            android:id="@+id/totalD10"
-            android:textSize="15dp"/>
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical|end"
-            android:textColor="#ffffff"
-            android:id="@+id/totalNumberD10"
-            android:scrollbars="horizontal"
-            android:textSize="15dp"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textColor="#ffffff"
+                android:layout_weight="2"
+                android:id="@+id/resultTot"
+                android:gravity="center"
+                android:textSize="15dp"/>
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:textSize="15dp"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/resultNumTot"
+                android:layout_weight="1"
+                android:gravity="center_vertical|end"
+                android:textColor="#ffffff"
+                android:scrollbars="horizontal"
+                android:textSize="15dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/editD12"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="0"
+                android:textColor="#ffffff"
+                android:textColorHint="#a4eeeeee"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:gravity="center"
+                android:textSize="15dp"/>
+
+            <ImageView
+                android:id="@+id/d12"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/d12"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/resultD12"
+                android:textColor="#232324"
+                android:gravity="center"
+                android:layout_weight="5"
+                android:scrollbars="vertical"
+                android:textSize="15dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:textColor="#ffffff"
+                android:gravity="center"
+                android:id="@+id/totalD12"
+                android:textSize="15dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical|end"
+                android:textColor="#ffffff"
+                android:id="@+id/totalNumberD12"
+                android:scrollbars="horizontal"
+                android:textSize="15dp"/>
 
 
-        <EditText
-            android:id="@+id/editD100"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="0"
-            android:textColor="#ffffff"
-            android:textColorHint="#a4eeeeee"
-            android:layout_weight="1"
-            android:inputType="number"
-            android:gravity="center"
-            android:textSize="15dp"/>
+        </LinearLayout>
 
-        <ImageView
-            android:id="@+id/d100"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/d100"
-            android:layout_weight="1"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/resultD100"
-            android:textColor="#232324"
-            android:gravity="center"
-            android:layout_weight="5"
-            android:scrollbars="vertical"
-            android:textSize="15dp"/>
+            <EditText
+                android:id="@+id/editD20"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="0"
+                android:textColor="#ffffff"
+                android:textColorHint="#a4eeeeee"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:gravity="center"
+                android:textSize="15dp"/>
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:textColor="#ffffff"
-            android:gravity="center"
-            android:id="@+id/totalD100"
-            android:textSize="15dp"/>
+            <ImageView
+                android:id="@+id/d20"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/d20"
+                android:layout_weight="1"/>
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:textColor="#ffffff"
-            android:gravity="center_vertical|end"
-            android:id="@+id/totalNumberD100"
-            android:scrollbars="horizontal"
-            android:textSize="15dp"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/resultD20"
+                android:textColor="#232324"
+                android:gravity="center"
+                android:layout_weight="5"
+                android:scrollbars="vertical"
+                android:textSize="15dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:textColor="#ffffff"
+                android:gravity="center"
+                android:id="@+id/totalD20"
+                android:textSize="15dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="#ffffff"
+                android:gravity="center_vertical|end"
+                android:id="@+id/totalNumberD20"
+                android:scrollbars="horizontal"
+                android:textSize="15dp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/editD100"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="0"
+                android:textColor="#ffffff"
+                android:textColorHint="#a4eeeeee"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:gravity="center"
+                android:textSize="15dp"/>
+
+            <ImageView
+                android:id="@+id/d100"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/d100"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/resultD100"
+                android:textColor="#232324"
+                android:gravity="center"
+                android:layout_weight="5"
+                android:scrollbars="vertical"
+                android:textSize="15dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:textColor="#ffffff"
+                android:gravity="center"
+                android:id="@+id/totalD100"
+                android:textSize="15dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="#ffffff"
+                android:gravity="center_vertical|end"
+                android:id="@+id/totalNumberD100"
+                android:scrollbars="horizontal"
+                android:textSize="15dp"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
 </LinearLayout>
+
+
 
