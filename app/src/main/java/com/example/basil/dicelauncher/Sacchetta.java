@@ -2,6 +2,7 @@ package com.example.basil.dicelauncher;
 
 import android.support.annotation.NonNull;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -11,7 +12,7 @@ import java.util.ListIterator;
 /**
  * Created by basil on 11/06/2016.
  */
-public class Sacchetta {
+public class Sacchetta implements Serializable {
 
     List<Dice> setDiDadi = new ArrayList<>();
 
@@ -83,6 +84,10 @@ public class Sacchetta {
             }
         }
         return setDadi;
+    }
+
+    public List<Dice> getSetDiDadi() {
+        return setDiDadi;
     }
 }
 

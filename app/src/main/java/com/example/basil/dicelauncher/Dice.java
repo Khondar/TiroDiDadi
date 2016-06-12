@@ -3,12 +3,13 @@ package com.example.basil.dicelauncher;
 import android.content.Context;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.Random;
 
 /**
  * Created by basil on 07/06/2016.
  */
-public class Dice implements IRollable {
+public class Dice implements IRollable, Serializable {
 
     int facce=0;
 

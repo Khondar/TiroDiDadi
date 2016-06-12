@@ -1,6 +1,7 @@
 package com.example.basil.dicelauncher;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
@@ -9,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.List;
 
 /**
@@ -31,6 +37,9 @@ public class SelezioneDatiFragment extends Fragment {
     public static final String SOUND = "sound";
     public static final String NULLA = "nulla";
     public static final String NATURAL20 = "natural20";
+    public static final String FILESALVATAGGIO = "salvataggio";
+
+    Context context;
 
     EditText nD4Text;
     EditText nD6Text;
@@ -69,7 +78,7 @@ public class SelezioneDatiFragment extends Fragment {
     Dice dado = new Dice();
 
     int[] setDadiSalvato = new int[7];
-    Sacchetta miaSacchetta;
+    Sacchetta miaSacchetta = new Sacchetta();
 
 
 
@@ -294,6 +303,7 @@ public class SelezioneDatiFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState){
         super.onActivityCreated(savedInstanceState);
+        context = getActivity();
         if(savedInstanceState != null){
             //Risistema il fragment
             risultatod4.setText(savedInstanceState.getString("risultatod4"));
@@ -322,6 +332,8 @@ public class SelezioneDatiFragment extends Fragment {
 
             risultato.setText(savedInstanceState.getString("totaleTot"));
             risultatoTot.setText(savedInstanceState.getString("totaleRes"));
+
+           // miaSacchetta.riempiLaSacchetta(savedInstanceState.getIntArray("miaSacchetta"));
         }
     }
 
@@ -355,6 +367,8 @@ public class SelezioneDatiFragment extends Fragment {
 
         outState.putString("totaleTot", risultato.getText().toString());
         outState.putString("totaleRes", risultatoTot.getText().toString());
+
+       // outState.putIntArray("miaSacchetta", miaSacchetta.svuotaLaSacchetta());
 
     }
 
@@ -430,14 +444,59 @@ public class SelezioneDatiFragment extends Fragment {
             case SAVE:
 
                 setDadiSalvato = recuperaIDadi();
-                miaSacchetta = new Sacchetta();
                 miaSacchetta.riempiLaSacchetta(setDadiSalvato);
+                FileOutputStream fOut=null;
+                ObjectOutputStream os = null;
+                boolean keep = true;
 
+                try {
+                    fOut = context.openFileOutput(FILESALVATAGGIO, Context.MODE_PRIVATE);
+                    os = new ObjectOutputStream(fOut);
+                    os.writeObject(this.miaSacchetta);
+                   Toast.makeText(context,"file salvato",Toast.LENGTH_SHORT).show();
+                }
+                catch (Exception e) {
+                    keep=false;
+                    Toast.makeText(context,"file non salvato",Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                }
+                finally {
+                    try {
+                        if (os!=null) os.close();
+                        if (fOut!=null) fOut.close();
+                    }catch (Exception e){
+
+                    }
+                }
                 break;
             case LOAD:
 
-                setDadiSalvato = miaSacchetta.svuotaLaSacchetta();
-                svuotaIDadi(setDadiSalvato);
+                try{
+                FileInputStream fis = context.openFileInput(FILESALVATAGGIO);
+                ObjectInputStream is = new ObjectInputStream(fis);
+                Sacchetta sacchettaRestituita = (Sacchetta) is.readObject();
+                is.close();
+                fis.close();
+                    Toast.makeText(context,"file caricato",Toast.LENGTH_SHORT).show();
+                    setDadiSalvato = sacchettaRestituita.svuotaLaSacchetta();
+                    svuotaIDadi(setDadiSalvato);
+                }
+
+                catch (java.io.FileNotFoundException e){
+                    Toast.makeText(context,"file non trovato",Toast.LENGTH_SHORT).show();
+
+                }
+                catch (java.io.IOException e){
+
+                    Toast.makeText(context,"file non caricato, IOException",Toast.LENGTH_SHORT).show();
+
+                }
+                catch (java.lang.ClassNotFoundException e){
+
+                    Toast.makeText(context,"file non caricato, Classe non trovata",Toast.LENGTH_SHORT).show();
+
+                }
+
                 break;
             default:
                 break;
