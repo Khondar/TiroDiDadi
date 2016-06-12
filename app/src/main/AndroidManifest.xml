@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/d20"
+        android:icon="@mipmap/iconad20"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
