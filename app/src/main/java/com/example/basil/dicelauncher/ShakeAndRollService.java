@@ -13,7 +13,8 @@ import android.widget.Toast;
  */
 public class ShakeAndRollService extends Service {
 
-    private MediaPlayer mPlayer;
+    private MediaPlayer mPlayerRoll;
+    private MediaPlayer mPlayerNatural;
 
     public static final String ROLL = "roll";
     public static final String NULLA = "nulla";
@@ -29,8 +30,10 @@ public class ShakeAndRollService extends Service {
 
     public void onCreate() {
         super.onCreate();
-        mPlayer = new MediaPlayer();
-        mPlayer = MediaPlayer.create(this, R.raw.shakeandrolldice);
+        mPlayerRoll = new MediaPlayer();
+        mPlayerRoll = MediaPlayer.create(this, R.raw.shakeandrolldice);
+        mPlayerNatural = new MediaPlayer();
+        mPlayerNatural = MediaPlayer.create(this, R.raw.tromba);
         Context context = ShakeAndRollService.this.getApplicationContext();
     }
 
@@ -41,13 +44,14 @@ public class ShakeAndRollService extends Service {
 
         switch (azione) {
             case ROLL:
-                mPlayer.start();
+                mPlayerRoll.start();
                 break;
             case SAVE:
                 break;
             case LOAD:
                 break;
             case NATURAL20:
+                mPlayerNatural.start();
                 break;
             default:
                 break;

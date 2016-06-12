@@ -576,7 +576,7 @@ public class SelezioneDatiFragment extends Fragment {
             if(args[j] == 20){
                 counter++;
              //   textView.setTextColor(Color.parseColor("#be1e09"));
-                textView.append("<font color='#be1e09'> [" + Integer.toString(args[j]) + "] </font>");
+                textView.append(" [" + Integer.toString(args[j]) + "] ");
             }else{
                 textView.append(" [" + Integer.toString(args[j]) + "] ");
            //     textView.setTextColor(Color.parseColor("#232324"));
