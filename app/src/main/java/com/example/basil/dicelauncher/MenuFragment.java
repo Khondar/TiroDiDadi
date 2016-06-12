@@ -1,6 +1,7 @@
 package com.example.basil.dicelauncher;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -30,9 +31,14 @@ public class MenuFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        Typeface type = Typeface.createFromAsset(getActivity().getAssets(),"fonts/PrinceValiant.ttf");
+
         Button rollButton = (Button) view.findViewById(R.id.roll);
+        rollButton.setTypeface(type);
         Button saveButton = (Button) view.findViewById(R.id.save);
+        saveButton.setTypeface(type);
         Button loadButton = (Button) view.findViewById(R.id.load);
+        loadButton.setTypeface(type);
 
         rollButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -94,6 +95,8 @@ public class SelezioneDatiFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        Typeface type = Typeface.createFromAsset(getActivity().getAssets(),"fonts/PrinceValiant.ttf");
+
         nD4Text = (EditText) view.findViewById(R.id.editD4);
         nD6Text = (EditText) view.findViewById(R.id.editD6);
         nD8Text = (EditText) view.findViewById(R.id.editD8);
@@ -101,6 +104,14 @@ public class SelezioneDatiFragment extends Fragment {
         nD12Text = (EditText) view.findViewById(R.id.editD12);
         nD20Text = (EditText) view.findViewById(R.id.editD20);
         nD100Text = (EditText) view.findViewById(R.id.editD100);
+
+        nD4Text.setTypeface(type);
+        nD6Text.setTypeface(type);
+        nD8Text.setTypeface(type);
+        nD10Text.setTypeface(type);
+        nD12Text.setTypeface(type);
+        nD20Text.setTypeface(type);
+        nD100Text.setTypeface(type);
 
         risultatod4 = (TextView) view.findViewById(R.id.resultD4);
         totaled4 = (TextView) view.findViewById(R.id.totalD4);
@@ -119,6 +130,25 @@ public class SelezioneDatiFragment extends Fragment {
         risultato = (TextView) view.findViewById(R.id.resultTot);
         risultatoTot = (TextView) view.findViewById(R.id.resultNumTot);
 
+        risultatod4.setTypeface(type);
+        risultatod6.setTypeface(type);
+        risultatod8.setTypeface(type);
+        risultatod10.setTypeface(type);
+        risultatod12.setTypeface(type);
+        risultatod20.setTypeface(type);
+        risultatod100.setTypeface(type);
+
+        totaled4.setTypeface(type);
+        totaled6.setTypeface(type);
+        totaled8.setTypeface(type);
+        totaled10.setTypeface(type);
+        totaled12.setTypeface(type);
+        totaled20.setTypeface(type);
+        totaled100.setTypeface(type);
+
+        risultato.setTypeface(type);
+        risultatoTot.setTypeface(type);
+
         risulNumd4 = (TextView) view.findViewById(R.id.totalNumberD4);
         risulNumd6 = (TextView) view.findViewById(R.id.totalNumberD6);
         risulNumd8 = (TextView) view.findViewById(R.id.totalNumberD8);
@@ -126,6 +156,14 @@ public class SelezioneDatiFragment extends Fragment {
         risulNumd12 = (TextView) view.findViewById(R.id.totalNumberD12);
         risulNumd20 = (TextView) view.findViewById(R.id.totalNumberD20);
         risulNumd100 = (TextView) view.findViewById(R.id.totalNumberD100);
+
+        risulNumd4.setTypeface(type);
+        risulNumd6.setTypeface(type);
+        risulNumd8.setTypeface(type);
+        risulNumd10.setTypeface(type);
+        risulNumd12.setTypeface(type);
+        risulNumd20.setTypeface(type);
+        risulNumd100.setTypeface(type);
 
         risultatod4.setMovementMethod(new ScrollingMovementMethod());
         risultatod6.setMovementMethod(new ScrollingMovementMethod());
@@ -258,6 +296,7 @@ public class SelezioneDatiFragment extends Fragment {
 
 
         resetBotton = (Button) view.findViewById(R.id.reset);
+        resetBotton.setTypeface(type);
 
         resetBotton.setOnClickListener(new View.OnClickListener() {
             @Override

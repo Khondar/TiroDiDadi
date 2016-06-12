@@ -21,7 +21,9 @@
                 android:textColor="#ffffff"
                 android:textColorHint="#a4eeeeee"
                 android:layout_weight="1"
-                android:inputType="number" />
+                android:inputType="number"
+                android:gravity="center"
+                android:textSize="15dp"/>
 
             <ImageView
                 android:id="@+id/d4"
@@ -38,7 +40,7 @@
                 android:gravity="center"
                 android:layout_weight="5"
                 android:scrollbars="vertical"
-                />
+                android:textSize="15dp"/>
 
             <TextView
                 android:layout_width="0dp"
@@ -47,7 +49,7 @@
                 android:textColor="#ffffff"
                 android:gravity="center"
                 android:id="@+id/totalD4"
-                />
+                android:textSize="15dp"/>
 
             <TextView
                 android:layout_width="0dp"
@@ -57,12 +59,13 @@
                 android:gravity="center_vertical|end"
                 android:id="@+id/totalNumberD4"
                 android:scrollbars="horizontal"
-                />
+                android:textSize="15dp"/>
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:textSize="15dp"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -72,13 +75,13 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="reset"
+            android:text="Reset"
             android:id="@+id/reset"
             android:gravity="center"
             android:background="@drawable/bottonerossopatch"
-            android:textColor="#ffffff"/>
-            <!--android:background="@drawable/smallredbuttonpatch"-->
-
+            android:textColor="#ffffff"
+            android:textAllCaps="false"
+            android:textSize="15dp"/>
 
            </LinearLayout>
 
@@ -88,7 +91,8 @@
                 android:textColor="#ffffff"
                 android:layout_weight="2"
                 android:id="@+id/resultTot"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:textSize="15dp"/>
 
         <TextView
             android:layout_width="0dp"
@@ -98,7 +102,7 @@
             android:gravity="center_vertical|end"
             android:textColor="#ffffff"
             android:scrollbars="horizontal"
-            />
+            android:textSize="15dp"/>
 
 
     </LinearLayout>
@@ -117,7 +121,9 @@
             android:textColor="#ffffff"
             android:textColorHint="#a4eeeeee"
             android:layout_weight="1"
-            android:inputType="number" />
+            android:inputType="number"
+            android:gravity="center"
+            android:textSize="15dp"/>
 
         <ImageView
             android:id="@+id/d6"
@@ -134,7 +140,7 @@
             android:gravity="center"
             android:layout_weight="5"
             android:scrollbars="vertical"
-            />
+            android:textSize="15dp"/>
 
         <TextView
             android:layout_width="0dp"
@@ -143,7 +149,7 @@
             android:textColor="#ffffff"
             android:gravity="center"
             android:id="@+id/totalD6"
-            />
+            android:textSize="15dp"/>
 
         <TextView
             android:layout_width="0dp"
@@ -153,12 +159,13 @@
             android:gravity="center_vertical|end"
             android:id="@+id/totalNumberD6"
             android:scrollbars="horizontal"
-            />
+            android:textSize="15dp"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:textSize="15dp"/>
 
         <EditText
             android:id="@+id/editD12"
@@ -168,7 +175,9 @@
             android:textColor="#ffffff"
             android:textColorHint="#a4eeeeee"
             android:layout_weight="1"
-            android:inputType="number" />
+            android:inputType="number"
+            android:gravity="center"
+            android:textSize="15dp"/>
 
         <ImageView
             android:id="@+id/d12"
@@ -185,7 +194,7 @@
             android:gravity="center"
             android:layout_weight="5"
             android:scrollbars="vertical"
-            />
+            android:textSize="15dp"/>
 
         <TextView
             android:layout_width="0dp"
@@ -194,7 +203,7 @@
             android:textColor="#ffffff"
             android:gravity="center"
             android:id="@+id/totalD12"
-            />
+            android:textSize="15dp"/>
 
         <TextView
             android:layout_width="0dp"
@@ -204,7 +213,7 @@
             android:textColor="#ffffff"
             android:id="@+id/totalNumberD12"
             android:scrollbars="horizontal"
-            />
+            android:textSize="15dp"/>
 
 
     </LinearLayout>
@@ -224,7 +233,8 @@
             android:textColor="#ffffff"
             android:textColorHint="#a4eeeeee"
             android:layout_weight="1"
-            android:inputType="number" />
+            android:inputType="number"
+            android:textSize="15dp"/>
 
         <ImageView
             android:id="@+id/d8"
@@ -241,7 +251,7 @@
             android:gravity="center"
             android:layout_weight="5"
             android:scrollbars="vertical"
-            />
+            android:textSize="15dp"/>
 
         <TextView
             android:layout_width="0dp"
@@ -250,7 +260,7 @@
             android:textColor="#ffffff"
             android:gravity="center"
             android:id="@+id/totalD8"
-            />
+            android:textSize="15dp"/>
 
         <TextView
             android:layout_width="0dp"
@@ -260,12 +270,13 @@
             android:gravity="center_vertical|end"
             android:id="@+id/totalNumberD8"
             android:scrollbars="horizontal"
-            />
+            android:textSize="15dp"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:textSize="15dp"/>
 
         <EditText
             android:id="@+id/editD20"
@@ -275,7 +286,9 @@
             android:textColor="#ffffff"
             android:textColorHint="#a4eeeeee"
             android:layout_weight="1"
-            android:inputType="number" />
+            android:inputType="number"
+            android:gravity="center"
+            android:textSize="15dp"/>
 
         <ImageView
             android:id="@+id/d20"
@@ -292,7 +305,7 @@
             android:gravity="center"
             android:layout_weight="5"
             android:scrollbars="vertical"
-            />
+            android:textSize="15dp"/>
 
         <TextView
             android:layout_width="0dp"
@@ -301,7 +314,7 @@
             android:textColor="#ffffff"
             android:gravity="center"
             android:id="@+id/totalD20"
-            />
+            android:textSize="15dp"/>
 
         <TextView
             android:layout_width="0dp"
@@ -311,7 +324,7 @@
             android:gravity="center_vertical|end"
             android:id="@+id/totalNumberD20"
             android:scrollbars="horizontal"
-            />
+            android:textSize="15dp"/>
 
 
     </LinearLayout>
@@ -330,14 +343,17 @@
             android:textColor="#ffffff"
             android:textColorHint="#a4eeeeee"
             android:layout_weight="1"
-            android:inputType="number" />
+            android:inputType="number"
+            android:gravity="center"
+            android:textSize="15dp"/>
 
         <ImageView
             android:id="@+id/d10"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:src="@drawable/d10"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:textSize="15dp"/>
 
         <TextView
             android:layout_width="0dp"
@@ -347,7 +363,7 @@
             android:gravity="center"
             android:layout_weight="5"
             android:scrollbars="vertical"
-            />
+            android:textSize="15dp"/>
 
         <TextView
             android:layout_width="0dp"
@@ -356,7 +372,7 @@
             android:gravity="center"
             android:textColor="#ffffff"
             android:id="@+id/totalD10"
-            />
+            android:textSize="15dp"/>
 
         <TextView
             android:layout_width="0dp"
@@ -366,12 +382,13 @@
             android:textColor="#ffffff"
             android:id="@+id/totalNumberD10"
             android:scrollbars="horizontal"
-            />
+            android:textSize="15dp"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:textSize="15dp"/>
 
 
         <EditText
@@ -382,7 +399,9 @@
             android:textColor="#ffffff"
             android:textColorHint="#a4eeeeee"
             android:layout_weight="1"
-            android:inputType="number" />
+            android:inputType="number"
+            android:gravity="center"
+            android:textSize="15dp"/>
 
         <ImageView
             android:id="@+id/d100"
@@ -399,7 +418,7 @@
             android:gravity="center"
             android:layout_weight="5"
             android:scrollbars="vertical"
-            />
+            android:textSize="15dp"/>
 
         <TextView
             android:layout_width="0dp"
@@ -408,8 +427,8 @@
             android:textColor="#ffffff"
             android:gravity="center"
             android:id="@+id/totalD100"
-            />
-<!--tfktfk-->
+            android:textSize="15dp"/>
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -418,7 +437,7 @@
             android:gravity="center_vertical|end"
             android:id="@+id/totalNumberD100"
             android:scrollbars="horizontal"
-            />
+            android:textSize="15dp"/>
 
     </LinearLayout>
 

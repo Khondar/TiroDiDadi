@@ -14,6 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Roll"
+            android:textAllCaps="false"
             android:background="@drawable/bottoneazzurropatch"
             android:textColor="#ffffff"/>
 
@@ -29,7 +30,8 @@
             android:id="@+id/save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="save"
+            android:text="Save"
+            android:textAllCaps="false"
             android:background="@drawable/bottoneblupatch"
             android:textColor="#ffffff"/>
 
@@ -45,7 +47,8 @@
             android:id="@+id/load"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="load"
+            android:text="Load"
+            android:textAllCaps="false"
             android:background="@drawable/bottoneviolapatch"
             android:textColor="#ffffff"/>
 
