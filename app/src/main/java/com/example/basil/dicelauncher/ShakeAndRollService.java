@@ -15,6 +15,8 @@ public class ShakeAndRollService extends Service {
 
     private MediaPlayer mPlayerRoll;
     private MediaPlayer mPlayerNatural;
+    private MediaPlayer mPlayerLoad;
+    private MediaPlayer mPlayerSave;
 
     public static final String ROLL = "roll";
     public static final String NULLA = "nulla";
@@ -33,7 +35,11 @@ public class ShakeAndRollService extends Service {
         mPlayerRoll = new MediaPlayer();
         mPlayerRoll = MediaPlayer.create(this, R.raw.shakeandrolldice);
         mPlayerNatural = new MediaPlayer();
-        mPlayerNatural = MediaPlayer.create(this, R.raw.tromba);
+        mPlayerNatural = MediaPlayer.create(this, R.raw.squilloditromba);
+        mPlayerLoad = new MediaPlayer();
+        mPlayerLoad = MediaPlayer.create(this, R.raw.magicload);
+        mPlayerSave = new MediaPlayer();
+        mPlayerSave = MediaPlayer.create(this, R.raw.magicsave);
         Context context = ShakeAndRollService.this.getApplicationContext();
     }
 
@@ -47,8 +53,10 @@ public class ShakeAndRollService extends Service {
                 mPlayerRoll.start();
                 break;
             case SAVE:
+                mPlayerSave.start();
                 break;
             case LOAD:
+                mPlayerLoad.start();
                 break;
             case NATURAL20:
                 mPlayerNatural.start();

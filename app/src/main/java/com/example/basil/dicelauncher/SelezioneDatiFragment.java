@@ -231,7 +231,7 @@ public class SelezioneDatiFragment extends Fragment {
                 totaled20.setText("");
                 int nD20Int = setNumeroDadiDiretto(nD20Text);
                 RisultatiLancio lancioD20 = lancioDadi(nD20Int, 20);
-                stampaSetDadi(lancioD20, risultatod20, totaled20, risulNumd20);
+                stampaSetDadi20(lancioD20, risultatod20, totaled20, risulNumd20);
                 stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
 
                 String tag=SOUND;
