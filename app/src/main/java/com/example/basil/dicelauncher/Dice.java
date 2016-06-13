@@ -3,14 +3,20 @@ package com.example.basil.dicelauncher;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
 import java.io.Serializable;
 import java.util.Random;
 
 /**
  * Created by basil on 07/06/2016.
  */
+
+@DatabaseTable (tableName = "dadi")
 public class Dice implements IRollable, Serializable {
 
+    @DatabaseField
     int facce=0;
 
     @Override

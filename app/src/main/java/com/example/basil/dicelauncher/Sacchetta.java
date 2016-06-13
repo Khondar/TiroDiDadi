@@ -2,6 +2,9 @@ package com.example.basil.dicelauncher;
 
 import android.support.annotation.NonNull;
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,10 +15,16 @@ import java.util.ListIterator;
 /**
  * Created by basil on 11/06/2016.
  */
+@DatabaseTable (tableName = "sacchette")
 public class Sacchetta implements Serializable {
 
+    @DatabaseField
     List<Dice> setDiDadi = new ArrayList<>();
+
+    @DatabaseField
     String nomeProprietario;
+
+    @DatabaseField(id = true)
     int counter;
 
     public void riempiLaSacchetta (int[] setDadi){
