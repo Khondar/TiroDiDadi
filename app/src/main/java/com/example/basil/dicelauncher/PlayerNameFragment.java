@@ -18,9 +18,6 @@ import android.widget.Toast;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 
-/**
- * Created by basil on 12/06/2016.
- */
 public class PlayerNameFragment extends Fragment {
 
 
@@ -71,34 +68,9 @@ public class PlayerNameFragment extends Fragment {
                 intent.setAction(DiceAndRollBroadcast.Action.ACTION_ROLL_DICE);
                 intent.putExtra(DiceAndRollBroadcast.Extras.BUTTOM_TAG, name);
                 LocalBroadcastManager.getInstance(getView().getContext()).sendBroadcast(intent);
-                getActivity().getFragmentManager().beginTransaction().remove(PlayerNameFragment.this).commit();
 
             }
         });
 
     }
 }
-
-/*try{
-                    FileInputStream fis = context.openFileInput(FILESALVATAGGIO);
-                    ObjectInputStream is = new ObjectInputStream(fis);
-                    magazzino = (DiceStorage) is.readObject();
-                    is.close();
-                    fis.close();
-                    Toast.makeText(context,"file caricato",Toast.LENGTH_SHORT).show();
-
-                }
-                catch (java.io.FileNotFoundException e){
-                    magazzino = new DiceStorage();
-                    Toast.makeText(context,"file non trovato",Toast.LENGTH_SHORT).show();
-                }
-                catch (java.io.IOException e){
-
-                    Toast.makeText(context,"file non caricato, IOException",Toast.LENGTH_SHORT).show();
-
-                }
-                catch (java.lang.ClassNotFoundException e){
-
-                    Toast.makeText(context,"file non caricato, Classe non trovata",Toast.LENGTH_SHORT).show();
-
-                }*/

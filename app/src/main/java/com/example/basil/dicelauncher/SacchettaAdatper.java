@@ -1,6 +1,8 @@
 package com.example.basil.dicelauncher;
 
+import android.content.Intent;
 import android.support.annotation.IntegerRes;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +18,7 @@ import java.util.List;
 public class SacchettaAdatper extends RecyclerView.Adapter<SacchettaAdatper.MyViewHolder> {
 
     private List<Sacchetta> sacchettaList;
+    int posizione;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView name, resultd4, resultd6, resultd8, resultd10, resultd12, resultd20, resultd100;
@@ -34,6 +37,33 @@ public class SacchettaAdatper extends RecyclerView.Adapter<SacchettaAdatper.MyVi
 
             load = (Button) view.findViewById(R.id.load);
             delete = (Button) view.findViewById(R.id.delete);
+            posizione = getLayoutPosition();
+
+            load.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    String tag = "load";
+                    Intent intent = new Intent();
+                    intent.setAction(DiceAndRollBroadcast.Action.ACTION_ROLL_DICE);
+                    intent.putExtra(DiceAndRollBroadcast.Extras.BUTTOM_TAG, tag);
+                    LocalBroadcastManager.getInstance(v.getContext()).sendBroadcast(intent);
+
+                }
+            });
+
+            delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    String tag = "delete";
+                    Intent intent = new Intent();
+                    intent.setAction(DiceAndRollBroadcast.Action.ACTION_ROLL_DICE);
+                    intent.putExtra(DiceAndRollBroadcast.Extras.BUTTOM_TAG, tag);
+                    LocalBroadcastManager.getInstance(v.getContext()).sendBroadcast(intent);
+
+                }
+            });
 
         }
     }
@@ -68,4 +98,5 @@ public class SacchettaAdatper extends RecyclerView.Adapter<SacchettaAdatper.MyVi
     public int getItemCount() {
         return sacchettaList.size();
     }
+
 }

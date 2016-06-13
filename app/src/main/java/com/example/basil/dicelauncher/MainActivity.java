@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     SelezioneDatiFragment dadi;
     MenuFragment menu;
     PlayerNameFragment nomeFragment;
+    SelectDicePlayerFragment sceltaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
                 case MenuFragment.LOAD:
                     action = SelezioneDatiFragment.LOAD;
                     serviceIntent.setAction(ShakeAndRollService.LOAD);
+                    sceltaPlayer = new SelectDicePlayerFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentDadi, sceltaPlayer, "sceltaPlayer").addToBackStack(null).commit();
                     break;
                 case SelezioneDatiFragment.SOUND:
                     action = SelezioneDatiFragment.NULLA;
@@ -107,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                     action = SelezioneDatiFragment.NAME;
                     serviceIntent.setAction(ShakeAndRollService.NOME);
                     message = tag;
-
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentMenu, menu, "menu").addToBackStack(null).commit();
                     break;
             }
             getBaseContext().startService(serviceIntent);

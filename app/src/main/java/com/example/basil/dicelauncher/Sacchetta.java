@@ -16,6 +16,7 @@ public class Sacchetta implements Serializable {
 
     List<Dice> setDiDadi = new ArrayList<>();
     String nomeProprietario;
+    int counter;
 
     public void riempiLaSacchetta (int[] setDadi){
 
@@ -98,7 +99,16 @@ public class Sacchetta implements Serializable {
     public String getNomeProprietario() {
         return nomeProprietario;
     }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
+    }
+
+    public int getCounter() {
+        return counter;
+    }
 }
+
 
 
 

@@ -532,7 +532,7 @@ public class SelezioneDatiFragment extends Fragment {
                 break;
             case LOAD:
 
-                try {
+             /*   try {
                     FileInputStream fis = context.openFileInput(FILESALVATAGGIO);
                     ObjectInputStream is = new ObjectInputStream(fis);
                     Sacchetta sacchettaRestituita = (Sacchetta) is.readObject();
@@ -552,13 +552,13 @@ public class SelezioneDatiFragment extends Fragment {
 
                     Toast.makeText(context, "file non caricato, Classe non trovata", Toast.LENGTH_SHORT).show();
 
-                }
+                } */
 
                 break;
             case NAME:
 
-                Toast.makeText(context, "Hai inserito il nome" + name, Toast.LENGTH_SHORT).show();
-               /* try{
+                Toast.makeText(context, "Hai inserito il nome " + name, Toast.LENGTH_SHORT).show();
+               try{
                     FileInputStream fis = context.openFileInput(FILESALVATAGGIO);
                     ObjectInputStream is = new ObjectInputStream(fis);
                     magazzino = (DiceStorage) is.readObject();
@@ -568,7 +568,7 @@ public class SelezioneDatiFragment extends Fragment {
                 }
                 catch (java.io.FileNotFoundException e){
                     magazzino = new DiceStorage();
-                    Toast.makeText(context,"file non trovato",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context,"file creato",Toast.LENGTH_SHORT).show();
                 }
                 catch (java.io.IOException e){
                     Toast.makeText(context,"file non caricato, IOException",Toast.LENGTH_SHORT).show();
@@ -599,7 +599,7 @@ public class SelezioneDatiFragment extends Fragment {
                         if (fOS != null) fOS.close();
                     } catch (Exception e) {
                     }
-                }*/
+                }
                 break;
             default:
                 break;
