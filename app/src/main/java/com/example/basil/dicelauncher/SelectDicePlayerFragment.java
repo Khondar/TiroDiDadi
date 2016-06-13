@@ -27,8 +27,8 @@ public class SelectDicePlayerFragment extends Fragment {
     private SacchettaAdatper mAdapter;
     Context context;
     DiceStorage magazzino;
-    public final static String DELETE = "delete";
-    public final static String LOAD = "loadDICE";
+    public final static String DELETE = "com.SelectDicePlayerFragment.delete";
+    public final static String LOAD = "com.SelectDicePlayerFragment.load";
 
 
     @Nullable

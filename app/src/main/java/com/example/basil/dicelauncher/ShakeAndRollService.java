@@ -18,12 +18,12 @@ public class ShakeAndRollService extends Service {
     private MediaPlayer mPlayerLoad;
     private MediaPlayer mPlayerSave;
 
-    public static final String ROLL = "roll";
-    public static final String NULLA = "nulla";
-    public static final String SAVE = "save";
-    public static final String LOAD = "load";
-    public static final String NATURAL20 = "natural20";
-    public static final String NOME = "nome";
+    public static final String ROLL = "com.ShakeAndRollService.roll";
+    public static final String NULLA = "com.ShakeAndRollService.nulla";
+    public static final String SAVE = "com.ShakeAndRollService.save";
+    public static final String LOAD = "com.ShakeAndRollService.load";
+    public static final String NATURAL20 = "com.ShakeAndRollService.natural20";
+    public static final String NOME = "com.ShakeAndRollService.nome";
 
     @Nullable
     @Override

@@ -23,7 +23,7 @@ public class PlayerNameFragment extends Fragment {
 
     String name;
     Context context;
-    public static final String NAME = "name";
+    public static final String NAME = "com.PlayerNameFragment.name";
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

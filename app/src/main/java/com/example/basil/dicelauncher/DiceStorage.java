@@ -4,9 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by basil on 12/06/2016.
- */
+
 public class DiceStorage implements Serializable {
 
     List<Sacchetta> players = new ArrayList<>();

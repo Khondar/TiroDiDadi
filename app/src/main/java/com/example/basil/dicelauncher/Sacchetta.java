@@ -12,9 +12,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-/**
- * Created by basil on 11/06/2016.
- */
 @DatabaseTable (tableName = "sacchette")
 public class Sacchetta implements Serializable {
 

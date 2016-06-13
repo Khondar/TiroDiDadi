@@ -12,13 +12,10 @@ import android.widget.TextView;
 
 import java.util.List;
 
-/**
- * Created by giacomo on 13/06/2016.
- */
 public class SacchettaAdatper extends RecyclerView.Adapter<SacchettaAdatper.MyViewHolder> {
 
-    public static final String LOAD = "carica";
-    public static final String DELETE = "cancella";
+    public static final String LOAD = "com.SacchettaAdapter.carica";
+    public static final String DELETE = "com.SacchettaAdapter.cancella";
 
     private List<Sacchetta> sacchettaList;
     int posizione;

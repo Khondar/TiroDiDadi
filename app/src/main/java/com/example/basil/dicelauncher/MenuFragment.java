@@ -16,9 +16,9 @@ import android.widget.Button;
  */
 public class MenuFragment extends Fragment {
 
-    public static final String ROLL = "roll";
-    public static final String SAVE = "save";
-    public static final String LOAD = "load";
+    public static final String ROLL = "com.MenuFragment.roll";
+    public static final String SAVE = "com.MenuFragment.save";
+    public static final String LOAD = "com.MenuFragment.load";
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

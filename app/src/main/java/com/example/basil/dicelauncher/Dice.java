@@ -16,8 +16,8 @@ import java.util.Random;
 @DatabaseTable (tableName = "dadi")
 public class Dice implements IRollable, Serializable {
 
-    @DatabaseField
-    int facce=0;
+    @DatabaseField(id = true)
+    int facce;
 
     @Override
     public int rollable (int nFacce){
@@ -27,7 +27,6 @@ public class Dice implements IRollable, Serializable {
 
     public int rollable(Context context){
         if (facce != 0){
-
             return (int)( Math.random()*facce )+ 1;
         }else{
             Toast.makeText(context, "Il dado non ha facce", Toast.LENGTH_SHORT).show();

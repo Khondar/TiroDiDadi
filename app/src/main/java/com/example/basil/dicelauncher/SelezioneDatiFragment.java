@@ -28,20 +28,17 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.List;
 
-/**
- * Created by basil on 08/06/2016.
- */
 public class SelezioneDatiFragment extends Fragment {
 
-    public static final String ROLL = "roll";
-    public static final String SAVE = "save";
-    public static final String LOAD = "load";
-    public static final String SOUND = "sound";
-    public static final String NULLA = "nulla";
-    public static final String NATURAL20 = "natural20";
-    public static final String FILESALVATAGGIO = "salvataggio";
-    public static final String NAME = "name";
-    public static final String TAG = "SelezioneDatiFragment";
+    public static final String ROLL = "com.SelezioneDatiFragment.roll";
+    public static final String SAVE = "com.SelezioneDatiFragment.save";
+    public static final String LOAD = "com.SelezioneDatiFragment.load";
+    public static final String SOUND = "com.SelezioneDatiFragment.sound";
+    public static final String NULLA = "com.SelezioneDatiFragment.nulla";
+    public static final String NATURAL20 = "com.SelezioneDatiFragment.natural20";
+    public static final String FILESALVATAGGIO = "com.SelezioneDatiFragment.salvataggio";
+    public static final String NAME = "com.SelezioneDatiFragment.name";
+    public static final String TAG = "com.SelezioneDatiFragment.SelezioneDatiFragment";
 
     Context context;
     DiceStorage magazzino;
