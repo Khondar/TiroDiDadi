@@ -396,14 +396,12 @@ public class SelezioneDatiFragment extends Fragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        //salva il fragment
-        Log.d(TAG, "onSaveInstanceState: ");
+
         outState.putString("risultatod4", risultatod4.getText().toString());
         outState.putString("risultatod6", risultatod6.getText().toString());
         outState.putString("risultatod8", risultatod8.getText().toString());
         outState.putString("risultatod10", risultatod10.getText().toString());
         outState.putString("risultatod12", risultatod12.getText().toString());
-        //outState.putString("risultatod20",risultatod20.getText().toString());
         outState.putString("risultatod100", risultatod100.getText().toString());
 
         outState.putString("totaled4", totaled4.getText().toString());
@@ -432,82 +430,77 @@ public class SelezioneDatiFragment extends Fragment {
 
     }
 
-    public void diceAndRoll(String tag, String name) {
+    public void rollDice(){
+        risultatod4.setText("");
+        totaled4.setText("");
+        risultatod6.setText("");
+        totaled6.setText("");
+        risultatod8.setText("");
+        totaled8.setText("");
+        risultatod10.setText("");
+        totaled10.setText("");
+        risultatod12.setText("");
+        totaled12.setText("");
+        risultatod20.setText("");
+        totaled20.setText("");
+        risultatod100.setText("");
+        totaled100.setText("");
 
-        switch (tag) {
-            case ROLL:
+        risulNumd4.setText("");
+        risulNumd6.setText("");
+        risulNumd8.setText("");
+        risulNumd10.setText("");
+        risulNumd12.setText("");
+        risulNumd20.setText("");
+        risulNumd100.setText("");
 
-                risultatod4.setText("");
-                totaled4.setText("");
-                risultatod6.setText("");
-                totaled6.setText("");
-                risultatod8.setText("");
-                totaled8.setText("");
-                risultatod10.setText("");
-                totaled10.setText("");
-                risultatod12.setText("");
-                totaled12.setText("");
-                risultatod20.setText("");
-                totaled20.setText("");
-                risultatod100.setText("");
-                totaled100.setText("");
+        int nD4Int = setNumeroDadi(nD4Text);
+        int nD6Int = setNumeroDadi(nD6Text);
+        int nD8Int = setNumeroDadi(nD8Text);
+        int nD10Int = setNumeroDadi(nD10Text);
+        int nD12Int = setNumeroDadi(nD12Text);
+        int nD20Int = setNumeroDadi(nD20Text);
+        int nD100Int = setNumeroDadi(nD100Text);
 
-                risulNumd4.setText("");
-                risulNumd6.setText("");
-                risulNumd8.setText("");
-                risulNumd10.setText("");
-                risulNumd12.setText("");
-                risulNumd20.setText("");
-                risulNumd100.setText("");
+        RisultatiLancio lancioD4 = lancioDadi(nD4Int, 4);
+        RisultatiLancio lancioD6 = lancioDadi(nD6Int, 6);
+        RisultatiLancio lancioD8 = lancioDadi(nD8Int, 8);
+        RisultatiLancio lancioD10 = lancioDadi(nD10Int, 10);
+        RisultatiLancio lancioD12 = lancioDadi(nD12Int, 12);
+        lancioD20 = lancioDadi(nD20Int, 20);
+        RisultatiLancio lancioD100 = lancioDadi(nD100Int, 100);
 
-                int nD4Int = setNumeroDadi(nD4Text);
-                int nD6Int = setNumeroDadi(nD6Text);
-                int nD8Int = setNumeroDadi(nD8Text);
-                int nD10Int = setNumeroDadi(nD10Text);
-                int nD12Int = setNumeroDadi(nD12Text);
-                int nD20Int = setNumeroDadi(nD20Text);
-                int nD100Int = setNumeroDadi(nD100Text);
+        if (nD4Int != 0) {
+            stampaSetDadi(lancioD4, risultatod4, totaled4, risulNumd4);
+        }
+        if (nD6Int != 0) {
+            stampaSetDadi(lancioD6, risultatod6, totaled6, risulNumd6);
+        }
+        if (nD8Int != 0) {
+            stampaSetDadi(lancioD8, risultatod8, totaled8, risulNumd8);
+        }
+        if (nD10Int != 0) {
+            stampaSetDadi(lancioD10, risultatod10, totaled10, risulNumd10);
+        }
+        if (nD12Int != 0) {
+            stampaSetDadi(lancioD12, risultatod12, totaled12, risulNumd12);
+        }
+        if (nD20Int != 0) {
+            stampaSetDadi20(lancioD20, risultatod20, totaled20, risulNumd20);
+        }
+        if (nD100Int != 0) {
+            stampaSetDadi(lancioD100, risultatod100, totaled100, risulNumd100);
+        }
 
-                RisultatiLancio lancioD4 = lancioDadi(nD4Int, 4);
-                RisultatiLancio lancioD6 = lancioDadi(nD6Int, 6);
-                RisultatiLancio lancioD8 = lancioDadi(nD8Int, 8);
-                RisultatiLancio lancioD10 = lancioDadi(nD10Int, 10);
-                RisultatiLancio lancioD12 = lancioDadi(nD12Int, 12);
-                lancioD20 = lancioDadi(nD20Int, 20);
-                RisultatiLancio lancioD100 = lancioDadi(nD100Int, 100);
+        stampaTotale(risulNumd4, risulNumd6, risulNumd8, risulNumd10, risulNumd12, risulNumd20, risulNumd100, risultatoTot, risultato);
+    }
 
-                if (nD4Int != 0) {
-                    stampaSetDadi(lancioD4, risultatod4, totaled4, risulNumd4);
-                }
-                if (nD6Int != 0) {
-                    stampaSetDadi(lancioD6, risultatod6, totaled6, risulNumd6);
-                }
-                if (nD8Int != 0) {
-                    stampaSetDadi(lancioD8, risultatod8, totaled8, risulNumd8);
-                }
-                if (nD10Int != 0) {
-                    stampaSetDadi(lancioD10, risultatod10, totaled10, risulNumd10);
-                }
-                if (nD12Int != 0) {
-                    stampaSetDadi(lancioD12, risultatod12, totaled12, risulNumd12);
-                }
-                if (nD20Int != 0) {
-                    stampaSetDadi20(lancioD20, risultatod20, totaled20, risulNumd20);
-                }
-                if (nD100Int != 0) {
-                    stampaSetDadi(lancioD100, risultatod100, totaled100, risulNumd100);
-                }
-
-                stampaTotale(risulNumd4, risulNumd6, risulNumd8, risulNumd10, risulNumd12, risulNumd20, risulNumd100, risultatoTot, risultato);
-
-                break;
-            case SAVE:
-
-                setDadiSalvato = recuperaIDadi();
-                miaSacchetta.riempiLaSacchetta(setDadiSalvato);
-                FileOutputStream fOut = null;
-                ObjectOutputStream os = null;
-                boolean keep = true;
+    public void saveDice(){
+        setDadiSalvato = recuperaIDadi();
+        miaSacchetta.riempiLaSacchetta(setDadiSalvato);
+        FileOutputStream fOut = null;
+        ObjectOutputStream os = null;
+        boolean keep = true;
 
              /*   try {
                     fOut = context.openFileOutput(FILESALVATAGGIO, Context.MODE_PRIVATE);
@@ -526,85 +519,76 @@ public class SelezioneDatiFragment extends Fragment {
 
                     }
                 }*/
-                break;
-
-            case SelectDicePlayerFragment.LOAD:
-
-             try {
-                    FileInputStream fis = context.openFileInput(FILESALVATAGGIO);
-                    ObjectInputStream is = new ObjectInputStream(fis);
-                    magazzino = (DiceStorage) is.readObject();
-                    is.close();
-                    fis.close();
-                    Toast.makeText(context, "file caricato", Toast.LENGTH_SHORT).show();
-                    setDadiSalvato = magazzino.getPlayers().get(Integer.parseInt(name)).svuotaLaSacchetta();
-                    svuotaIDadi(setDadiSalvato);
-                } catch (java.io.FileNotFoundException e) {
-                    Toast.makeText(context, "file non trovato", Toast.LENGTH_SHORT).show();
-
-                } catch (java.io.IOException e) {
-
-                    Toast.makeText(context, "file non caricato, IOException", Toast.LENGTH_SHORT).show();
-
-                } catch (java.lang.ClassNotFoundException e) {
-
-                    Toast.makeText(context, "file non caricato, Classe non trovata", Toast.LENGTH_SHORT).show();
-
-                }
-
-                break;
-            case NAME:
-
-                Toast.makeText(context, "Hai inserito il nome " + name, Toast.LENGTH_SHORT).show();
-               try{
-                    FileInputStream fis = context.openFileInput(FILESALVATAGGIO);
-                    ObjectInputStream is = new ObjectInputStream(fis);
-                    magazzino = (DiceStorage) is.readObject();
-                    is.close();
-                    fis.close();
-                    Toast.makeText(context,"file caricato",Toast.LENGTH_SHORT).show();
-                }
-                catch (java.io.FileNotFoundException e){
-                    magazzino = new DiceStorage();
-                    Toast.makeText(context,"file creato",Toast.LENGTH_SHORT).show();
-                }
-                catch (java.io.IOException e){
-                    Toast.makeText(context,"file non caricato, IOException",Toast.LENGTH_SHORT).show();
-                }
-                catch (java.lang.ClassNotFoundException e){
-                    Toast.makeText(context,"file non caricato, Classe non trovata",Toast.LENGTH_SHORT).show();
-                }
-
-                setDadiSalvato = recuperaIDadi();
-                miaSacchetta.riempiLaSacchetta(setDadiSalvato);
-                miaSacchetta.setNomeProprietario(name);
-                magazzino.stipaLaSacchetta(miaSacchetta);
-                FileOutputStream fOS = null;
-                ObjectOutputStream oOS = null;
-
-                try {
-                    fOS = context.openFileOutput(FILESALVATAGGIO, Context.MODE_PRIVATE);
-                    oOS = new ObjectOutputStream(fOS);
-                    oOS.writeObject(this.magazzino);
-                    Toast.makeText(context, "file salvato", Toast.LENGTH_SHORT).show();
-                } catch (Exception e) {
-                    keep = false;
-                    Toast.makeText(context, "file non salvato", Toast.LENGTH_SHORT).show();
-                    e.printStackTrace();
-                } finally {
-                    try {
-                        if (oOS != null) oOS.close();
-                        if (fOS != null) fOS.close();
-                    } catch (Exception e) {
-                    }
-                }
-                break;
-            default:
-                break;
-        }
-
     }
 
+    public void loadDice(String values){
+        try {
+            FileInputStream fis = context.openFileInput(FILESALVATAGGIO);
+            ObjectInputStream is = new ObjectInputStream(fis);
+            magazzino = (DiceStorage) is.readObject();
+            is.close();
+            fis.close();
+            Toast.makeText(context, "file caricato", Toast.LENGTH_SHORT).show();
+            setDadiSalvato = magazzino.getPlayers().get(Integer.parseInt(values)).svuotaLaSacchetta();
+            svuotaIDadi(setDadiSalvato);
+        } catch (java.io.FileNotFoundException e) {
+            Toast.makeText(context, "file non trovato", Toast.LENGTH_SHORT).show();
+
+        } catch (java.io.IOException e) {
+
+            Toast.makeText(context, "file non caricato, IOException", Toast.LENGTH_SHORT).show();
+
+        } catch (java.lang.ClassNotFoundException e) {
+
+            Toast.makeText(context, "file non caricato, Classe non trovata", Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
+    public void insertName(String name){
+        Toast.makeText(context, "Hai inserito il nome " + name, Toast.LENGTH_SHORT).show();
+        try{
+            FileInputStream fis = context.openFileInput(FILESALVATAGGIO);
+            ObjectInputStream is = new ObjectInputStream(fis);
+            magazzino = (DiceStorage) is.readObject();
+            is.close();
+            fis.close();
+            Toast.makeText(context,"file caricato",Toast.LENGTH_SHORT).show();
+        }
+        catch (java.io.FileNotFoundException e){
+            magazzino = new DiceStorage();
+            Toast.makeText(context,"file creato",Toast.LENGTH_SHORT).show();
+        }
+        catch (java.io.IOException e){
+            Toast.makeText(context,"file non caricato, IOException",Toast.LENGTH_SHORT).show();
+        }
+        catch (java.lang.ClassNotFoundException e){
+            Toast.makeText(context,"file non caricato, Classe non trovata",Toast.LENGTH_SHORT).show();
+        }
+
+        setDadiSalvato = recuperaIDadi();
+        miaSacchetta.riempiLaSacchetta(setDadiSalvato);
+        miaSacchetta.setNomeProprietario(name);
+        magazzino.stipaLaSacchetta(miaSacchetta);
+        FileOutputStream fOS = null;
+        ObjectOutputStream oOS = null;
+
+        try {
+            fOS = context.openFileOutput(FILESALVATAGGIO, Context.MODE_PRIVATE);
+            oOS = new ObjectOutputStream(fOS);
+            oOS.writeObject(this.magazzino);
+            Toast.makeText(context, "file salvato", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(context, "file non salvato", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        } finally {
+            try {
+                if (oOS != null) oOS.close();
+                if (fOS != null) fOS.close();
+            } catch (Exception e) {
+            }
+        }
+    }
 
     public int setNumeroDadi(EditText textView) {
         int nD;

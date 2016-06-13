@@ -66,7 +66,8 @@ public class PlayerNameFragment extends Fragment {
 
                 Intent intent = new Intent();
                 intent.setAction(DiceAndRollBroadcast.Action.ACTION_ROLL_DICE);
-                intent.putExtra(DiceAndRollBroadcast.Extras.BUTTOM_TAG, name);
+                intent.putExtra(DiceAndRollBroadcast.Extras.BUTTOM_TAG, NAME);
+                intent.putExtra(DiceAndRollBroadcast.Extras.MESSAGE_TAG, name);
                 LocalBroadcastManager.getInstance(getView().getContext()).sendBroadcast(intent);
 
             }

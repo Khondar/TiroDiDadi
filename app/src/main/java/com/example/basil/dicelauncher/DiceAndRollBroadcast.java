@@ -26,13 +26,13 @@ public class DiceAndRollBroadcast extends BroadcastReceiver {
         if(action.equals(Action.ACTION_ROLL_DICE)){
             String tag = intent.getStringExtra(Extras.BUTTOM_TAG);
             String message = intent.getStringExtra(Extras.MESSAGE_TAG);
-            diceAndRoll(tag);
+            diceAndRoll(tag, message);
         }
 
     }
 
 
-    public void diceAndRoll(String tag){
+    public void diceAndRoll(String tag, String message){
 
     }
 

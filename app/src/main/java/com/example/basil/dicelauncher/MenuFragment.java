@@ -72,6 +72,7 @@ public class MenuFragment extends Fragment {
         Intent intent = new Intent();
         intent.setAction(DiceAndRollBroadcast.Action.ACTION_ROLL_DICE);
         intent.putExtra(DiceAndRollBroadcast.Extras.BUTTOM_TAG, tag);
+        intent.putExtra(DiceAndRollBroadcast.Extras.MESSAGE_TAG, "");
         LocalBroadcastManager.getInstance(getView().getContext()).sendBroadcast(intent);
     }
 }
