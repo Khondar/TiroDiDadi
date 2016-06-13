@@ -23,6 +23,7 @@ public class ShakeAndRollService extends Service {
     public static final String SAVE = "save";
     public static final String LOAD = "load";
     public static final String NATURAL20 = "natural20";
+    public static final String NOME = "nome";
 
     @Nullable
     @Override

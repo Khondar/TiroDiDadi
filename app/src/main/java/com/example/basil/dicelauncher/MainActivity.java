@@ -40,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
+        Intent intent = getIntent();
+        String name= intent.getStringExtra("name");
+
     }
 
     @Override
@@ -72,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         public void diceAndRoll(String tag) {
             Intent serviceIntent = new Intent(MainActivity.this, ShakeAndRollService.class);
             String action = "no";
+            String message= "no";
             switch (tag) {
                 case MenuFragment.ROLL:
                     action = SelezioneDatiFragment.ROLL;
@@ -92,10 +96,15 @@ public class MainActivity extends AppCompatActivity {
                 case SelezioneDatiFragment.NATURAL20:
                     action = SelezioneDatiFragment.NULLA;
                     serviceIntent.setAction(ShakeAndRollService.NATURAL20);
+                    break;
+                case PlayerNameFragment.NAME:
+                    action = SelezioneDatiFragment.NAME;
+                    serviceIntent.setAction(ShakeAndRollService.NOME);
+                    break;
             }
             getBaseContext().startService(serviceIntent);
             SelezioneDatiFragment selezioneDatiFragment = (SelezioneDatiFragment) getSupportFragmentManager().findFragmentByTag("dadi");
-            selezioneDatiFragment.diceAndRoll(action);
+            selezioneDatiFragment.diceAndRoll(action, message);
 
 
         }

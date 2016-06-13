@@ -40,6 +40,7 @@ public class SelezioneDatiFragment extends Fragment {
     public static final String NULLA = "nulla";
     public static final String NATURAL20 = "natural20";
     public static final String FILESALVATAGGIO = "salvataggio";
+    public static final String NAME = "name";
 
     Context context;
 
@@ -429,7 +430,7 @@ public class SelezioneDatiFragment extends Fragment {
 
     }
 
-    public void diceAndRoll(String tag) {
+    public void diceAndRoll(String tag, String name) {
 
         switch (tag) {
             case ROLL:

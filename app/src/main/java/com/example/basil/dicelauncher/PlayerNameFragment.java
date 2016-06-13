@@ -1,10 +1,12 @@
 package com.example.basil.dicelauncher;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,10 +23,10 @@ import java.io.ObjectInputStream;
  */
 public class PlayerNameFragment extends Fragment {
 
-    public static final String FILESALVATAGGIO = "salvataggio";
+
     String name;
     Context context;
-    DiceStorage magazzino;
+    public static final String NAME = "name";
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -55,12 +57,29 @@ public class PlayerNameFragment extends Fragment {
         playerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(insertName.getEditableText().toString()!= null){
-                    name = insertName.getEditableText().toString();
-                }else{
+                if(insertName.getEditableText().toString().equals("")){
                     name = "No name";
+                }else{
+                    name = insertName.getEditableText().toString();
                 }
-                try{
+
+                Intent insertName = new Intent(getActivity().getBaseContext(), MainActivity.class);
+                insertName.putExtra("name", name);
+                getActivity().startActivity(insertName);
+
+                String tag = NAME;
+                Intent intent = new Intent();
+                intent.setAction(DiceAndRollBroadcast.Action.ACTION_ROLL_DICE);
+                intent.putExtra(DiceAndRollBroadcast.Extras.BUTTOM_TAG, tag);
+                LocalBroadcastManager.getInstance(getView().getContext()).sendBroadcast(intent);
+
+            }
+        });
+
+    }
+}
+
+/*try{
                     FileInputStream fis = context.openFileInput(FILESALVATAGGIO);
                     ObjectInputStream is = new ObjectInputStream(fis);
                     magazzino = (DiceStorage) is.readObject();
@@ -82,9 +101,4 @@ public class PlayerNameFragment extends Fragment {
 
                     Toast.makeText(context,"file non caricato, Classe non trovata",Toast.LENGTH_SHORT).show();
 
-                }
-            }
-        });
-
-    }
-}
+                }*/
