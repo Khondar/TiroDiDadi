@@ -55,6 +55,11 @@ public class MainActivity extends AppCompatActivity {
 
         LocalBroadcastManager.getInstance(this).registerReceiver(broadcast, filter);
 
+        IntentFilter filter2 = new IntentFilter();
+        filter2.addAction(PlayerSetBroadcast.Action.ACTION_PLAYER);
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(playerBroadcast, filter2);
+
         startService((new Intent(this, ShakeAndRollService.class)).setAction(ShakeAndRollService.NULLA));
         super.onStart();
     }
@@ -63,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(broadcast);
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(playerBroadcast);
         stopService(new Intent(getBaseContext(), ShakeAndRollService.class));
         super.onStop();
     }
@@ -118,6 +124,31 @@ public class MainActivity extends AppCompatActivity {
             SelezioneDatiFragment selezioneDatiFragment = (SelezioneDatiFragment) getSupportFragmentManager().findFragmentByTag("dadi");
             selezioneDatiFragment.diceAndRoll(action, message);
 
+        }
+
+
+    };
+
+    private PlayerSetBroadcast playerBroadcast = new PlayerSetBroadcast(){
+        @Override
+        public void selectPlayer(String tag, String number){
+            String action = "default";
+            String message = number;
+            switch (tag){
+                case SacchettaAdatper.LOAD:
+                    action = SelectDicePlayerFragment.LOAD;
+                    SelezioneDatiFragment selezioneDatiFragment = (SelezioneDatiFragment) getSupportFragmentManager().findFragmentByTag("dadi");
+                    selezioneDatiFragment.diceAndRoll(action, message);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentDadi, dadi, "dadi").addToBackStack(null).commit();
+                    break;
+                case SacchettaAdatper.DELETE:
+                    action = SelectDicePlayerFragment.DELETE;
+                    SelectDicePlayerFragment selezionaPersonaggi = (SelectDicePlayerFragment) getSupportFragmentManager().findFragmentByTag("sceltaPlayer");
+                    selezionaPersonaggi.cancellaCarica(action, message);
+                    break;
+            }
+            //SelectDicePlayerFragment selezioneDatiFragment = (SelectDicePlayerFragment) getSupportFragmentManager().findFragmentByTag("sceltaPlayer");
+            //selezioneDatiFragment.cancellaCarica(action, message);
         }
     };
 }

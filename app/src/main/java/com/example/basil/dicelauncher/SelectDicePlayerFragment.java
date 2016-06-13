@@ -27,6 +27,9 @@ public class SelectDicePlayerFragment extends Fragment {
     private SacchettaAdatper mAdapter;
     Context context;
     DiceStorage magazzino;
+    public final static String DELETE = "delete";
+    public final static String LOAD = "loadDICE";
+
 
     @Nullable
     @Override
@@ -34,7 +37,6 @@ public class SelectDicePlayerFragment extends Fragment {
         View view =inflater.inflate(R.layout.caricamento_recyclerview, container, false);
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
@@ -72,5 +74,23 @@ public class SelectDicePlayerFragment extends Fragment {
             Toast.makeText(context, "file non caricato, Classe non trovata", Toast.LENGTH_SHORT).show();
 
         }
+    }
+
+    public void cancellaCarica (String tag, String number){
+
+        int id = Integer.parseInt(number);
+        Sacchetta miaSacca = sacchettaList.get(id);
+
+        switch (tag){
+            case LOAD:
+                  int[] args = miaSacca.svuotaLaSacchetta();
+                break;
+            case DELETE:
+                    sacchettaList.remove(id);
+                break;
+            default:
+                break;
+        }
+
     }
 }

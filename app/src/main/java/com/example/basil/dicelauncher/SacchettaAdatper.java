@@ -17,6 +17,9 @@ import java.util.List;
  */
 public class SacchettaAdatper extends RecyclerView.Adapter<SacchettaAdatper.MyViewHolder> {
 
+    public static final String LOAD = "carica";
+    public static final String DELETE = "cancella";
+
     private List<Sacchetta> sacchettaList;
     int posizione;
 
@@ -43,10 +46,12 @@ public class SacchettaAdatper extends RecyclerView.Adapter<SacchettaAdatper.MyVi
                 @Override
                 public void onClick(View v) {
 
-                    String tag = "load";
+                    String tag = LOAD;
+                    String number = Integer.toString(getLayoutPosition());
                     Intent intent = new Intent();
-                    intent.setAction(DiceAndRollBroadcast.Action.ACTION_ROLL_DICE);
-                    intent.putExtra(DiceAndRollBroadcast.Extras.BUTTOM_TAG, tag);
+                    intent.setAction(PlayerSetBroadcast.Action.ACTION_PLAYER);
+                    intent.putExtra(PlayerSetBroadcast.Extras.CARD_TAG, number);
+                    intent.putExtra(PlayerSetBroadcast.Extras.CARD_COMMAND, tag);
                     LocalBroadcastManager.getInstance(v.getContext()).sendBroadcast(intent);
 
                 }
@@ -56,10 +61,12 @@ public class SacchettaAdatper extends RecyclerView.Adapter<SacchettaAdatper.MyVi
                 @Override
                 public void onClick(View v) {
 
-                    String tag = "delete";
+                    String tag = DELETE;
+                    String number = Integer.toString(getLayoutPosition());
                     Intent intent = new Intent();
-                    intent.setAction(DiceAndRollBroadcast.Action.ACTION_ROLL_DICE);
-                    intent.putExtra(DiceAndRollBroadcast.Extras.BUTTOM_TAG, tag);
+                    intent.setAction(PlayerSetBroadcast.Action.ACTION_PLAYER);
+                    intent.putExtra(PlayerSetBroadcast.Extras.CARD_TAG, number);
+                    intent.putExtra(PlayerSetBroadcast.Extras.CARD_COMMAND, tag);
                     LocalBroadcastManager.getInstance(v.getContext()).sendBroadcast(intent);
 
                 }

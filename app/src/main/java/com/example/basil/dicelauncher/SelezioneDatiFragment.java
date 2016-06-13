@@ -530,16 +530,17 @@ public class SelezioneDatiFragment extends Fragment {
                     }
                 }*/
                 break;
-            case LOAD:
 
-             /*   try {
+            case SelectDicePlayerFragment.LOAD:
+
+             try {
                     FileInputStream fis = context.openFileInput(FILESALVATAGGIO);
                     ObjectInputStream is = new ObjectInputStream(fis);
-                    Sacchetta sacchettaRestituita = (Sacchetta) is.readObject();
+                    magazzino = (DiceStorage) is.readObject();
                     is.close();
                     fis.close();
                     Toast.makeText(context, "file caricato", Toast.LENGTH_SHORT).show();
-                    setDadiSalvato = sacchettaRestituita.svuotaLaSacchetta();
+                    setDadiSalvato = magazzino.getPlayers().get(Integer.parseInt(name)).svuotaLaSacchetta();
                     svuotaIDadi(setDadiSalvato);
                 } catch (java.io.FileNotFoundException e) {
                     Toast.makeText(context, "file non trovato", Toast.LENGTH_SHORT).show();
@@ -552,7 +553,7 @@ public class SelezioneDatiFragment extends Fragment {
 
                     Toast.makeText(context, "file non caricato, Classe non trovata", Toast.LENGTH_SHORT).show();
 
-                } */
+                }
 
                 break;
             case NAME:
