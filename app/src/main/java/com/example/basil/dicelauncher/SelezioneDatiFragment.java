@@ -44,6 +44,7 @@ public class SelezioneDatiFragment extends Fragment {
     public static final String TAG = "SelezioneDatiFragment";
 
     Context context;
+    DiceStorage magazzino;
 
     EditText nD4Text;
     EditText nD6Text;
@@ -88,7 +89,6 @@ public class SelezioneDatiFragment extends Fragment {
     int[] risultatiDelD20;
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
@@ -100,7 +100,7 @@ public class SelezioneDatiFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Typeface type = Typeface.createFromAsset(getActivity().getAssets(),"fonts/PrinceValiant.ttf");
+        Typeface type = Typeface.createFromAsset(getActivity().getAssets(), "fonts/PrinceValiant.ttf");
 
         nD4Text = (EditText) view.findViewById(R.id.editD4);
         nD6Text = (EditText) view.findViewById(R.id.editD6);
@@ -196,9 +196,9 @@ public class SelezioneDatiFragment extends Fragment {
                 int nD4Int = setNumeroDadiDiretto(nD4Text);
                 RisultatiLancio lancioD4 = lancioDadi(nD4Int, 4);
                 stampaSetDadi(lancioD4, risultatod4, totaled4, risulNumd4);
-                stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
+                stampaTotale(risulNumd4, risulNumd6, risulNumd8, risulNumd10, risulNumd12, risulNumd20, risulNumd100, risultatoTot, risultato);
 
-                String tag=SOUND;
+                String tag = SOUND;
                 invioTag(tag);
             }
         });
@@ -212,9 +212,9 @@ public class SelezioneDatiFragment extends Fragment {
                 int nD6Int = setNumeroDadiDiretto(nD6Text);
                 RisultatiLancio lancioD6 = lancioDadi(nD6Int, 4);
                 stampaSetDadi(lancioD6, risultatod6, totaled6, risulNumd6);
-                stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
+                stampaTotale(risulNumd4, risulNumd6, risulNumd8, risulNumd10, risulNumd12, risulNumd20, risulNumd100, risultatoTot, risultato);
 
-                String tag=SOUND;
+                String tag = SOUND;
                 invioTag(tag);
             }
         });
@@ -228,9 +228,9 @@ public class SelezioneDatiFragment extends Fragment {
                 int nD8Int = setNumeroDadiDiretto(nD8Text);
                 RisultatiLancio lancioD8 = lancioDadi(nD8Int, 8);
                 stampaSetDadi(lancioD8, risultatod8, totaled8, risulNumd8);
-                stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
+                stampaTotale(risulNumd4, risulNumd6, risulNumd8, risulNumd10, risulNumd12, risulNumd20, risulNumd100, risultatoTot, risultato);
 
-                String tag=SOUND;
+                String tag = SOUND;
                 invioTag(tag);
             }
         });
@@ -244,9 +244,9 @@ public class SelezioneDatiFragment extends Fragment {
                 int nD10Int = setNumeroDadiDiretto(nD10Text);
                 RisultatiLancio lancioD10 = lancioDadi(nD10Int, 10);
                 stampaSetDadi(lancioD10, risultatod10, totaled10, risulNumd10);
-                stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
+                stampaTotale(risulNumd4, risulNumd6, risulNumd8, risulNumd10, risulNumd12, risulNumd20, risulNumd100, risultatoTot, risultato);
 
-                String tag=SOUND;
+                String tag = SOUND;
                 invioTag(tag);
             }
         });
@@ -260,9 +260,9 @@ public class SelezioneDatiFragment extends Fragment {
                 int nD12Int = setNumeroDadiDiretto(nD12Text);
                 RisultatiLancio lancioD12 = lancioDadi(nD12Int, 12);
                 stampaSetDadi(lancioD12, risultatod12, totaled12, risulNumd12);
-                stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
+                stampaTotale(risulNumd4, risulNumd6, risulNumd8, risulNumd10, risulNumd12, risulNumd20, risulNumd100, risultatoTot, risultato);
 
-                String tag=SOUND;
+                String tag = SOUND;
                 invioTag(tag);
             }
         });
@@ -276,9 +276,9 @@ public class SelezioneDatiFragment extends Fragment {
                 int nD20Int = setNumeroDadiDiretto(nD20Text);
                 lancioD20 = lancioDadi(nD20Int, 20);
                 stampaSetDadi20(lancioD20, risultatod20, totaled20, risulNumd20);
-                stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
+                stampaTotale(risulNumd4, risulNumd6, risulNumd8, risulNumd10, risulNumd12, risulNumd20, risulNumd100, risultatoTot, risultato);
 
-                String tag=SOUND;
+                String tag = SOUND;
                 invioTag(tag);
             }
         });
@@ -292,9 +292,9 @@ public class SelezioneDatiFragment extends Fragment {
                 int nD100Int = setNumeroDadiDiretto(nD100Text);
                 RisultatiLancio lancioD100 = lancioDadi(nD100Int, 100);
                 stampaSetDadi(lancioD100, risultatod100, totaled100, risulNumd100);
-                stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
+                stampaTotale(risulNumd4, risulNumd6, risulNumd8, risulNumd10, risulNumd12, risulNumd20, risulNumd100, risultatoTot, risultato);
 
-                String tag=SOUND;
+                String tag = SOUND;
                 invioTag(tag);
             }
         });
@@ -346,30 +346,31 @@ public class SelezioneDatiFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState){
+    public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         context = getActivity();
-        if(savedInstanceState != null){
+        if (savedInstanceState != null) {
             //Risistema il fragment
             risultatod4.setText(savedInstanceState.getString("risultatod4"));
             risultatod6.setText(savedInstanceState.getString("risultatod6"));
             risultatod8.setText(savedInstanceState.getString("risultatod8"));
             risultatod10.setText(savedInstanceState.getString("risultatod10"));
             risultatod12.setText(savedInstanceState.getString("risultatod12"));
-          //  risultatod20.setText(savedInstanceState.getString("risultatod20"));
+            //  risultatod20.setText(savedInstanceState.getString("risultatod20"));
             try {
                 risultatiDelD20 = savedInstanceState.getIntArray("risultati del 20");
                 for (int j = 0; j < risultatiDelD20.length; j++) {
-                    if(risultatiDelD20[j] == 20){
+                    if (risultatiDelD20[j] == 20) {
                         String first = "<font color='#be1e09'> [20] </font>";
                         risultatod20.append(Html.fromHtml(first));
-                    }else{
+                    } else {
                         risultatod20.append(" [" + Integer.toString(risultatiDelD20[j]) + "] ");
                     }
                 }
                 lancioD20 = new RisultatiLancio(risultatiDelD20.length);
                 lancioD20.setElencoLanci(risultatiDelD20);
-            }catch (Exception e){ }
+            } catch (Exception e) {
+            }
 
             risultatod100.setText(savedInstanceState.getString("risultatod100"));
 
@@ -396,40 +397,41 @@ public class SelezioneDatiFragment extends Fragment {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState){
+    public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         //salva il fragment
         Log.d(TAG, "onSaveInstanceState: ");
-        outState.putString("risultatod4",risultatod4.getText().toString());
-        outState.putString("risultatod6",risultatod6.getText().toString());
-        outState.putString("risultatod8",risultatod8.getText().toString());
-        outState.putString("risultatod10",risultatod10.getText().toString());
-        outState.putString("risultatod12",risultatod12.getText().toString());
+        outState.putString("risultatod4", risultatod4.getText().toString());
+        outState.putString("risultatod6", risultatod6.getText().toString());
+        outState.putString("risultatod8", risultatod8.getText().toString());
+        outState.putString("risultatod10", risultatod10.getText().toString());
+        outState.putString("risultatod12", risultatod12.getText().toString());
         //outState.putString("risultatod20",risultatod20.getText().toString());
-        outState.putString("risultatod100",risultatod100.getText().toString());
+        outState.putString("risultatod100", risultatod100.getText().toString());
 
-        outState.putString("totaled4",totaled4.getText().toString());
-        outState.putString("totaled6",totaled6.getText().toString());
-        outState.putString("totaled8",totaled8.getText().toString());
-        outState.putString("totaled10",totaled10.getText().toString());
-        outState.putString("totaled12",totaled12.getText().toString());
-        outState.putString("totaled20",totaled20.getText().toString());
-        outState.putString("totaled100",totaled100.getText().toString());
+        outState.putString("totaled4", totaled4.getText().toString());
+        outState.putString("totaled6", totaled6.getText().toString());
+        outState.putString("totaled8", totaled8.getText().toString());
+        outState.putString("totaled10", totaled10.getText().toString());
+        outState.putString("totaled12", totaled12.getText().toString());
+        outState.putString("totaled20", totaled20.getText().toString());
+        outState.putString("totaled100", totaled100.getText().toString());
 
-        outState.putString("risulNumd4",risulNumd4.getText().toString());
-        outState.putString("risulNumd6",risulNumd6.getText().toString());
-        outState.putString("risulNumd8",risulNumd8.getText().toString());
-        outState.putString("risulNumd10",risulNumd10.getText().toString());
-        outState.putString("risulNumd12",risulNumd12.getText().toString());
-        outState.putString("risulNumd20",risulNumd20.getText().toString());
-        outState.putString("risulNumd100",risulNumd100.getText().toString());
+        outState.putString("risulNumd4", risulNumd4.getText().toString());
+        outState.putString("risulNumd6", risulNumd6.getText().toString());
+        outState.putString("risulNumd8", risulNumd8.getText().toString());
+        outState.putString("risulNumd10", risulNumd10.getText().toString());
+        outState.putString("risulNumd12", risulNumd12.getText().toString());
+        outState.putString("risulNumd20", risulNumd20.getText().toString());
+        outState.putString("risulNumd100", risulNumd100.getText().toString());
 
         outState.putString("totaleTot", risultato.getText().toString());
         outState.putString("totaleRes", risultatoTot.getText().toString());
 
-        try{
+        try {
             outState.putIntArray("risultati del 20", lancioD20.getElencoLanci());
-        }catch (Exception e){        }
+        } catch (Exception e) {
+        }
 
     }
 
@@ -499,65 +501,105 @@ public class SelezioneDatiFragment extends Fragment {
                     stampaSetDadi(lancioD100, risultatod100, totaled100, risulNumd100);
                 }
 
-                stampaTotale(risulNumd4,risulNumd6,risulNumd8,risulNumd10,risulNumd12,risulNumd20,risulNumd100,risultatoTot, risultato);
+                stampaTotale(risulNumd4, risulNumd6, risulNumd8, risulNumd10, risulNumd12, risulNumd20, risulNumd100, risultatoTot, risultato);
 
                 break;
             case SAVE:
 
                 setDadiSalvato = recuperaIDadi();
                 miaSacchetta.riempiLaSacchetta(setDadiSalvato);
-                FileOutputStream fOut=null;
+                FileOutputStream fOut = null;
                 ObjectOutputStream os = null;
                 boolean keep = true;
 
-                try {
+             /*   try {
                     fOut = context.openFileOutput(FILESALVATAGGIO, Context.MODE_PRIVATE);
                     os = new ObjectOutputStream(fOut);
                     os.writeObject(this.miaSacchetta);
-                   Toast.makeText(context,"file salvato",Toast.LENGTH_SHORT).show();
-                }
-                catch (Exception e) {
-                    keep=false;
-                    Toast.makeText(context,"file non salvato",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "file salvato", Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    keep = false;
+                    Toast.makeText(context, "file non salvato", Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
-                }
-                finally {
+                } finally {
                     try {
-                        if (os!=null) os.close();
-                        if (fOut!=null) fOut.close();
-                    }catch (Exception e){
+                        if (os != null) os.close();
+                        if (fOut != null) fOut.close();
+                    } catch (Exception e) {
 
                     }
-                }
+                }*/
                 break;
             case LOAD:
 
-                try{
-                FileInputStream fis = context.openFileInput(FILESALVATAGGIO);
-                ObjectInputStream is = new ObjectInputStream(fis);
-                Sacchetta sacchettaRestituita = (Sacchetta) is.readObject();
-                is.close();
-                fis.close();
-                    Toast.makeText(context,"file caricato",Toast.LENGTH_SHORT).show();
+                try {
+                    FileInputStream fis = context.openFileInput(FILESALVATAGGIO);
+                    ObjectInputStream is = new ObjectInputStream(fis);
+                    Sacchetta sacchettaRestituita = (Sacchetta) is.readObject();
+                    is.close();
+                    fis.close();
+                    Toast.makeText(context, "file caricato", Toast.LENGTH_SHORT).show();
                     setDadiSalvato = sacchettaRestituita.svuotaLaSacchetta();
                     svuotaIDadi(setDadiSalvato);
+                } catch (java.io.FileNotFoundException e) {
+                    Toast.makeText(context, "file non trovato", Toast.LENGTH_SHORT).show();
+
+                } catch (java.io.IOException e) {
+
+                    Toast.makeText(context, "file non caricato, IOException", Toast.LENGTH_SHORT).show();
+
+                } catch (java.lang.ClassNotFoundException e) {
+
+                    Toast.makeText(context, "file non caricato, Classe non trovata", Toast.LENGTH_SHORT).show();
+
                 }
 
-                catch (java.io.FileNotFoundException e){
-                    Toast.makeText(context,"file non trovato",Toast.LENGTH_SHORT).show();
+                break;
+            case NAME:
 
+                Toast.makeText(context, "Hai inserito il nome" + name, Toast.LENGTH_SHORT).show();
+               /* try{
+                    FileInputStream fis = context.openFileInput(FILESALVATAGGIO);
+                    ObjectInputStream is = new ObjectInputStream(fis);
+                    magazzino = (DiceStorage) is.readObject();
+                    is.close();
+                    fis.close();
+                    Toast.makeText(context,"file caricato",Toast.LENGTH_SHORT).show();
+                }
+                catch (java.io.FileNotFoundException e){
+                    magazzino = new DiceStorage();
+                    Toast.makeText(context,"file non trovato",Toast.LENGTH_SHORT).show();
                 }
                 catch (java.io.IOException e){
-
                     Toast.makeText(context,"file non caricato, IOException",Toast.LENGTH_SHORT).show();
-
                 }
                 catch (java.lang.ClassNotFoundException e){
-
                     Toast.makeText(context,"file non caricato, Classe non trovata",Toast.LENGTH_SHORT).show();
-
                 }
 
+                setDadiSalvato = recuperaIDadi();
+                miaSacchetta.riempiLaSacchetta(setDadiSalvato);
+                miaSacchetta.setNomeProprietario(name);
+                magazzino.stipaLaSacchetta(miaSacchetta);
+                FileOutputStream fOS = null;
+                ObjectOutputStream oOS = null;
+
+                try {
+                    fOS = context.openFileOutput(FILESALVATAGGIO, Context.MODE_PRIVATE);
+                    oOS = new ObjectOutputStream(fOS);
+                    oOS.writeObject(this.magazzino);
+                    Toast.makeText(context, "file salvato", Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    keep = false;
+                    Toast.makeText(context, "file non salvato", Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                } finally {
+                    try {
+                        if (oOS != null) oOS.close();
+                        if (fOS != null) fOS.close();
+                    } catch (Exception e) {
+                    }
+                }*/
                 break;
             default:
                 break;
@@ -598,7 +640,7 @@ public class SelezioneDatiFragment extends Fragment {
     public void stampaSetDadi(RisultatiLancio lancio, TextView textView, TextView textView2, TextView textView3) {
 
         int i = lancio.getSommaLanci();
-        int[] args= lancio.getElencoLanci();
+        int[] args = lancio.getElencoLanci();
         for (int j = 0; j < args.length; j++) {
             textView.append(" [" + Integer.toString(args[j]) + "] ");
         }
@@ -606,10 +648,10 @@ public class SelezioneDatiFragment extends Fragment {
         textView3.setText("" + i);
     }
 
-   public void stampaTotale (TextView textView1, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView stampa, TextView totale){
-       totale.setText("TOT:");
-       stampa.setText(""+(prendiValore(textView1)+prendiValore(textView2)+prendiValore(textView3)+prendiValore(textView4)+prendiValore(textView5)+prendiValore(textView6)+prendiValore(textView7)));
-   }
+    public void stampaTotale(TextView textView1, TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView stampa, TextView totale) {
+        totale.setText("TOT:");
+        stampa.setText("" + (prendiValore(textView1) + prendiValore(textView2) + prendiValore(textView3) + prendiValore(textView4) + prendiValore(textView5) + prendiValore(textView6) + prendiValore(textView7)));
+    }
 
     public int prendiValore(TextView textView) {
         int nD;
@@ -631,19 +673,19 @@ public class SelezioneDatiFragment extends Fragment {
     public void stampaSetDadi20(RisultatiLancio lancio, TextView textView, TextView textView2, TextView textView3) {
 
         int i = lancio.getSommaLanci();
-        int[] args= lancio.getElencoLanci();
-        int counter=0;
+        int[] args = lancio.getElencoLanci();
+        int counter = 0;
         for (int j = 0; j < args.length; j++) {
-            if(args[j] == 20){
+            if (args[j] == 20) {
                 counter++;
                 String first = "<font color='#be1e09'> [20] </font>";
                 textView.append(Html.fromHtml(first));
-            }else{
+            } else {
                 textView.append(" [" + Integer.toString(args[j]) + "] ");
             }
 
         }
-        if(counter>0){
+        if (counter > 0) {
             String tag = NATURAL20;
             invioTag(tag);
         }
@@ -651,27 +693,27 @@ public class SelezioneDatiFragment extends Fragment {
         textView3.setText("" + i);
     }
 
-    public int[] recuperaIDadi(){
+    public int[] recuperaIDadi() {
         int[] nDadi = new int[7];
 
-        nDadi[0]= setNumeroDadi(nD4Text);
-        nDadi[1]= setNumeroDadi(nD6Text);
-        nDadi[2]= setNumeroDadi(nD8Text);
-        nDadi[3]= setNumeroDadi(nD10Text);
-        nDadi[4]= setNumeroDadi(nD12Text);
-        nDadi[5]= setNumeroDadi(nD20Text);
-        nDadi[6]= setNumeroDadi(nD100Text);
+        nDadi[0] = setNumeroDadi(nD4Text);
+        nDadi[1] = setNumeroDadi(nD6Text);
+        nDadi[2] = setNumeroDadi(nD8Text);
+        nDadi[3] = setNumeroDadi(nD10Text);
+        nDadi[4] = setNumeroDadi(nD12Text);
+        nDadi[5] = setNumeroDadi(nD20Text);
+        nDadi[6] = setNumeroDadi(nD100Text);
 
-        return  nDadi;
+        return nDadi;
     }
 
-    public void svuotaIDadi(int[] mieiDadi){
-        nD4Text.setText(""+mieiDadi[0]);
-        nD6Text.setText(""+mieiDadi[1]);
-        nD8Text.setText(""+mieiDadi[2]);
-        nD10Text.setText(""+mieiDadi[3]);
-        nD12Text.setText(""+mieiDadi[4]);
-        nD20Text.setText(""+mieiDadi[5]);
-        nD100Text.setText(""+mieiDadi[6]);
+    public void svuotaIDadi(int[] mieiDadi) {
+        nD4Text.setText("" + mieiDadi[0]);
+        nD6Text.setText("" + mieiDadi[1]);
+        nD8Text.setText("" + mieiDadi[2]);
+        nD10Text.setText("" + mieiDadi[3]);
+        nD12Text.setText("" + mieiDadi[4]);
+        nD20Text.setText("" + mieiDadi[5]);
+        nD100Text.setText("" + mieiDadi[6]);
     }
 }

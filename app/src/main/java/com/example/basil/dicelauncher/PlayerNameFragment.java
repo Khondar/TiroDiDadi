@@ -42,7 +42,7 @@ public class PlayerNameFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         Typeface type = Typeface.createFromAsset(getActivity().getAssets(),"fonts/PrinceValiant.ttf");
@@ -63,15 +63,15 @@ public class PlayerNameFragment extends Fragment {
                     name = insertName.getEditableText().toString();
                 }
 
-                Intent insertName = new Intent(getActivity().getBaseContext(), MainActivity.class);
-                insertName.putExtra("name", name);
-                getActivity().startActivity(insertName);
+                //Intent insertName = new Intent(getActivity().getBaseContext(), MainActivity.class);
+                //insertName.putExtra("name", name);
+                //getActivity().startActivity(insertName);
 
-                String tag = NAME;
                 Intent intent = new Intent();
                 intent.setAction(DiceAndRollBroadcast.Action.ACTION_ROLL_DICE);
-                intent.putExtra(DiceAndRollBroadcast.Extras.BUTTOM_TAG, tag);
+                intent.putExtra(DiceAndRollBroadcast.Extras.BUTTOM_TAG, name);
                 LocalBroadcastManager.getInstance(getView().getContext()).sendBroadcast(intent);
+                getActivity().getFragmentManager().beginTransaction().remove(PlayerNameFragment.this).commit();
 
             }
         });

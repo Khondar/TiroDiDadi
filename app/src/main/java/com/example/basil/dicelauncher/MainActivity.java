@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     SelezioneDatiFragment dadi;
     MenuFragment menu;
+    PlayerNameFragment nomeFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +51,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         IntentFilter filter = new IntentFilter();
         filter.addAction(DiceAndRollBroadcast.Action.ACTION_ROLL_DICE);
+
         LocalBroadcastManager.getInstance(this).registerReceiver(broadcast, filter);
+
         startService((new Intent(this, ShakeAndRollService.class)).setAction(ShakeAndRollService.NULLA));
         super.onStart();
     }
@@ -83,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case MenuFragment.SAVE:
                     action = SelezioneDatiFragment.SAVE;
+                    nomeFragment = new PlayerNameFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentMenu, nomeFragment, "nomeEditor").addToBackStack(null).commit();
                     serviceIntent.setAction(ShakeAndRollService.SAVE);
                     break;
                 case MenuFragment.LOAD:
@@ -97,15 +103,17 @@ public class MainActivity extends AppCompatActivity {
                     action = SelezioneDatiFragment.NULLA;
                     serviceIntent.setAction(ShakeAndRollService.NATURAL20);
                     break;
-                case PlayerNameFragment.NAME:
+                default:
                     action = SelezioneDatiFragment.NAME;
                     serviceIntent.setAction(ShakeAndRollService.NOME);
+                    message = tag;
+
                     break;
             }
             getBaseContext().startService(serviceIntent);
+
             SelezioneDatiFragment selezioneDatiFragment = (SelezioneDatiFragment) getSupportFragmentManager().findFragmentByTag("dadi");
             selezioneDatiFragment.diceAndRoll(action, message);
-
 
         }
     };

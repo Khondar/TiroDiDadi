@@ -3,6 +3,7 @@ package com.example.basil.dicelauncher;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.widget.RecyclerView;
 
 /**
  * Created by basil on 08/06/2016.
@@ -25,6 +26,7 @@ public class DiceAndRollBroadcast extends BroadcastReceiver {
             String tag = intent.getStringExtra(Extras.BUTTOM_TAG);
             diceAndRoll(tag);
         }
+
     }
 
 
