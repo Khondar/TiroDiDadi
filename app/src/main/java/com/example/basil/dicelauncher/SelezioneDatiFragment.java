@@ -41,6 +41,7 @@ public class SelezioneDatiFragment extends Fragment {
     public static final String NATURAL20 = "natural20";
     public static final String FILESALVATAGGIO = "salvataggio";
     public static final String NAME = "name";
+    public static final String TAG = "SelezioneDatiFragment";
 
     Context context;
 
@@ -84,6 +85,7 @@ public class SelezioneDatiFragment extends Fragment {
     Sacchetta miaSacchetta = new Sacchetta();
 
     RisultatiLancio lancioD20;
+    int[] risultatiDelD20;
 
 
 
@@ -356,7 +358,7 @@ public class SelezioneDatiFragment extends Fragment {
             risultatod12.setText(savedInstanceState.getString("risultatod12"));
           //  risultatod20.setText(savedInstanceState.getString("risultatod20"));
             try {
-                int[] risultatiDelD20 = savedInstanceState.getIntArray("risultati del 20");
+                risultatiDelD20 = savedInstanceState.getIntArray("risultati del 20");
                 for (int j = 0; j < risultatiDelD20.length; j++) {
                     if(risultatiDelD20[j] == 20){
                         String first = "<font color='#be1e09'> [20] </font>";
@@ -364,9 +366,9 @@ public class SelezioneDatiFragment extends Fragment {
                     }else{
                         risultatod20.append(" [" + Integer.toString(risultatiDelD20[j]) + "] ");
                     }
-
                 }
-
+                lancioD20 = new RisultatiLancio(risultatiDelD20.length);
+                lancioD20.setElencoLanci(risultatiDelD20);
             }catch (Exception e){ }
 
             risultatod100.setText(savedInstanceState.getString("risultatod100"));
@@ -397,6 +399,7 @@ public class SelezioneDatiFragment extends Fragment {
     public void onSaveInstanceState(Bundle outState){
         super.onSaveInstanceState(outState);
         //salva il fragment
+        Log.d(TAG, "onSaveInstanceState: ");
         outState.putString("risultatod4",risultatod4.getText().toString());
         outState.putString("risultatod6",risultatod6.getText().toString());
         outState.putString("risultatod8",risultatod8.getText().toString());

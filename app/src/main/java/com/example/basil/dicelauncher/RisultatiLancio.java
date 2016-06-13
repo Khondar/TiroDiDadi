@@ -27,4 +27,9 @@ public class RisultatiLancio {
         }
         return sommaLanci;
     }
+
+    public void setElencoLanci(int[] elencoLanci) {
+        this.elencoLanci = elencoLanci;
+    }
+
 }

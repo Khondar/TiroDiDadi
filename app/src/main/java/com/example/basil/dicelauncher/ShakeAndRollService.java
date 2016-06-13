@@ -34,13 +34,13 @@ public class ShakeAndRollService extends Service {
     public void onCreate() {
         super.onCreate();
         mPlayerRoll = new MediaPlayer();
-        mPlayerRoll = MediaPlayer.create(this, R.raw.shakeandrolldice);
+
         mPlayerNatural = new MediaPlayer();
-        mPlayerNatural = MediaPlayer.create(this, R.raw.colpito);
+
         mPlayerLoad = new MediaPlayer();
-        mPlayerLoad = MediaPlayer.create(this, R.raw.magicload);
+
         mPlayerSave = new MediaPlayer();
-        mPlayerSave = MediaPlayer.create(this, R.raw.magicsave);
+
         Context context = ShakeAndRollService.this.getApplicationContext();
     }
 
@@ -51,15 +51,23 @@ public class ShakeAndRollService extends Service {
 
         switch (azione) {
             case ROLL:
+                mPlayerRoll.reset();
+                mPlayerRoll = MediaPlayer.create(this, R.raw.shakeandrolldice);
                 mPlayerRoll.start();
                 break;
             case SAVE:
+                mPlayerSave.reset();
+                mPlayerSave = MediaPlayer.create(this, R.raw.magicsave);
                 mPlayerSave.start();
                 break;
             case LOAD:
+                mPlayerLoad.reset();
+                mPlayerLoad = MediaPlayer.create(this, R.raw.magicload);
                 mPlayerLoad.start();
                 break;
             case NATURAL20:
+                mPlayerNatural.reset();
+                mPlayerNatural = MediaPlayer.create(this, R.raw.colpito);
                 mPlayerNatural.start();
                 break;
             default:
