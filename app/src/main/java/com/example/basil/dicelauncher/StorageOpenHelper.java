@@ -75,6 +75,8 @@ public class StorageOpenHelper extends OrmLiteSqliteOpenHelper {
         }
     }
 
+    //Questo è un commento
+
 
     public RuntimeExceptionDao<Sacchetta, Integer> getSacchettaDaoDao() {
         if (simpleRuntimeDao == null) {
