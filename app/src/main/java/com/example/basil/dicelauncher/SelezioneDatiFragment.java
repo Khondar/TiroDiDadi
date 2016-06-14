@@ -22,66 +22,41 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.j256.ormlite.android.apptools.OpenHelperManager;
+import com.j256.ormlite.dao.Dao;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SelezioneDatiFragment extends Fragment {
 
-    public static final String ROLL = "com.SelezioneDatiFragment.roll";
-    public static final String SAVE = "com.SelezioneDatiFragment.save";
-    public static final String LOAD = "com.SelezioneDatiFragment.load";
+    private StorageOpenHelper databaseHelper = null;
     public static final String SOUND = "com.SelezioneDatiFragment.sound";
-    public static final String NULLA = "com.SelezioneDatiFragment.nulla";
     public static final String NATURAL20 = "com.SelezioneDatiFragment.natural20";
     public static final String FILESALVATAGGIO = "com.SelezioneDatiFragment.salvataggio";
-    public static final String NAME = "com.SelezioneDatiFragment.name";
-    public static final String TAG = "com.SelezioneDatiFragment.SelezioneDatiFragment";
     public static final String FAIL = "com.SelezioneDatiFragment.fail";
 
     Context context;
     DiceStorage magazzino;
 
-    EditText nD4Text;
-    EditText nD6Text;
-    EditText nD8Text;
-    EditText nD10Text;
-    EditText nD12Text;
-    EditText nD20Text;
-    EditText nD100Text;
+    EditText nD4Text, nD6Text, nD8Text, nD10Text, nD12Text, nD20Text, nD100Text;
 
-    TextView risultatod4;
-    TextView totaled4;
-    TextView risultatod6;
-    TextView totaled6;
-    TextView risultatod8;
-    TextView totaled8;
-    TextView risultatod10;
-    TextView totaled10;
-    TextView risultatod12;
-    TextView totaled12;
-    TextView risultatod20;
-    TextView totaled20;
-    TextView risultatod100;
-    TextView totaled100;
-    TextView risultato;
-    TextView risultatoTot;
+    TextView risultatod4, risultatod6, risultatod8, risultatod10, risultatod12, risultatod20, risultatod100;
+    TextView totaled4, totaled6, totaled8, totaled10, totaled12, totaled20, totaled100;
+    TextView risultato, risultatoTot;
 
-    TextView risulNumd4;
-    TextView risulNumd6;
-    TextView risulNumd8;
-    TextView risulNumd10;
-    TextView risulNumd12;
-    TextView risulNumd20;
-    TextView risulNumd100;
+    TextView risulNumd4, risulNumd6, risulNumd8, risulNumd10, risulNumd12, risulNumd20, risulNumd100;
 
     Button resetBotton;
     Dice dado = new Dice();
 
     int[] setDadiSalvato = new int[7];
-    Sacchetta miaSacchetta = new Sacchetta();
+    final Sacchetta miaSacchetta = new Sacchetta();
 
     RisultatiLancio lancioD20;
     int[] risultatiDelD20;
@@ -431,7 +406,17 @@ public class SelezioneDatiFragment extends Fragment {
 
     }
 
-    public void rollDice(){
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        if (databaseHelper != null) {
+            OpenHelperManager.releaseHelper();
+            databaseHelper = null;
+        }
+    }
+
+    public void rollDice() {
         risultatod4.setText("");
         totaled4.setText("");
         risultatod6.setText("");
@@ -496,34 +481,13 @@ public class SelezioneDatiFragment extends Fragment {
         stampaTotale(risulNumd4, risulNumd6, risulNumd8, risulNumd10, risulNumd12, risulNumd20, risulNumd100, risultatoTot, risultato);
     }
 
-    public void saveDice(){
+    public void saveDice() {
         setDadiSalvato = recuperaIDadi();
         miaSacchetta.riempiLaSacchetta(setDadiSalvato);
-        FileOutputStream fOut = null;
-        ObjectOutputStream os = null;
-        boolean keep = true;
-
-             /*   try {
-                    fOut = context.openFileOutput(FILESALVATAGGIO, Context.MODE_PRIVATE);
-                    os = new ObjectOutputStream(fOut);
-                    os.writeObject(this.miaSacchetta);
-                    Toast.makeText(context, "file salvato", Toast.LENGTH_SHORT).show();
-                } catch (Exception e) {
-                    keep = false;
-                    Toast.makeText(context, "file non salvato", Toast.LENGTH_SHORT).show();
-                    e.printStackTrace();
-                } finally {
-                    try {
-                        if (os != null) os.close();
-                        if (fOut != null) fOut.close();
-                    } catch (Exception e) {
-
-                    }
-                }*/
     }
 
-    public void loadDice(String values){
-        try {
+    public void loadDice(String values) {
+        /*try {
             FileInputStream fis = context.openFileInput(FILESALVATAGGIO);
             ObjectInputStream is = new ObjectInputStream(fis);
             magazzino = (DiceStorage) is.readObject();
@@ -543,51 +507,21 @@ public class SelezioneDatiFragment extends Fragment {
 
             Toast.makeText(context, "file non caricato, Classe non trovata", Toast.LENGTH_SHORT).show();
 
-        }
+        }*/
     }
 
-    public void insertName(String name){
+    public void insertName(String name) {
         Toast.makeText(context, "Hai inserito il nome " + name, Toast.LENGTH_SHORT).show();
-        try{
-            FileInputStream fis = context.openFileInput(FILESALVATAGGIO);
-            ObjectInputStream is = new ObjectInputStream(fis);
-            magazzino = (DiceStorage) is.readObject();
-            is.close();
-            fis.close();
-            Toast.makeText(context,"file caricato",Toast.LENGTH_SHORT).show();
-        }
-        catch (java.io.FileNotFoundException e){
-            magazzino = new DiceStorage();
-            Toast.makeText(context,"file creato",Toast.LENGTH_SHORT).show();
-        }
-        catch (java.io.IOException e){
-            Toast.makeText(context,"file non caricato, IOException",Toast.LENGTH_SHORT).show();
-        }
-        catch (java.lang.ClassNotFoundException e){
-            Toast.makeText(context,"file non caricato, Classe non trovata",Toast.LENGTH_SHORT).show();
-        }
 
         setDadiSalvato = recuperaIDadi();
-        miaSacchetta.riempiLaSacchetta(setDadiSalvato);
+        miaSacchetta.setSetDiDadi(riempiLaSacchetta(setDadiSalvato));
         miaSacchetta.setNomeProprietario(name);
-        magazzino.stipaLaSacchetta(miaSacchetta);
-        FileOutputStream fOS = null;
-        ObjectOutputStream oOS = null;
 
         try {
-            fOS = context.openFileOutput(FILESALVATAGGIO, Context.MODE_PRIVATE);
-            oOS = new ObjectOutputStream(fOS);
-            oOS.writeObject(this.magazzino);
-            Toast.makeText(context, "file salvato", Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
-            Toast.makeText(context, "file non salvato", Toast.LENGTH_SHORT).show();
+            final Dao<Sacchetta, Integer> sacchettaDao = getHelper().getSacchettaDao();
+            sacchettaDao.create(miaSacchetta);
+        } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            try {
-                if (oOS != null) oOS.close();
-                if (fOS != null) fOS.close();
-            } catch (Exception e) {
-            }
         }
     }
 
@@ -664,11 +598,10 @@ public class SelezioneDatiFragment extends Fragment {
                 counter++;
                 String first = "<font color='#be1e09'> [20] </font>";
                 textView.append(Html.fromHtml(first));
-            } else if(args[j]==1){
+            } else if (args[j] == 1) {
                 fail++;
                 textView.append(" [" + Integer.toString(args[j]) + "] ");
-            }
-            else {
+            } else {
                 textView.append(" [" + Integer.toString(args[j]) + "] ");
             }
 
@@ -678,7 +611,7 @@ public class SelezioneDatiFragment extends Fragment {
             invioTag(tag);
         }
 
-        if (fail>0){
+        if (fail > 0) {
             String tag = FAIL;
             invioTag(tag);
         }
@@ -709,4 +642,55 @@ public class SelezioneDatiFragment extends Fragment {
         nD20Text.setText("" + mieiDadi[5]);
         nD100Text.setText("" + mieiDadi[6]);
     }
+
+    private StorageOpenHelper getHelper() {
+        if (databaseHelper == null) {
+            databaseHelper = OpenHelperManager.getHelper(context, StorageOpenHelper.class);
+        }
+        return databaseHelper;
+    }
+
+    private List<Dice> riempiLaSacchetta (int[] setDadi){
+        List<Dice> setDiDadi = new ArrayList<>();
+        for(int j = 0; j < 7; j++){
+            for(int i=0; i<setDadi[j];i++){
+                Dice dice = new Dice();
+                int facce;
+                switch (j) {
+                    case 0:
+                        facce = 4;
+                        break;
+                    case 1:
+                        facce = 6;
+                        break;
+                    case 2:
+                        facce = 8;
+                        break;
+                    case 3:
+                        facce = 10;
+                        break;
+                    case 4:
+                        facce = 12;
+                        break;
+                    case 5:
+                        facce = 20;
+                        break;
+                    case 6:
+                        facce = 100;
+                        break;
+                    default:
+                        facce=0;
+                        break;
+                }
+                dice.setFacce(facce);
+                try{
+                    final Dao<Dice, Integer> diceDao = getHelper().getDiceDao();
+                    diceDao.create(dice);
+                }catch (SQLException e){ }
+                setDiDadi.add(dice);
+            }
+        }
+        return setDiDadi;
+    }
+
 }

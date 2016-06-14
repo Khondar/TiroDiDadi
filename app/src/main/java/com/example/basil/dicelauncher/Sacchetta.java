@@ -120,6 +120,10 @@ public class Sacchetta implements Serializable {
     public int getCounter() {
         return counter;
     }
+
+    public void setSetDiDadi(List<Dice> setDiDadi) {
+        this.setDiDadi = setDiDadi;
+    }
 }
 
 

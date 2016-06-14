@@ -21,10 +21,11 @@ public class StorageOpenHelper extends OrmLiteSqliteOpenHelper {
     private static final String DATABASE_NAME = "magazzinoDadi.db";
     private static final int DATABASE_VERSION = 1;
 
-    private Dao<Sacchetta, Integer> sacchettaDao;
-    private Dao<Dice, Integer> diceDao;
+    private Dao<Sacchetta, Integer> sacchettaDao = null;
+    private Dao<Dice, Integer> diceDao = null;
 
-    //private RuntimeExceptionDao<Sacchetta, Integer> simpleRuntimeDao = null;
+    private RuntimeExceptionDao<Sacchetta, Integer> sacchettaRuntimeDao = null;
+    private RuntimeExceptionDao<Dice, Integer> diceRuntimeDao = null;
 
 
     public StorageOpenHelper(Context context) {
@@ -42,7 +43,7 @@ public class StorageOpenHelper extends OrmLiteSqliteOpenHelper {
         }
         catch (java.sql.SQLException e) {
             Log.e(StorageOpenHelper.class.getName(), "Unable to create datbases", e);
-           // throw new RuntimeException(e);
+            throw new RuntimeException(e);
         }
 
         //RuntimeExceptionDao<Sacchetta, Integer> dao = getSacchettaDao();
@@ -62,7 +63,7 @@ public class StorageOpenHelper extends OrmLiteSqliteOpenHelper {
         }
         catch (java.sql.SQLException e) {
             Log.e(StorageOpenHelper.class.getName(), "Can't drop databases", e);
-            //throw new RuntimeException(e);
+            throw new RuntimeException(e);
         }
     }
 
@@ -81,12 +82,28 @@ public class StorageOpenHelper extends OrmLiteSqliteOpenHelper {
     }
 
 
-    /*public RuntimeExceptionDao<Sacchetta, Integer> getSacchettaDaoDao() {
-        if (simpleRuntimeDao == null) {
-            simpleRuntimeDao = getRuntimeExceptionDao(Sacchetta.class);
+    public RuntimeExceptionDao<Sacchetta, Integer> getSacchettaRuntimeDao() {
+        if (sacchettaRuntimeDao == null) {
+            sacchettaRuntimeDao = getRuntimeExceptionDao(Sacchetta.class);
         }
-        return simpleRuntimeDao;
-    }*/
+        return sacchettaRuntimeDao;
+    }
+
+    public RuntimeExceptionDao<Dice, Integer> getDiceRuntimeDao() {
+        if (diceRuntimeDao == null) {
+            diceRuntimeDao = getRuntimeExceptionDao(Dice.class);
+        }
+        return diceRuntimeDao;
+    }
+
+    @Override
+    public void close(){
+        super.close();
+        sacchettaDao = null;
+        diceDao = null;
+        sacchettaRuntimeDao = null;
+        diceRuntimeDao = null;
+    }
 
 }
 

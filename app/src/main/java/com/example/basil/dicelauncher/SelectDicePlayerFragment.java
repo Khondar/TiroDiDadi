@@ -22,6 +22,7 @@ import java.util.List;
  */
 public class SelectDicePlayerFragment extends Fragment {
 
+    private StorageOpenHelper databaseHelper = null;
     private List<Sacchetta> sacchettaList = new ArrayList<>();
     private RecyclerView recyclerView;
     private SacchettaAdatper mAdapter;

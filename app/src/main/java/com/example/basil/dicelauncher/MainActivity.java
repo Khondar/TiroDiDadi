@@ -135,8 +135,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private SelezioneDatiFragment comandaIDadi(){
-        SelezioneDatiFragment selezioneDatiFragment = (SelezioneDatiFragment) getSupportFragmentManager().findFragmentByTag("dadi");
-        return selezioneDatiFragment;
+        return (SelezioneDatiFragment) getSupportFragmentManager().findFragmentByTag("dadi");
     }
 
     private void comandaIlService(Intent intent){
