@@ -52,11 +52,6 @@ public class MainActivity extends AppCompatActivity {
 
         LocalBroadcastManager.getInstance(this).registerReceiver(broadcast, filter);
 
-//        IntentFilter filter2 = new IntentFilter();
-//        filter2.addAction(PlayerSetBroadcast.Action.ACTION_PLAYER);
-//
-//        LocalBroadcastManager.getInstance(this).registerReceiver(playerBroadcast, filter2);
-
         startService((new Intent(this, ShakeAndRollService.class)).setAction(ShakeAndRollService.NULLA));
         super.onStart();
     }
@@ -65,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(broadcast);
-        //LocalBroadcastManager.getInstance(this).unregisterReceiver(playerBroadcast);
         stopService(new Intent(getBaseContext(), ShakeAndRollService.class));
         super.onStop();
     }
@@ -86,13 +80,11 @@ public class MainActivity extends AppCompatActivity {
             String id = message;
             switch (tag) {
                 case MenuFragment.ROLL:
-                    action = SelezioneDatiFragment.ROLL;
                     serviceIntent.setAction(ShakeAndRollService.ROLL);
                     comandaIlService(serviceIntent);
                     comandaIDadi().rollDice();
                     break;
                 case MenuFragment.SAVE:
-                    action = SelezioneDatiFragment.SAVE;
                     nomeFragment = new PlayerNameFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentMenu, nomeFragment, "nomeEditor").addToBackStack(null).commit();
                     serviceIntent.setAction(ShakeAndRollService.SAVE);
@@ -100,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
                     comandaIDadi().saveDice();
                     break;
                 case MenuFragment.LOAD:
-                    action = SelezioneDatiFragment.LOAD;
                     serviceIntent.setAction(ShakeAndRollService.LOAD);
                     comandaIlService(serviceIntent);
                     sceltaPlayer = new SelectDicePlayerFragment();
@@ -110,32 +101,34 @@ public class MainActivity extends AppCompatActivity {
 
 
                 case SelezioneDatiFragment.SOUND:
-                    action = SelezioneDatiFragment.NULLA;
                     serviceIntent.setAction(ShakeAndRollService.ROLL);
                     comandaIlService(serviceIntent);
                     break;
                 case SelezioneDatiFragment.NATURAL20:
-                    action = SelezioneDatiFragment.NULLA;
                     serviceIntent.setAction(ShakeAndRollService.NATURAL20);
                     comandaIlService(serviceIntent);
                     break;
-
+                case SelezioneDatiFragment.FAIL:
+                    serviceIntent.setAction(ShakeAndRollService.FAIL);
+                    comandaIlService(serviceIntent);
+                    break;
 
                 case PlayerNameFragment.NAME:
-                    action = SelezioneDatiFragment.NAME;
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentMenu, menu, "menu").addToBackStack(null).commit();
                     comandaIDadi().insertName(id);
                     break;
 
 
                 case SacchettaAdatper.LOAD:
-                    action = SelectDicePlayerFragment.LOAD;
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentDadi, dadi, "dadi").addToBackStack(null).commit();
                     break;
                 case SacchettaAdatper.DELETE:
                     action = SelectDicePlayerFragment.DELETE;
                     SelectDicePlayerFragment selezionaPersonaggi = (SelectDicePlayerFragment) getSupportFragmentManager().findFragmentByTag("sceltaPlayer");
                     selezionaPersonaggi.cancellaCarica(action, message);
+                    break;
+
+                default:
                     break;
             }
         }

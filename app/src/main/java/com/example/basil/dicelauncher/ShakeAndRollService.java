@@ -17,6 +17,7 @@ public class ShakeAndRollService extends Service {
     private MediaPlayer mPlayerNatural;
     private MediaPlayer mPlayerLoad;
     private MediaPlayer mPlayerSave;
+    private MediaPlayer mPlayerFail;
 
     public static final String ROLL = "com.ShakeAndRollService.roll";
     public static final String NULLA = "com.ShakeAndRollService.nulla";
@@ -24,6 +25,7 @@ public class ShakeAndRollService extends Service {
     public static final String LOAD = "com.ShakeAndRollService.load";
     public static final String NATURAL20 = "com.ShakeAndRollService.natural20";
     public static final String NOME = "com.ShakeAndRollService.nome";
+    public static final String FAIL = "com.ShakeAndRollService.fail";
 
     @Nullable
     @Override
@@ -40,6 +42,8 @@ public class ShakeAndRollService extends Service {
         mPlayerLoad = new MediaPlayer();
 
         mPlayerSave = new MediaPlayer();
+
+        mPlayerFail = new MediaPlayer();
 
         Context context = ShakeAndRollService.this.getApplicationContext();
     }
@@ -70,6 +74,10 @@ public class ShakeAndRollService extends Service {
                 mPlayerNatural = MediaPlayer.create(this, R.raw.colpito);
                 mPlayerNatural.start();
                 break;
+            case FAIL:
+                mPlayerFail.reset();
+                mPlayerFail = MediaPlayer.create(this, R.raw.fail);
+                mPlayerFail.start();
             default:
                 break;
         }

@@ -39,6 +39,7 @@ public class SelezioneDatiFragment extends Fragment {
     public static final String FILESALVATAGGIO = "com.SelezioneDatiFragment.salvataggio";
     public static final String NAME = "com.SelezioneDatiFragment.name";
     public static final String TAG = "com.SelezioneDatiFragment.SelezioneDatiFragment";
+    public static final String FAIL = "com.SelezioneDatiFragment.fail";
 
     Context context;
     DiceStorage magazzino;
@@ -657,18 +658,28 @@ public class SelezioneDatiFragment extends Fragment {
         int i = lancio.getSommaLanci();
         int[] args = lancio.getElencoLanci();
         int counter = 0;
+        int fail = 0;
         for (int j = 0; j < args.length; j++) {
             if (args[j] == 20) {
                 counter++;
                 String first = "<font color='#be1e09'> [20] </font>";
                 textView.append(Html.fromHtml(first));
-            } else {
+            } else if(args[j]==1){
+                fail++;
+                textView.append(" [" + Integer.toString(args[j]) + "] ");
+            }
+            else {
                 textView.append(" [" + Integer.toString(args[j]) + "] ");
             }
 
         }
         if (counter > 0) {
             String tag = NATURAL20;
+            invioTag(tag);
+        }
+
+        if (fail>0){
+            String tag = FAIL;
             invioTag(tag);
         }
         textView2.setText("Totale:");

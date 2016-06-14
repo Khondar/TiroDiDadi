@@ -21,8 +21,10 @@ public class StorageOpenHelper extends OrmLiteSqliteOpenHelper {
     private static final String DATABASE_NAME = "magazzinoDadi.db";
     private static final int DATABASE_VERSION = 1;
 
-    private Dao<Sacchetta, Integer> sacchettaDao = null;
-    private RuntimeExceptionDao<Sacchetta, Integer> simpleRuntimeDao = null;
+    private Dao<Sacchetta, Integer> sacchettaDao;
+    private Dao<Dice, Integer> diceDao;
+
+    //private RuntimeExceptionDao<Sacchetta, Integer> simpleRuntimeDao = null;
 
 
     public StorageOpenHelper(Context context) {
@@ -34,56 +36,57 @@ public class StorageOpenHelper extends OrmLiteSqliteOpenHelper {
 
         try {
 
-            // Create tables. This onCreate() method will be invoked only once of the application life time i.e. the first time when the application starts.
             TableUtils.createTable(connectionSource, Sacchetta.class);
+            TableUtils.createTable(connectionSource, Dice.class);
 
         }
         catch (java.sql.SQLException e) {
             Log.e(StorageOpenHelper.class.getName(), "Unable to create datbases", e);
-            throw new RuntimeException(e);
+           // throw new RuntimeException(e);
         }
 
-        RuntimeExceptionDao<Sacchetta, Integer> dao = getSacchettaDao();
-        Sacchetta miaSacchetta = new Sacchetta();
-        dao.create(miaSacchetta);
-
-      /*  // here we try inserting data in the on-create as a test
-        RuntimeExceptionDao<SimpleData, Integer> dao = getSimpleDataDao();
-        long millis = System.currentTimeMillis();
-        // create some entries in the onCreate
-        SimpleData simple = new SimpleData(millis);
-        dao.create(simple);
-        simple = new SimpleData(millis + 1);
-        dao.create(simple);
-        Log.i(DatabaseHelper.class.getName(), "created new entries in onCreate: " + millis);
-        */
+        //RuntimeExceptionDao<Sacchetta, Integer> dao = getSacchettaDao();
+        //Sacchetta miaSacchetta = new Sacchetta();
+        //dao.create(miaSacchetta);
 
     }
-
 
     @Override
     public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource, int oldVersion, int newVersion) {
         try {
             Log.i(StorageOpenHelper.class.getName(), "onUpgrade");
             TableUtils.dropTable(connectionSource, Sacchetta.class, true);
-            // after we drop the old databases, we create the new ones
+            TableUtils.dropTable(connectionSource, Dice.class, true);
+
             onCreate(db, connectionSource);
         }
         catch (java.sql.SQLException e) {
             Log.e(StorageOpenHelper.class.getName(), "Can't drop databases", e);
-            throw new RuntimeException(e);
+            //throw new RuntimeException(e);
         }
     }
 
-    //Questo è un commento
+    public Dao<Sacchetta, Integer> getSacchettaDao() throws java.sql.SQLException {
+        if (sacchettaDao == null) {
+            sacchettaDao = getDao(Sacchetta.class);
+        }
+        return sacchettaDao;
+    }
+
+    public Dao<Dice, Integer> getDiceDao() throws java.sql.SQLException {
+        if (diceDao == null) {
+            diceDao = getDao(Dice.class);
+        }
+        return diceDao;
+    }
 
 
-    public RuntimeExceptionDao<Sacchetta, Integer> getSacchettaDaoDao() {
+    /*public RuntimeExceptionDao<Sacchetta, Integer> getSacchettaDaoDao() {
         if (simpleRuntimeDao == null) {
             simpleRuntimeDao = getRuntimeExceptionDao(Sacchetta.class);
         }
         return simpleRuntimeDao;
-    }
+    }*/
 
 }
 

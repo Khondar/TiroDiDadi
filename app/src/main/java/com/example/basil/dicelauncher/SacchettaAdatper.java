@@ -45,12 +45,7 @@ public class SacchettaAdatper extends RecyclerView.Adapter<SacchettaAdatper.MyVi
 
                     String tag = LOAD;
                     String number = Integer.toString(getLayoutPosition());
-                    Intent intent = new Intent();
-                    intent.setAction(PlayerSetBroadcast.Action.ACTION_PLAYER);
-                    intent.putExtra(PlayerSetBroadcast.Extras.CARD_TAG, number);
-                    intent.putExtra(PlayerSetBroadcast.Extras.CARD_COMMAND, tag);
-                    LocalBroadcastManager.getInstance(v.getContext()).sendBroadcast(intent);
-
+                    mandaIlSegnale(v, tag,number);
                 }
             });
 
@@ -60,18 +55,20 @@ public class SacchettaAdatper extends RecyclerView.Adapter<SacchettaAdatper.MyVi
 
                     String tag = DELETE;
                     String number = Integer.toString(getLayoutPosition());
-                    Intent intent = new Intent();
-                    intent.setAction(PlayerSetBroadcast.Action.ACTION_PLAYER);
-                    intent.putExtra(PlayerSetBroadcast.Extras.CARD_TAG, number);
-                    intent.putExtra(PlayerSetBroadcast.Extras.CARD_COMMAND, tag);
-                    LocalBroadcastManager.getInstance(v.getContext()).sendBroadcast(intent);
-
+                    mandaIlSegnale(v, tag,number);
                 }
             });
 
         }
     }
 
+    public void mandaIlSegnale(View v, String tag, String number){
+        Intent intent = new Intent();
+        intent.setAction(DiceAndRollBroadcast.Action.ACTION_ROLL_DICE);
+        intent.putExtra(DiceAndRollBroadcast.Extras.BUTTOM_TAG, tag);
+        intent.putExtra(DiceAndRollBroadcast.Extras.MESSAGE_TAG, number);
+        LocalBroadcastManager.getInstance(v.getContext()).sendBroadcast(intent);
+    }
 
     public SacchettaAdatper(List<Sacchetta> sacchettaList) { this.sacchettaList = sacchettaList;
     }

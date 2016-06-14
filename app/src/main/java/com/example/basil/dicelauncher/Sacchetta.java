@@ -2,7 +2,10 @@ package com.example.basil.dicelauncher;
 
 import android.support.annotation.NonNull;
 
+import com.j256.ormlite.dao.ForeignCollection;
+import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 
 import java.io.Serializable;
@@ -15,14 +18,18 @@ import java.util.ListIterator;
 @DatabaseTable (tableName = "sacchette")
 public class Sacchetta implements Serializable {
 
-    @DatabaseField
-    List<Dice> setDiDadi = new ArrayList<>();
+    @ForeignCollectionField
+    ForeignCollection<Dice> setDiDadiCollection;
 
-    @DatabaseField
+    @DatabaseField (columnName = "nome_proprietario")
     String nomeProprietario;
 
-    @DatabaseField(id = true)
+    @DatabaseField(generatedId = true, columnName = "sacchetta_id")
     int counter;
+
+    List<Dice> setDiDadi = new ArrayList<>(setDiDadiCollection);
+
+    Sacchetta (){}
 
     public void riempiLaSacchetta (int[] setDadi){
 

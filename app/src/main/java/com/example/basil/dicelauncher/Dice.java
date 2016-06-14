@@ -25,6 +25,8 @@ public class Dice implements IRollable, Serializable {
         return (int)( Math.random()*nFacce )+ 1;
     }
 
+    Dice (){}
+
     public int rollable(Context context){
         if (facce != 0){
             return (int)( Math.random()*facce )+ 1;
