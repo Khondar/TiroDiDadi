@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 @DatabaseTable (tableName = "sacchette")
-public class Sacchetta {
+public class Sacchetta implements Serializable{
 
     @ForeignCollectionField
     ForeignCollection<Dice> setDiDadiCollection = new ForeignCollection<Dice>() {

@@ -8,7 +8,9 @@ import android.util.Log;
 
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
+import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.DatabaseTable;
 import com.j256.ormlite.table.TableUtils;
@@ -21,12 +23,12 @@ public class StorageOpenHelper extends OrmLiteSqliteOpenHelper {
     private static final String DATABASE_NAME = "magazzinoDadi.db";
     private static final int DATABASE_VERSION = 1;
 
-    private Dao<Sacchetta, Integer> sacchettaDao = null;
-    private Dao<Dice, Integer> diceDao = null;
+    private Dao<Sacchetta, Integer> sacchettaDao;
+    private Dao<Dice, Integer> diceDao;
+    private ConnectionSource connectionSource;
 
     private RuntimeExceptionDao<Sacchetta, Integer> sacchettaRuntimeDao = null;
     private RuntimeExceptionDao<Dice, Integer> diceRuntimeDao = null;
-
 
     public StorageOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION, R.raw.ormlite_config);
@@ -35,15 +37,21 @@ public class StorageOpenHelper extends OrmLiteSqliteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
 
-        try {
-
-            TableUtils.createTable(connectionSource, Sacchetta.class);
-            TableUtils.createTable(connectionSource, Dice.class);
-
-        }
-        catch (java.sql.SQLException e) {
-            Log.e(StorageOpenHelper.class.getName(), "Unable to create datbases", e);
-            throw new RuntimeException(e);
+        if (connectionSource == null) {
+            try {
+                connectionSource = new JdbcConnectionSource("jdbc:h2:/data/data/com.example.helloandroidh2/databases/helloAndroidH2");
+                sacchettaDao = DaoManager.createDao(connectionSource, Sacchetta.class);
+                diceDao = DaoManager.createDao(connectionSource, Dice.class);
+            } catch (java.sql.SQLException e) {
+                throw new RuntimeException("Problems initializing database objects", e);
+            }
+            try {
+                TableUtils.createTable(connectionSource, Sacchetta.class);
+                TableUtils.createTable(connectionSource, Dice.class);
+            } catch (java.sql.SQLException e) {
+                Log.e(StorageOpenHelper.class.getName(), "Unable to create datbases", e);
+                throw new RuntimeException(e);
+            }
         }
 
         //RuntimeExceptionDao<Sacchetta, Integer> dao = getSacchettaDao();
@@ -67,7 +75,7 @@ public class StorageOpenHelper extends OrmLiteSqliteOpenHelper {
         }
     }
 
-    public Dao<Sacchetta, Integer> getSacchettaDao() throws java.sql.SQLException {
+   /* public Dao<Sacchetta, Integer> getSacchettaDao() throws java.sql.SQLException {
         if (sacchettaDao == null) {
             sacchettaDao = getDao(Sacchetta.class);
         }
@@ -79,7 +87,7 @@ public class StorageOpenHelper extends OrmLiteSqliteOpenHelper {
             diceDao = getDao(Dice.class);
         }
         return diceDao;
-    }
+    }*/
 
 
     public RuntimeExceptionDao<Sacchetta, Integer> getSacchettaRuntimeDao() {

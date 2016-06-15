@@ -14,7 +14,7 @@ import java.util.Random;
  */
 
 @DatabaseTable (tableName = "dadi")
-public class Dice implements IRollable {
+public class Dice implements IRollable, Serializable {
 
     @DatabaseField(id = true)
     int id;
