@@ -24,7 +24,15 @@ dataClass=com.example.basil.dicelauncher.Dice
 tableName=dadi
 # --table-fields-start--
 # --field-start--
+fieldName=id
+# --field-end--
+# --field-start--
 fieldName=facce
+# --field-end--
+# --field-start--
+fieldName=sacchetta
+columnName=sacchetta_id
+foreign=true
 # --field-end--
 # --table-fields-end--
 # --table-end--

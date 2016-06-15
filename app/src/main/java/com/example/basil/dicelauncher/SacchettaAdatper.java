@@ -92,7 +92,6 @@ public class SacchettaAdatper extends RecyclerView.Adapter<SacchettaAdatper.MyVi
         holder.resultd12.setText(Integer.toString(setDiDadi[4]));
         holder.resultd20.setText(Integer.toString(setDiDadi[5]));
         holder.resultd100.setText(Integer.toString(setDiDadi[6]));
-
     }
 
     @Override

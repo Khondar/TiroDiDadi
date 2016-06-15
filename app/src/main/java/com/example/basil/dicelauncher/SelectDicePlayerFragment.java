@@ -12,8 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.j256.ormlite.android.apptools.OpenHelperManager;
+import com.j256.ormlite.dao.Dao;
+
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,19 +27,48 @@ import java.util.List;
 public class SelectDicePlayerFragment extends Fragment {
 
     private StorageOpenHelper databaseHelper = null;
-    private List<Sacchetta> sacchettaList = new ArrayList<>();
+    private List<Sacchetta> sacchettaList;
     private RecyclerView recyclerView;
     private SacchettaAdatper mAdapter;
     Context context;
-    DiceStorage magazzino;
+    private int selectedRecordPosition = -1;
     public final static String DELETE = "com.SelectDicePlayerFragment.delete";
     public final static String LOAD = "com.SelectDicePlayerFragment.load";
 
+    private Dao<Sacchetta, Integer> sacchettaDao;
+    private Dao<Dice, Integer> diceDao;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.caricamento_recyclerview, container, false);
+
+        try {
+            // This is how, a reference of DAO object can be done
+            sacchettaDao =  getHelper().getSacchettaDao();
+            diceDao =  getHelper().getDiceDao();
+
+            // Query the database. We need all the records so, used queryForAll()
+            /*studentList = studentDao.queryForAll();
+
+            // Set the header of the ListView
+            final LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            final View rowView = inflater.inflate(R.layout.list_item, listview, false);
+            listview.addHeaderView(rowView);
+
+            //Now, link the  RecordArrayAdapter with the ListView
+            listview.setAdapter(new RecordArrayAdapter(this, R.layout.list_item, studentList, techerDao));
+
+            // Attach OnItemLongClickListener and OnItemClickListener to track user action and perform accordingly
+            listview.setOnItemLongClickListener(this);
+            listview.setOnItemClickListener(this);
+
+            // If, no record found in the database, appropriate message needs to be displayed.
+            populateNoRecordMsg();*/
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
 
@@ -55,10 +88,10 @@ public class SelectDicePlayerFragment extends Fragment {
 
     protected void prepareSacchetteData() {
 
-        try {
+        /*try {
             FileInputStream fis = context.openFileInput(SelezioneDatiFragment.FILESALVATAGGIO);
             ObjectInputStream is = new ObjectInputStream(fis);
-            magazzino = (DiceStorage) is.readObject();
+
             is.close();
             fis.close();
             Toast.makeText(context, "file caricato", Toast.LENGTH_SHORT).show();
@@ -74,7 +107,7 @@ public class SelectDicePlayerFragment extends Fragment {
 
             Toast.makeText(context, "file non caricato, Classe non trovata", Toast.LENGTH_SHORT).show();
 
-        }
+        }*/
     }
 
     public void cancellaCarica (String tag, String number){
@@ -84,7 +117,7 @@ public class SelectDicePlayerFragment extends Fragment {
 
         switch (tag){
             case LOAD:
-                  int[] args = miaSacca.svuotaLaSacchetta();
+                int[] args = miaSacca.svuotaLaSacchetta();
                 break;
             case DELETE:
                     sacchettaList.remove(id);
@@ -93,5 +126,12 @@ public class SelectDicePlayerFragment extends Fragment {
                 break;
         }
 
+    }
+
+    private StorageOpenHelper getHelper() {
+        if (databaseHelper == null) {
+            databaseHelper = OpenHelperManager.getHelper(context, StorageOpenHelper.class);
+        }
+        return databaseHelper;
     }
 }

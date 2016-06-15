@@ -38,11 +38,9 @@ public class SelezioneDatiFragment extends Fragment {
     private StorageOpenHelper databaseHelper = null;
     public static final String SOUND = "com.SelezioneDatiFragment.sound";
     public static final String NATURAL20 = "com.SelezioneDatiFragment.natural20";
-    public static final String FILESALVATAGGIO = "com.SelezioneDatiFragment.salvataggio";
     public static final String FAIL = "com.SelezioneDatiFragment.fail";
 
     Context context;
-    DiceStorage magazzino;
 
     EditText nD4Text, nD6Text, nD8Text, nD10Text, nD12Text, nD20Text, nD100Text;
 
@@ -482,44 +480,28 @@ public class SelezioneDatiFragment extends Fragment {
     }
 
     public void saveDice() {
+
         setDadiSalvato = recuperaIDadi();
+
         miaSacchetta.riempiLaSacchetta(setDadiSalvato);
     }
 
     public void loadDice(String values) {
-        /*try {
-            FileInputStream fis = context.openFileInput(FILESALVATAGGIO);
-            ObjectInputStream is = new ObjectInputStream(fis);
-            magazzino = (DiceStorage) is.readObject();
-            is.close();
-            fis.close();
-            Toast.makeText(context, "file caricato", Toast.LENGTH_SHORT).show();
-            setDadiSalvato = magazzino.getPlayers().get(Integer.parseInt(values)).svuotaLaSacchetta();
-            svuotaIDadi(setDadiSalvato);
-        } catch (java.io.FileNotFoundException e) {
-            Toast.makeText(context, "file non trovato", Toast.LENGTH_SHORT).show();
 
-        } catch (java.io.IOException e) {
-
-            Toast.makeText(context, "file non caricato, IOException", Toast.LENGTH_SHORT).show();
-
-        } catch (java.lang.ClassNotFoundException e) {
-
-            Toast.makeText(context, "file non caricato, Classe non trovata", Toast.LENGTH_SHORT).show();
-
-        }*/
     }
 
     public void insertName(String name) {
         Toast.makeText(context, "Hai inserito il nome " + name, Toast.LENGTH_SHORT).show();
 
+
         setDadiSalvato = recuperaIDadi();
-        miaSacchetta.setSetDiDadi(riempiLaSacchetta(setDadiSalvato));
+        miaSacchetta.riempiLaSacchetta(setDadiSalvato);
         miaSacchetta.setNomeProprietario(name);
 
         try {
             final Dao<Sacchetta, Integer> sacchettaDao = getHelper().getSacchettaDao();
             sacchettaDao.create(miaSacchetta);
+            Toast.makeText(context, "file salvato", Toast.LENGTH_SHORT).show();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -645,7 +627,7 @@ public class SelezioneDatiFragment extends Fragment {
 
     private StorageOpenHelper getHelper() {
         if (databaseHelper == null) {
-            databaseHelper = OpenHelperManager.getHelper(context, StorageOpenHelper.class);
+            databaseHelper = OpenHelperManager.getHelper(getContext(), StorageOpenHelper.class);
         }
         return databaseHelper;
     }

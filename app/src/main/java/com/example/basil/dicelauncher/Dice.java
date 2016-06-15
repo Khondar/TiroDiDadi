@@ -14,10 +14,16 @@ import java.util.Random;
  */
 
 @DatabaseTable (tableName = "dadi")
-public class Dice implements IRollable, Serializable {
+public class Dice implements IRollable {
 
     @DatabaseField(id = true)
+    int id;
+
+    @DatabaseField
     int facce;
+
+    @DatabaseField(foreign = true, canBeNull = false)
+    Sacchetta sacchetta;
 
     @Override
     public int rollable (int nFacce){

@@ -118,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
                     comandaIDadi().insertName(id);
                     break;
 
-
                 case SacchettaAdatper.LOAD:
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentDadi, dadi, "dadi").addToBackStack(null).commit();
                     break;
