@@ -75,7 +75,7 @@ public class StorageOpenHelper extends OrmLiteSqliteOpenHelper {
         }
     }
 
-   /* public Dao<Sacchetta, Integer> getSacchettaDao() throws java.sql.SQLException {
+   public Dao<Sacchetta, Integer> getSacchettaDao() throws java.sql.SQLException {
         if (sacchettaDao == null) {
             sacchettaDao = getDao(Sacchetta.class);
         }
@@ -87,7 +87,7 @@ public class StorageOpenHelper extends OrmLiteSqliteOpenHelper {
             diceDao = getDao(Dice.class);
         }
         return diceDao;
-    }*/
+    }
 
 
     public RuntimeExceptionDao<Sacchetta, Integer> getSacchettaRuntimeDao() {
