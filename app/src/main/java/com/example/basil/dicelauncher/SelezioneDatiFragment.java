@@ -499,7 +499,7 @@ public class SelezioneDatiFragment extends Fragment {
         miaSacchetta.setNomeProprietario(name);
 
         try {
-            final Dao<Sacchetta, Integer> sacchettaDao = getHelper().getSacchettaDao();
+            final Dao<Sacchetta, Integer> sacchettaDao = getStorageHelper().getSacchettaDao();
             sacchettaDao.create(miaSacchetta);
             Toast.makeText(context, "file salvato", Toast.LENGTH_SHORT).show();
         } catch (SQLException e) {
@@ -625,7 +625,7 @@ public class SelezioneDatiFragment extends Fragment {
         nD100Text.setText("" + mieiDadi[6]);
     }
 
-    private StorageOpenHelper getHelper() {
+    private StorageOpenHelper getStorageHelper() {
         if (databaseHelper == null) {
             databaseHelper = OpenHelperManager.getHelper(getContext(), StorageOpenHelper.class);
         }
@@ -666,7 +666,7 @@ public class SelezioneDatiFragment extends Fragment {
                 }
                 dice.setFacce(facce);
                 try{
-                    final Dao<Dice, Integer> diceDao = getHelper().getDiceDao();
+                    final Dao<Dice, Integer> diceDao = getStorageHelper().getDiceDao();
                     diceDao.create(dice);
                 }catch (SQLException e){ }
                 setDiDadi.add(dice);
