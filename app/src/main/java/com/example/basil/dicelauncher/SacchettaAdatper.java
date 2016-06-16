@@ -1,6 +1,8 @@
 package com.example.basil.dicelauncher;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.annotation.IntegerRes;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,16 +18,21 @@ public class SacchettaAdatper extends RecyclerView.Adapter<SacchettaAdatper.MyVi
 
     public static final String LOAD = "com.SacchettaAdapter.carica";
     public static final String DELETE = "com.SacchettaAdapter.cancella";
+    Context context;
 
     private List<Sacchetta> sacchettaList;
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
+
+
         public TextView name, resultd4, resultd6, resultd8, resultd10, resultd12, resultd20, resultd100, id;
         public Button load, delete;
 
         public MyViewHolder(View view) {
+
             super(view);
+
             name = (TextView) view.findViewById(R.id.name);
             resultd4 = (TextView) view.findViewById(R.id.resultCarD4);
             resultd6 = (TextView) view.findViewById(R.id.resultCarD6);
@@ -39,7 +46,21 @@ public class SacchettaAdatper extends RecyclerView.Adapter<SacchettaAdatper.MyVi
             load = (Button) view.findViewById(R.id.load);
             delete = (Button) view.findViewById(R.id.delete);
 
+            context = view.getContext();
 
+            Typeface type = Typeface.createFromAsset(context.getAssets(), "fonts/PrinceValiant.ttf");
+
+            name.setTypeface(type);
+            resultd4.setTypeface(type);
+            resultd6.setTypeface(type);
+            resultd8.setTypeface(type);
+            resultd10.setTypeface(type);
+            resultd12.setTypeface(type);
+            resultd20.setTypeface(type);
+            resultd100.setTypeface(type);
+            id.setTypeface(type);
+            load.setTypeface(type);
+            delete.setTypeface(type);
 
             load.setOnClickListener(new View.OnClickListener() {
                 @Override

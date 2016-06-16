@@ -1,6 +1,7 @@
 package com.example.basil.dicelauncher;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -25,6 +26,8 @@ public class BackFragment extends Fragment {
         v = inflater.inflate(R.layout.back_fragment, container, false);
 
         Button back = (Button) v.findViewById(R.id.back);
+        Typeface type = Typeface.createFromAsset(getActivity().getAssets(), "fonts/PrinceValiant.ttf");
+        back.setTypeface(type);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
