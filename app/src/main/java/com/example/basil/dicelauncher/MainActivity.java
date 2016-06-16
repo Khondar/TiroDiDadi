@@ -37,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
                     menu = (MenuFragment)getSupportFragmentManager().getFragment(savedInstanceState, "mContent2");
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentMenu, menu, "menu").addToBackStack(null).commit();
+                    nomeFragment = new PlayerNameFragment();
+                    sceltaPlayer = new SelectDicePlayerFragment();
+                    backFragment = new BackFragment();
                     break;
                 case 2:
                     dadi = (SelezioneDatiFragment)getSupportFragmentManager().getFragment(savedInstanceState, "mContent1");
@@ -44,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
 
                     nomeFragment = (PlayerNameFragment)getSupportFragmentManager().getFragment(savedInstanceState, "mContent3");
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentMenu, nomeFragment, "nomeEditor").addToBackStack(null).commit();
+                    menu = new MenuFragment();
+                    sceltaPlayer = new SelectDicePlayerFragment();
+                    backFragment = new BackFragment();
                     break;
                 case 3:
                     sceltaPlayer = (SelectDicePlayerFragment) getSupportFragmentManager().getFragment(savedInstanceState, "mContent4");
@@ -51,12 +57,19 @@ public class MainActivity extends AppCompatActivity {
 
                     backFragment = (BackFragment) getSupportFragmentManager().getFragment(savedInstanceState, "mContent5");
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentMenu, backFragment, "backFragment").addToBackStack(null).commit();
+                    nomeFragment = new PlayerNameFragment();
+                    dadi = new SelezioneDatiFragment();
+                    menu = new MenuFragment();
                     break;
                 default:
-                    dadi = new SelezioneDatiFragment();
-                    getSupportFragmentManager().beginTransaction().add(R.id.fragmentDadi, dadi, "dadi").addToBackStack(null).commit();
-                    menu = new MenuFragment();
-                    getSupportFragmentManager().beginTransaction().add(R.id.fragmentMenu, menu, "menu").addToBackStack(null).commit();
+                    dadi = (SelezioneDatiFragment)getSupportFragmentManager().getFragment(savedInstanceState, "mContent1");
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentDadi, dadi, "dadi").addToBackStack(null).commit();
+
+                    menu = (MenuFragment)getSupportFragmentManager().getFragment(savedInstanceState, "mContent2");
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentMenu, menu, "menu").addToBackStack(null).commit();
+                    nomeFragment = new PlayerNameFragment();
+                    sceltaPlayer = new SelectDicePlayerFragment();
+                    backFragment = new BackFragment();
                     break;
             }
         } else {
@@ -64,10 +77,11 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().add(R.id.fragmentDadi, dadi, "dadi").addToBackStack(null).commit();
             menu = new MenuFragment();
             getSupportFragmentManager().beginTransaction().add(R.id.fragmentMenu, menu, "menu").addToBackStack(null).commit();
+            nomeFragment = new PlayerNameFragment();
+            sceltaPlayer = new SelectDicePlayerFragment();
+            backFragment = new BackFragment();
         }
-        nomeFragment = new PlayerNameFragment();
-        sceltaPlayer = new SelectDicePlayerFragment();
-        backFragment = new BackFragment();
+
         getSupportActionBar().hide();
 
     }
@@ -96,12 +110,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle outState){
         super.onSaveInstanceState(outState);
 
-        getSupportFragmentManager().putFragment(outState,"mContent1", dadi);
-        getSupportFragmentManager().putFragment(outState,"mContent2", menu);
-        getSupportFragmentManager().putFragment(outState, "mContent3", nomeFragment);
-        getSupportFragmentManager().putFragment(outState, "mContent4", sceltaPlayer);
-        getSupportFragmentManager().putFragment(outState, "mContent5", backFragment);
-
+        sharP = getBaseContext().getSharedPreferences(PREFERENCE, 0);
+        variabile = sharP.getInt(SHARP, 0);
+        switch (variabile){
+            case 1:
+                getSupportFragmentManager().putFragment(outState,"mContent1", dadi);
+                getSupportFragmentManager().putFragment(outState,"mContent2", menu);
+                break;
+            case 2:
+                getSupportFragmentManager().putFragment(outState, "mContent3", nomeFragment);
+                getSupportFragmentManager().putFragment(outState,"mContent1", dadi);
+                break;
+            case 3:
+                getSupportFragmentManager().putFragment(outState, "mContent4", sceltaPlayer);
+                getSupportFragmentManager().putFragment(outState, "mContent5", backFragment);
+                break;
+            default:
+                break;
+        }
     }
 
     private DiceAndRollBroadcast broadcast = new DiceAndRollBroadcast() {
