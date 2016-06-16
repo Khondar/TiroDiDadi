@@ -304,6 +304,8 @@
             android:orientation="horizontal"
             android:layout_weight="1">
 
+            <!--Questo è un commento-->
+
             <EditText
                 android:id="@+id/editD12"
                 android:layout_width="0dp"
