@@ -53,10 +53,6 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentMenu, backFragment, "backFragment").addToBackStack(null).commit();
                     break;
                 default:
-                    dadi = new SelezioneDatiFragment();
-                    getSupportFragmentManager().beginTransaction().add(R.id.fragmentDadi, dadi, "dadi").addToBackStack(null).commit();
-                    menu = new MenuFragment();
-                    getSupportFragmentManager().beginTransaction().add(R.id.fragmentMenu, menu, "menu").addToBackStack(null).commit();
                     break;
             }
         } else {
@@ -96,12 +92,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle outState){
         super.onSaveInstanceState(outState);
 
-        getSupportFragmentManager().putFragment(outState,"mContent1", dadi);
-        getSupportFragmentManager().putFragment(outState,"mContent2", menu);
-        getSupportFragmentManager().putFragment(outState, "mContent3", nomeFragment);
-        getSupportFragmentManager().putFragment(outState, "mContent4", sceltaPlayer);
-        getSupportFragmentManager().putFragment(outState, "mContent5", backFragment);
-
+        sharP = getBaseContext().getSharedPreferences(PREFERENCE, 0);
+        variabile = sharP.getInt(SHARP, 0);
+        switch (variabile){
+            case 1:
+                getSupportFragmentManager().putFragment(outState,"mContent1", dadi);
+                getSupportFragmentManager().putFragment(outState,"mContent2", menu);
+                break;
+            case 2:
+                getSupportFragmentManager().putFragment(outState, "mContent3", nomeFragment);
+                getSupportFragmentManager().putFragment(outState,"mContent1", dadi);
+                break;
+            case 3:
+                getSupportFragmentManager().putFragment(outState, "mContent4", sceltaPlayer);
+                getSupportFragmentManager().putFragment(outState, "mContent5", backFragment);
+                break;
+            default:
+                break;
+        }
     }
 
     private DiceAndRollBroadcast broadcast = new DiceAndRollBroadcast() {
