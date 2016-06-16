@@ -503,6 +503,7 @@ public class SelezioneDatiFragment extends Fragment {
         sacchetta_ID = db.createSacchetta(miaSacchetta);
         setDiDadiCollection = riempiLaSacchetta(setDadiSalvato);
 
+        db.close();
     }
 
     public int setNumeroDadi(EditText textView) {

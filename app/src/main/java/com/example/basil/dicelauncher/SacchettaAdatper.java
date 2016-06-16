@@ -18,10 +18,10 @@ public class SacchettaAdatper extends RecyclerView.Adapter<SacchettaAdatper.MyVi
     public static final String DELETE = "com.SacchettaAdapter.cancella";
 
     private List<Sacchetta> sacchettaList;
-    int posizione;
+
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView name, resultd4, resultd6, resultd8, resultd10, resultd12, resultd20, resultd100;
+        public TextView name, resultd4, resultd6, resultd8, resultd10, resultd12, resultd20, resultd100, id;
         public Button load, delete;
 
         public MyViewHolder(View view) {
@@ -34,17 +34,19 @@ public class SacchettaAdatper extends RecyclerView.Adapter<SacchettaAdatper.MyVi
             resultd12 = (TextView) view.findViewById(R.id.resultCarD12);
             resultd20 = (TextView) view.findViewById(R.id.resultCarD20);
             resultd100 = (TextView) view.findViewById(R.id.resultCarD100);
+            id = (TextView) view.findViewById(R.id.numero_id);
 
             load = (Button) view.findViewById(R.id.load);
             delete = (Button) view.findViewById(R.id.delete);
-            posizione = getLayoutPosition();
+
+          /*  final int posizione = Integer.parseInt(id.getText().toString());
 
             load.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
                     String tag = LOAD;
-                    String number = Integer.toString(getLayoutPosition());
+                    String number = Integer.toString(posizione);
                     mandaIlSegnale(v, tag,number);
                 }
             });
@@ -54,10 +56,10 @@ public class SacchettaAdatper extends RecyclerView.Adapter<SacchettaAdatper.MyVi
                 public void onClick(View v) {
 
                     String tag = DELETE;
-                    String number = Integer.toString(getLayoutPosition());
+                    String number = Integer.toString(posizione);
                     mandaIlSegnale(v, tag,number);
                 }
-            });
+            });*/
 
         }
     }
@@ -92,6 +94,8 @@ public class SacchettaAdatper extends RecyclerView.Adapter<SacchettaAdatper.MyVi
         holder.resultd12.setText(Integer.toString(setDiDadi[4]));
         holder.resultd20.setText(Integer.toString(setDiDadi[5]));
         holder.resultd100.setText(Integer.toString(setDiDadi[6]));
+        holder.id.setText(Integer.toString(sacchetta.getCounter()));
+
     }
 
     @Override

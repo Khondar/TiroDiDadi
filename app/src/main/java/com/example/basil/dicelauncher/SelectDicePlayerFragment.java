@@ -59,7 +59,8 @@ public class SelectDicePlayerFragment extends Fragment {
     }
 
     protected void prepareSacchetteData() {
-       sacchettaList = db.getAllSacchetta();
+        sacchettaList = db.getAllSacchetta();
+        db.close();
     }
 
     public void cancellaCarica (String tag, String number){
