@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -66,17 +67,22 @@ public class SelezioneDatiFragment extends Fragment {
     long sacchetta_ID;
     long dice_id;
 
+    int[] setDiDadiCaricato = new int[7];
+    SharedPreferences sharedpreferences;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.selezione_dati_fragment_layout, container, false);
+        Log.d("SelezioneDatiFragment: ", "onCreateView");
         return v;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Log.d("SelezioneDatiFragment: ", "onViewCreated");
 
         db = new OpenStorageHelper(getContext());
 
@@ -166,6 +172,11 @@ public class SelezioneDatiFragment extends Fragment {
         risulNumd20.setMovementMethod(new ScrollingMovementMethod());
         risulNumd100.setMovementMethod(new ScrollingMovementMethod());
         risultatoTot.setMovementMethod(new ScrollingMovementMethod());
+
+        if(sharedpreferences != null) {
+            setDiDadiCaricato = loadArray("miei_dadi", context);
+            svuotaIDadi(setDiDadiCaricato);
+        }
 
         ImageView imaged4 = (ImageView) view.findViewById(R.id.d4);
         imaged4.setOnClickListener(new View.OnClickListener() {
@@ -329,6 +340,7 @@ public class SelezioneDatiFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         context = getActivity();
+        Log.d("SelezioneDatiFragment: ", "onActivityCreated");
         if (savedInstanceState != null) {
             //Risistema il fragment
             risultatod4.setText(savedInstanceState.getString("risultatod4"));
@@ -380,6 +392,8 @@ public class SelezioneDatiFragment extends Fragment {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
+        Log.d("SelezioneDatiFragment: ", "onSaveInstance");
+
         outState.putString("risultatod4", risultatod4.getText().toString());
         outState.putString("risultatod6", risultatod6.getText().toString());
         outState.putString("risultatod8", risultatod8.getText().toString());
@@ -416,6 +430,7 @@ public class SelezioneDatiFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        Log.d("SelezioneDatiFragment: ", "onDestroy");
     }
 
     public void rollDice() {
@@ -495,7 +510,7 @@ public class SelezioneDatiFragment extends Fragment {
         sacchettaRecuperata = db.getSacchetta(Long.valueOf(values));
         setDiDadiCollection = db.getAllDicesByTag(Long.valueOf(values));
         sacchettaRecuperata.setSetDiDadi(setDiDadiCollection);
-        svuotaIDadi(sacchettaRecuperata.svuotaLaSacchetta());
+        saveArray(sacchettaRecuperata.svuotaLaSacchetta(), "miei_dadi", context);
         db.close();
     }
 
@@ -628,6 +643,7 @@ public class SelezioneDatiFragment extends Fragment {
         nD12Text.setText(String.valueOf(mieiDadi[4]));
         nD20Text.setText(String.valueOf(mieiDadi[5]));
         nD100Text.setText(String.valueOf(mieiDadi[6]));
+
     }
 
     private List<Dice> riempiLaSacchetta (int[] setDadi){
@@ -669,6 +685,24 @@ public class SelezioneDatiFragment extends Fragment {
             }
         }
         return setDiDadi;
+    }
+
+    public boolean saveArray(int[] array, String arrayName, Context mContext) {
+        sharedpreferences = mContext.getSharedPreferences("preferencename", 0);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putInt(arrayName +"_size", array.length);
+        for(int i=0;i<array.length;i++)
+            editor.putInt(arrayName + "_" + i, array[i]);
+        return editor.commit();
+    }
+
+    public int[] loadArray(String arrayName, Context mContext) {
+        sharedpreferences = mContext.getSharedPreferences("preferencename", 0);
+        int size = sharedpreferences.getInt(arrayName + "_size", 0);
+        int array[] = new int[size];
+        for(int i=0;i<size;i++)
+            array[i] = sharedpreferences.getInt(arrayName + "_" + i, Context.MODE_PRIVATE);
+        return array;
     }
 
 }
