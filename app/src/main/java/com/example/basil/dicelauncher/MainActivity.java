@@ -121,9 +121,7 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentDadi, dadi, "dadi").addToBackStack(null).commit();
                     serviceIntent.setAction(ShakeAndRollService.LOAD);
                     comandaIlService(serviceIntent);
-                    //getSupportFragmentManager().beginTransaction().detach(getSupportFragmentManager().findFragmentByTag("dadi"));
                     comandaIDadi().loadDice(id);
-                    //getSupportFragmentManager().beginTransaction().attach(getSupportFragmentManager().findFragmentByTag("dadi")).commit();
                     break;
                 case SacchettaAdatper.DELETE:
                     SelectDicePlayerFragment selezionaPersonaggi = (SelectDicePlayerFragment) getSupportFragmentManager().findFragmentByTag("sceltaPlayer");
