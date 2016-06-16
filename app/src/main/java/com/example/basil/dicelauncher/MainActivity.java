@@ -80,6 +80,9 @@ public class MainActivity extends AppCompatActivity {
             nomeFragment = new PlayerNameFragment();
             sceltaPlayer = new SelectDicePlayerFragment();
             backFragment = new BackFragment();
+            sharP = getBaseContext().getSharedPreferences(PREFERENCE, 0);
+            SharedPreferences.Editor edit = sharP.edit();
+            edit.putInt(SHARP, 0).commit();
         }
 
         getSupportActionBar().hide();
@@ -126,6 +129,8 @@ public class MainActivity extends AppCompatActivity {
                 getSupportFragmentManager().putFragment(outState, "mContent5", backFragment);
                 break;
             default:
+                getSupportFragmentManager().putFragment(outState,"mContent1", dadi);
+                getSupportFragmentManager().putFragment(outState,"mContent2", menu);
                 break;
         }
     }
