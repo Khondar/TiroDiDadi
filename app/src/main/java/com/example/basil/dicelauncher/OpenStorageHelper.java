@@ -81,8 +81,6 @@ public class OpenStorageHelper extends SQLiteOpenHelper {
         Sacchetta td = new Sacchetta();
         td.setCounter(c.getInt(c.getColumnIndex(KEY_ID)));
         td.setNomeProprietario((c.getString(c.getColumnIndex(KEY_SACCHETTA_NAME))));
-        td.setSetDiDadi(getAllDicesByTag(sacchetta_id));
-
         return td;
     }
 

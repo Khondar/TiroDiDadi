@@ -117,13 +117,12 @@ public class MainActivity extends AppCompatActivity {
                     serviceIntent.setAction(ShakeAndRollService.LOAD);
                     comandaIlService(serviceIntent);
                     comandaIDadi().loadDice(id);
+                    getSupportFragmentManager().beginTransaction().detach(getSupportFragmentManager().findFragmentByTag("dadi")).attach(getSupportFragmentManager().findFragmentByTag("dadi")).commit();
                     break;
                 case SacchettaAdatper.DELETE:
                     SelectDicePlayerFragment selezionaPersonaggi = (SelectDicePlayerFragment) getSupportFragmentManager().findFragmentByTag("sceltaPlayer");
                     selezionaPersonaggi.cancella(id);
-                    getFragmentManager().beginTransaction().detach(getFragmentManager().findFragmentByTag("sceltaPlayer"));
-                    getFragmentManager().beginTransaction().attach(getFragmentManager().findFragmentByTag("sceltaPlayer"));
-                    getFragmentManager().beginTransaction().commit();
+                    getSupportFragmentManager().beginTransaction().detach(getSupportFragmentManager().findFragmentByTag("sceltaPlayer")).attach(getSupportFragmentManager().findFragmentByTag("sceltaPlayer")).commit();
                     break;
 
                 default:

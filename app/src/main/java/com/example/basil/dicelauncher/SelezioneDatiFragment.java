@@ -493,7 +493,8 @@ public class SelezioneDatiFragment extends Fragment {
     public void loadDice(String values) {
 
         sacchettaRecuperata = db.getSacchetta(Long.valueOf(values));
-
+        setDiDadiCollection = db.getAllDicesByTag(Long.valueOf(values));
+        sacchettaRecuperata.setSetDiDadi(setDiDadiCollection);
         svuotaIDadi(sacchettaRecuperata.svuotaLaSacchetta());
         db.close();
     }
