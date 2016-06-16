@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     MenuFragment menu;
     PlayerNameFragment nomeFragment;
     SelectDicePlayerFragment sceltaPlayer;
+    BackFragment backFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().add(R.id.fragmentDadi, dadi, "dadi").addToBackStack(null).commit();
             menu = new MenuFragment();
             getSupportFragmentManager().beginTransaction().add(R.id.fragmentMenu, menu, "menu").addToBackStack(null).commit();
+            nomeFragment = new PlayerNameFragment();
+            sceltaPlayer = new SelectDicePlayerFragment();
+            backFragment = new BackFragment();
         }
 
         getSupportActionBar().hide();
@@ -78,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                     comandaIDadi().rollDice();
                     break;
                 case MenuFragment.SAVE:
-                    nomeFragment = new PlayerNameFragment();
+
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentMenu, nomeFragment, "nomeEditor").addToBackStack(null).commit();
                     serviceIntent.setAction(ShakeAndRollService.SAVE);
                     comandaIlService(serviceIntent);
@@ -87,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
                 case MenuFragment.LOAD:
                     serviceIntent.setAction(ShakeAndRollService.LOAD);
                     comandaIlService(serviceIntent);
-                    sceltaPlayer = new SelectDicePlayerFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentDadi, sceltaPlayer, "sceltaPlayer").addToBackStack(null).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentMenu, backFragment, "backFragment").addToBackStack(null).commit();
                     break;
 
 
@@ -124,6 +128,10 @@ public class MainActivity extends AppCompatActivity {
                     selezionaPersonaggi.cancella(id);
                     getSupportFragmentManager().beginTransaction().detach(getSupportFragmentManager().findFragmentByTag("sceltaPlayer")).attach(getSupportFragmentManager().findFragmentByTag("sceltaPlayer")).commit();
                     break;
+                case BackFragment.RETURN_BACK:
+
+
+
 
                 default:
                     break;
