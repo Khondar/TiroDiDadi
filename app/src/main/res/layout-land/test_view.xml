@@ -46,7 +46,8 @@
                     android:textAllCaps="false"
                     android:id="@+id/load"
                     android:background="@drawable/bottoneblupatch"
-                    android:textColor="#ffffff" />
+                    android:textColor="#ffffff"
+                    android:textSize="15dp"/>
 
 
                 <Button
@@ -58,7 +59,8 @@
                     android:layout_weight="2"
                     android:id="@+id/delete"
                     android:background="@drawable/bottonerossopatch"
-                    android:textColor="#ffffff" />
+                    android:textColor="#ffffff"
+                    android:textSize="15dp"/>
 
             </LinearLayout>
 
@@ -92,7 +94,8 @@
                             android:layout_weight="1"
                             android:text="22"
                             android:gravity="center|end"
-                            android:id="@+id/resultCarD4"/>
+                            android:id="@+id/resultCarD4"
+                            android:textSize="15dp"/>
 
                         <TextView
                             android:layout_width="0dp"
@@ -120,7 +123,8 @@
                             android:layout_weight="1"
                             android:text="22"
                             android:gravity="center|end"
-                            android:id="@+id/resultCarD6"/>
+                            android:id="@+id/resultCarD6"
+                            android:textSize="15dp"/>
 
                         <TextView
                             android:layout_width="0dp"
@@ -147,7 +151,8 @@
                             android:layout_weight="1"
                             android:text="22"
                             android:gravity="center|end"
-                            android:id="@+id/resultCarD8"/>
+                            android:id="@+id/resultCarD8"
+                            android:textSize="15dp"/>
 
                         <TextView
                             android:layout_width="0dp"
@@ -174,7 +179,8 @@
                             android:layout_weight="1"
                             android:text="22"
                             android:gravity="center|end"
-                            android:id="@+id/resultCarD10"/>
+                            android:id="@+id/resultCarD10"
+                            android:textSize="15dp"/>
 
                         <TextView
                             android:layout_width="0dp"
@@ -230,7 +236,8 @@
                             android:layout_weight="1"
                             android:text="22"
                             android:gravity="center|end"
-                            android:id="@+id/resultCarD12"/>
+                            android:id="@+id/resultCarD12"
+                            android:textSize="15dp"/>
 
                         <TextView
                             android:layout_width="0dp"
@@ -260,7 +267,8 @@
                             android:layout_weight="1"
                             android:text="22"
                             android:gravity="center|end"
-                            android:id="@+id/resultCarD20"/>
+                            android:id="@+id/resultCarD20"
+                            android:textSize="15dp"/>
 
                         <TextView
                             android:layout_width="0dp"
@@ -288,7 +296,8 @@
                             android:layout_weight="1"
                             android:text="22"
                             android:gravity="center|end"
-                            android:id="@+id/resultCarD100"/>
+                            android:id="@+id/resultCarD100"
+                            android:textSize="15dp"/>
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
@@ -302,7 +311,7 @@
 
         </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+    </android.support.v7.widget.CardView>
 
 
 
