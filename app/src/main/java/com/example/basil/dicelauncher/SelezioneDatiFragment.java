@@ -614,21 +614,21 @@ public class SelezioneDatiFragment extends Fragment {
                 textView.append(Html.fromHtml(first));
             } else if (args[j] == 1) {
                 fail++;
-                textView.append(" [" + Integer.toString(args[j]) + "] ");
+                String first = "<font color='#FFA6E774'> [1] </font>";
+                textView.append(Html.fromHtml(first));
             } else {
                 textView.append(" [" + Integer.toString(args[j]) + "] ");
             }
-
         }
         if (counter > 0) {
             String tag = NATURAL20;
             invioTag(tag);
-        }
-
-        if (fail > 0) {
+        }else if (fail > 0) {
             String tag = FAIL;
             invioTag(tag);
         }
+
+
         textView2.setText("Totale:");
         textView3.setText("" + i);
     }
