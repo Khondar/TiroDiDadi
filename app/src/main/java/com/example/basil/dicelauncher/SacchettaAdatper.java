@@ -39,12 +39,13 @@ public class SacchettaAdatper extends RecyclerView.Adapter<SacchettaAdatper.MyVi
             load = (Button) view.findViewById(R.id.load);
             delete = (Button) view.findViewById(R.id.delete);
 
-          /*  final int posizione = Integer.parseInt(id.getText().toString());
+
 
             load.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
+                    int posizione = Integer.parseInt(id.getText().toString());
                     String tag = LOAD;
                     String number = Integer.toString(posizione);
                     mandaIlSegnale(v, tag,number);
@@ -55,11 +56,12 @@ public class SacchettaAdatper extends RecyclerView.Adapter<SacchettaAdatper.MyVi
                 @Override
                 public void onClick(View v) {
 
+                    int posizione = Integer.parseInt(id.getText().toString());
                     String tag = DELETE;
                     String number = Integer.toString(posizione);
                     mandaIlSegnale(v, tag,number);
                 }
-            });*/
+            });
 
         }
     }
