@@ -2,14 +2,6 @@ package com.example.basil.dicelauncher;
 
 import android.support.annotation.NonNull;
 
-import com.j256.ormlite.dao.CloseableIterator;
-import com.j256.ormlite.dao.CloseableWrappedIterable;
-import com.j256.ormlite.dao.ForeignCollection;
-import com.j256.ormlite.field.DataType;
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.field.ForeignCollectionField;
-import com.j256.ormlite.table.DatabaseTable;
-
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,157 +10,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-@DatabaseTable (tableName = "sacchette")
 public class Sacchetta implements Serializable{
 
-    @ForeignCollectionField
-    ForeignCollection<Dice> setDiDadiCollection = new ForeignCollection<Dice>() {
-        @Override
-        public CloseableIterator<Dice> iterator(int flags) {
-            return null;
-        }
-
-        @Override
-        public CloseableIterator<Dice> closeableIterator(int flags) {
-            return null;
-        }
-
-        @Override
-        public CloseableIterator<Dice> iteratorThrow() throws SQLException {
-            return null;
-        }
-
-        @Override
-        public CloseableIterator<Dice> iteratorThrow(int flags) throws SQLException {
-            return null;
-        }
-
-        @Override
-        public CloseableWrappedIterable<Dice> getWrappedIterable() {
-            return null;
-        }
-
-        @Override
-        public CloseableWrappedIterable<Dice> getWrappedIterable(int flags) {
-            return null;
-        }
-
-        @Override
-        public void closeLastIterator() throws SQLException {
-
-        }
-
-        @Override
-        public boolean isEager() {
-            return false;
-        }
-
-        @Override
-        public int update(Dice obj) throws SQLException {
-            return 0;
-        }
-
-        @Override
-        public int updateAll() throws SQLException {
-            return 0;
-        }
-
-        @Override
-        public int refresh(Dice obj) throws SQLException {
-            return 0;
-        }
-
-        @Override
-        public int refreshAll() throws SQLException {
-            return 0;
-        }
-
-        @Override
-        public int refreshCollection() throws SQLException {
-            return 0;
-        }
-
-        @Override
-        public boolean add(Dice obj) {
-            return false;
-        }
-
-        @Override
-        public CloseableIterator<Dice> closeableIterator() {
-            return null;
-        }
-
-        @Override
-        public boolean addAll(Collection<? extends Dice> collection) {
-            return false;
-        }
-
-        @Override
-        public void clear() {
-
-        }
-
-        @Override
-        public boolean contains(Object object) {
-            return false;
-        }
-
-        @Override
-        public boolean containsAll(Collection<?> collection) {
-            return false;
-        }
-
-        @Override
-        public boolean isEmpty() {
-            return false;
-        }
-
-        @NonNull
-        @Override
-        public Iterator<Dice> iterator() {
-            return null;
-        }
-
-        @Override
-        public boolean remove(Object object) {
-            return false;
-        }
-
-        @Override
-        public boolean removeAll(Collection<?> collection) {
-            return false;
-        }
-
-        @Override
-        public boolean retainAll(Collection<?> collection) {
-            return false;
-        }
-
-        @Override
-        public int size() {
-            return 0;
-        }
-
-        @NonNull
-        @Override
-        public Object[] toArray() {
-            return new Object[0];
-        }
-
-        @NonNull
-        @Override
-        public <T> T[] toArray(T[] array) {
-            return null;
-        }
-    };
-
-    @DatabaseField (columnName = "nome_proprietario")
     String nomeProprietario;
 
-    @DatabaseField(generatedId = true, columnName = "sacchetta_id")
     int counter;
 
-    List<Dice> setDiDadi = new ArrayList<>(setDiDadiCollection);
+    List<Dice> setDiDadi = new ArrayList<>(); //
 
     Sacchetta (){    }
 
@@ -240,10 +88,6 @@ public class Sacchetta implements Serializable{
             }
         }
         return setDadi;
-    }
-
-    public ForeignCollection<Dice> getSetDiDadi() {
-        return setDiDadiCollection;
     }
 
     public void setNomeProprietario(String nomeProprietario) {

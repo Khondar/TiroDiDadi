@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
@@ -22,23 +23,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.j256.ormlite.android.apptools.OpenHelperManager;
-import com.j256.ormlite.dao.Dao;
-
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 public class SelezioneDatiFragment extends Fragment {
 
-    private StorageOpenHelper databaseHelper = null;
+
     public static final String SOUND = "com.SelezioneDatiFragment.sound";
     public static final String NATURAL20 = "com.SelezioneDatiFragment.natural20";
     public static final String FAIL = "com.SelezioneDatiFragment.fail";
+
+    List<Dice> setDiDadiCollection;
 
     Context context;
 
@@ -407,11 +409,6 @@ public class SelezioneDatiFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-
-        if (databaseHelper != null) {
-            OpenHelperManager.releaseHelper();
-            databaseHelper = null;
-        }
     }
 
     public void rollDice() {
@@ -495,16 +492,9 @@ public class SelezioneDatiFragment extends Fragment {
 
 
         setDadiSalvato = recuperaIDadi();
-        miaSacchetta.riempiLaSacchetta(setDadiSalvato);
+        //miaSacchetta.riempiLaSacchetta(setDadiSalvato);
         miaSacchetta.setNomeProprietario(name);
 
-        try {
-            final Dao<Sacchetta, Integer> sacchettaDao = getStorageHelper().getSacchettaDao();
-            sacchettaDao.create(miaSacchetta);
-            Toast.makeText(context, "file salvato", Toast.LENGTH_SHORT).show();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     public int setNumeroDadi(EditText textView) {
@@ -625,13 +615,6 @@ public class SelezioneDatiFragment extends Fragment {
         nD100Text.setText("" + mieiDadi[6]);
     }
 
-    private StorageOpenHelper getStorageHelper() {
-        if (databaseHelper == null) {
-            databaseHelper = OpenHelperManager.getHelper(getContext(), StorageOpenHelper.class);
-        }
-        return databaseHelper;
-    }
-
     private List<Dice> riempiLaSacchetta (int[] setDadi){
         List<Dice> setDiDadi = new ArrayList<>();
         for(int j = 0; j < 7; j++){
@@ -665,10 +648,6 @@ public class SelezioneDatiFragment extends Fragment {
                         break;
                 }
                 dice.setFacce(facce);
-                try{
-                    final Dao<Dice, Integer> diceDao = getStorageHelper().getDiceDao();
-                    diceDao.create(dice);
-                }catch (SQLException e){ }
                 setDiDadi.add(dice);
             }
         }
