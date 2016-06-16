@@ -40,6 +40,8 @@ public class SelezioneDatiFragment extends Fragment {
     public static final String SOUND = "com.SelezioneDatiFragment.sound";
     public static final String NATURAL20 = "com.SelezioneDatiFragment.natural20";
     public static final String FAIL = "com.SelezioneDatiFragment.fail";
+    public static final String PREFERENCE = "com.SelezioneDatiFragment.preference";
+    public static final String ARRAY="com.SelezioneDatiFragment.array";
 
     List<Dice> setDiDadiCollection;
 
@@ -173,10 +175,10 @@ public class SelezioneDatiFragment extends Fragment {
         risulNumd100.setMovementMethod(new ScrollingMovementMethod());
         risultatoTot.setMovementMethod(new ScrollingMovementMethod());
 
-        if(sharedpreferences != null) {
-            setDiDadiCaricato = loadArray("miei_dadi", context);
+        /*if(sharedpreferences != null) {
+            setDiDadiCaricato = loadArray(ARRAY, getContext());
             svuotaIDadi(setDiDadiCaricato);
-        }
+        }*/
 
         ImageView imaged4 = (ImageView) view.findViewById(R.id.d4);
         imaged4.setOnClickListener(new View.OnClickListener() {
@@ -389,6 +391,16 @@ public class SelezioneDatiFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        if(sharedpreferences != null) {
+            setDiDadiCaricato = loadArray(ARRAY, getContext());
+            svuotaIDadi(setDiDadiCaricato);
+        }
+        Log.d("SelezioneDatiFragment: ", "onResume");
+    }
+
+    @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
@@ -510,7 +522,7 @@ public class SelezioneDatiFragment extends Fragment {
         sacchettaRecuperata = db.getSacchetta(Long.valueOf(values));
         setDiDadiCollection = db.getAllDicesByTag(Long.valueOf(values));
         sacchettaRecuperata.setSetDiDadi(setDiDadiCollection);
-        saveArray(sacchettaRecuperata.svuotaLaSacchetta(), "miei_dadi", context);
+        saveArray(sacchettaRecuperata.svuotaLaSacchetta(), ARRAY, context);
         db.close();
     }
 
@@ -688,7 +700,7 @@ public class SelezioneDatiFragment extends Fragment {
     }
 
     public boolean saveArray(int[] array, String arrayName, Context mContext) {
-        sharedpreferences = mContext.getSharedPreferences("preferencename", 0);
+        sharedpreferences = mContext.getSharedPreferences(PREFERENCE, 0);
         SharedPreferences.Editor editor = sharedpreferences.edit();
         editor.putInt(arrayName +"_size", array.length);
         for(int i=0;i<array.length;i++)
@@ -697,7 +709,7 @@ public class SelezioneDatiFragment extends Fragment {
     }
 
     public int[] loadArray(String arrayName, Context mContext) {
-        sharedpreferences = mContext.getSharedPreferences("preferencename", 0);
+        sharedpreferences = mContext.getSharedPreferences(PREFERENCE, 0);
         int size = sharedpreferences.getInt(arrayName + "_size", 0);
         int array[] = new int[size];
         for(int i=0;i<size;i++)
