@@ -17,19 +17,24 @@ public class BackFragment extends Fragment {
 
     final static public String RETURN_BACK="back";
     public String tag;
+    View v;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.back_fragment, container, false);
+        v = inflater.inflate(R.layout.back_fragment, container, false);
 
-        final DiceAndRollBroadcast broadcast = new DiceAndRollBroadcast();
         Button back = (Button) v.findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 String tag = RETURN_BACK;
+                Intent intent = new Intent();
+                intent.setAction(DiceAndRollBroadcast.Action.ACTION_ROLL_DICE);
+                intent.putExtra(DiceAndRollBroadcast.Extras.BUTTOM_TAG, tag);
+                intent.putExtra(DiceAndRollBroadcast.Extras.MESSAGE_TAG, "");
+                LocalBroadcastManager.getInstance(getView().getContext()).sendBroadcast(intent);
             }
         });
 
@@ -37,10 +42,4 @@ public class BackFragment extends Fragment {
     }
 
 
-
-    public void invioTag(String tag) {
-        Intent intent = new Intent();
-        intent.putExtra(DiceAndRollBroadcast.Extras.BUTTOM_TAG, tag);
-        LocalBroadcastManager.getInstance(getView().getContext()).sendBroadcast(intent);
-    }
 }

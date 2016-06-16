@@ -129,10 +129,8 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().detach(getSupportFragmentManager().findFragmentByTag("sceltaPlayer")).attach(getSupportFragmentManager().findFragmentByTag("sceltaPlayer")).commit();
                     break;
                 case BackFragment.RETURN_BACK:
-
-
-
-
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentDadi, dadi, "dadi").addToBackStack(null).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentMenu, menu, "menu").addToBackStack(null).commit();
                 default:
                     break;
             }
