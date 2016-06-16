@@ -58,6 +58,7 @@ public class SelezioneDatiFragment extends Fragment {
     int[] setDadiSalvato = new int[7];
     final Sacchetta miaSacchetta = new Sacchetta();
 
+    Sacchetta sacchettaRecuperata;
     RisultatiLancio lancioD20;
     int[] risultatiDelD20;
 
@@ -491,6 +492,10 @@ public class SelezioneDatiFragment extends Fragment {
 
     public void loadDice(String values) {
 
+        sacchettaRecuperata = db.getSacchetta(Long.valueOf(values));
+
+        svuotaIDadi(sacchettaRecuperata.svuotaLaSacchetta());
+        db.close();
     }
 
     public void insertName(String name) {

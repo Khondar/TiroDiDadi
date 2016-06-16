@@ -63,21 +63,9 @@ public class SelectDicePlayerFragment extends Fragment {
         db.close();
     }
 
-    public void cancellaCarica (String tag, String number){
-
-        int id = Integer.parseInt(number);
-        Sacchetta miaSacca = sacchettaList.get(id);
-
-        switch (tag){
-            case LOAD:
-                int[] args = miaSacca.svuotaLaSacchetta();
-                break;
-            case DELETE:
-                    sacchettaList.remove(id);
-                break;
-            default:
-                break;
+    public void cancella (String number){
+            db.deleteSacchetta(Long.valueOf(number));
         }
 
     }
-}
+

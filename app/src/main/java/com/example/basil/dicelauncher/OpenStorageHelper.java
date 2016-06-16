@@ -81,6 +81,7 @@ public class OpenStorageHelper extends SQLiteOpenHelper {
         Sacchetta td = new Sacchetta();
         td.setCounter(c.getInt(c.getColumnIndex(KEY_ID)));
         td.setNomeProprietario((c.getString(c.getColumnIndex(KEY_SACCHETTA_NAME))));
+        td.setSetDiDadi(getAllDicesByTag(sacchetta_id));
 
         return td;
     }
@@ -97,8 +98,8 @@ public class OpenStorageHelper extends SQLiteOpenHelper {
 
     public void deleteSacchetta(long sacchetta_id) {
         SQLiteDatabase db = this.getReadableDatabase();
-        db.delete(SACCHETTA_TABLE, KEY_ID + " = ?",
-                new String[]{String.valueOf(sacchetta_id)});
+        db.delete(DICE_TABLE, KEY_SACCHETTA_ID + " = " + sacchetta_id, null);
+        db.delete(SACCHETTA_TABLE, KEY_ID + " = ?", new String[]{String.valueOf(sacchetta_id)});
     }
 
     public long createDice(Dice dice) {

@@ -1,19 +1,12 @@
 package com.example.basil.dicelauncher;
 
+
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -96,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
                     comandaIlService(serviceIntent);
                     sceltaPlayer = new SelectDicePlayerFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentDadi, sceltaPlayer, "sceltaPlayer").addToBackStack(null).commit();
-                    comandaIDadi().loadDice(id);
                     break;
 
 
@@ -124,11 +116,14 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentDadi, dadi, "dadi").addToBackStack(null).commit();
                     serviceIntent.setAction(ShakeAndRollService.LOAD);
                     comandaIlService(serviceIntent);
+                    comandaIDadi().loadDice(id);
                     break;
                 case SacchettaAdatper.DELETE:
-                    action = SelectDicePlayerFragment.DELETE;
                     SelectDicePlayerFragment selezionaPersonaggi = (SelectDicePlayerFragment) getSupportFragmentManager().findFragmentByTag("sceltaPlayer");
-                    selezionaPersonaggi.cancellaCarica(action, message);
+                    selezionaPersonaggi.cancella(id);
+                    getFragmentManager().beginTransaction().detach(getFragmentManager().findFragmentByTag("sceltaPlayer"));
+                    getFragmentManager().beginTransaction().attach(getFragmentManager().findFragmentByTag("sceltaPlayer"));
+                    getFragmentManager().beginTransaction().commit();
                     break;
 
                 default:
