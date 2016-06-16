@@ -116,10 +116,14 @@ public class MainActivity extends AppCompatActivity {
                 case PlayerNameFragment.NAME:
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentMenu, menu, "menu").addToBackStack(null).commit();
                     comandaIDadi().insertName(id);
+                    serviceIntent.setAction(ShakeAndRollService.SAVE);
+                    comandaIlService(serviceIntent);
                     break;
 
                 case SacchettaAdatper.LOAD:
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentDadi, dadi, "dadi").addToBackStack(null).commit();
+                    serviceIntent.setAction(ShakeAndRollService.LOAD);
+                    comandaIlService(serviceIntent);
                     break;
                 case SacchettaAdatper.DELETE:
                     action = SelectDicePlayerFragment.DELETE;

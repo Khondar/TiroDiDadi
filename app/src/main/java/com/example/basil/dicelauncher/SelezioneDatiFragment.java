@@ -61,6 +61,10 @@ public class SelezioneDatiFragment extends Fragment {
     RisultatiLancio lancioD20;
     int[] risultatiDelD20;
 
+    OpenStorageHelper db;
+    long sacchetta_ID;
+    long dice_id;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -72,6 +76,8 @@ public class SelezioneDatiFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        db = new OpenStorageHelper(getContext());
 
         Typeface type = Typeface.createFromAsset(getActivity().getAssets(), "fonts/PrinceValiant.ttf");
 
@@ -492,8 +498,10 @@ public class SelezioneDatiFragment extends Fragment {
 
 
         setDadiSalvato = recuperaIDadi();
-        //miaSacchetta.riempiLaSacchetta(setDadiSalvato);
         miaSacchetta.setNomeProprietario(name);
+
+        sacchetta_ID = db.createSacchetta(miaSacchetta);
+        setDiDadiCollection = riempiLaSacchetta(setDadiSalvato);
 
     }
 
@@ -648,6 +656,8 @@ public class SelezioneDatiFragment extends Fragment {
                         break;
                 }
                 dice.setFacce(facce);
+                dice.setSacchettaID((int)sacchetta_ID);
+                dice_id=db.createDice(dice);
                 setDiDadi.add(dice);
             }
         }

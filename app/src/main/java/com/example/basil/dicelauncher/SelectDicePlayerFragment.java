@@ -25,6 +25,7 @@ public class SelectDicePlayerFragment extends Fragment {
 
 
     private List<Sacchetta> sacchettaList;
+    private List<Dice> diceList;
     private RecyclerView recyclerView;
     private SacchettaAdatper mAdapter;
     Context context;
@@ -32,12 +33,14 @@ public class SelectDicePlayerFragment extends Fragment {
     public final static String DELETE = "com.SelectDicePlayerFragment.delete";
     public final static String LOAD = "com.SelectDicePlayerFragment.load";
 
+    OpenStorageHelper db;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.caricamento_recyclerview, container, false);
 
-
+        db = new OpenStorageHelper(getContext());
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
 
@@ -56,6 +59,7 @@ public class SelectDicePlayerFragment extends Fragment {
     }
 
     protected void prepareSacchetteData() {
+       sacchettaList = db.getAllSacchetta();
     }
 
     public void cancellaCarica (String tag, String number){
