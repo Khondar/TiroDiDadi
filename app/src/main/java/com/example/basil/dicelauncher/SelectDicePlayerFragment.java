@@ -29,7 +29,6 @@ public class SelectDicePlayerFragment extends Fragment {
     private RecyclerView recyclerView;
     private SacchettaAdatper mAdapter;
     Context context;
-    private int selectedRecordPosition = -1;
     public final static String DELETE = "com.SelectDicePlayerFragment.delete";
     public final static String LOAD = "com.SelectDicePlayerFragment.load";
 

@@ -621,13 +621,13 @@ public class SelezioneDatiFragment extends Fragment {
     }
 
     public void svuotaIDadi(int[] mieiDadi) {
-        nD4Text.setText("" + mieiDadi[0]);
-        nD6Text.setText("" + mieiDadi[1]);
-        nD8Text.setText("" + mieiDadi[2]);
-        nD10Text.setText("" + mieiDadi[3]);
-        nD12Text.setText("" + mieiDadi[4]);
-        nD20Text.setText("" + mieiDadi[5]);
-        nD100Text.setText("" + mieiDadi[6]);
+        nD4Text.setText("" + (mieiDadi[0]));
+        nD6Text.setText(Integer.toString(mieiDadi[1]));
+        nD8Text.setText(String.valueOf(mieiDadi[2]));
+        nD10Text.setText(String.valueOf(mieiDadi[3]));
+        nD12Text.setText(String.valueOf(mieiDadi[4]));
+        nD20Text.setText(String.valueOf(mieiDadi[5]));
+        nD100Text.setText(String.valueOf(mieiDadi[6]));
     }
 
     private List<Dice> riempiLaSacchetta (int[] setDadi){
