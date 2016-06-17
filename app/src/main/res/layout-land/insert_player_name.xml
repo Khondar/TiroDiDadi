@@ -76,7 +76,6 @@
             android:textSize="25dp"
             android:text="Back"
             android:textColor="#ffffff"
-
             android:textAllCaps="false"
             android:background="@drawable/bottoneazzurropatch"/>
 
