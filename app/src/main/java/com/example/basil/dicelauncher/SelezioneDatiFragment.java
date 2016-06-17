@@ -75,7 +75,7 @@ public class SelezioneDatiFragment extends Fragment {
 
     int[] setDiDadiCaricato = new int[7];
     SharedPreferences sharedpreferences;
-    SharedPreferences sharP;
+
 
 
     @Override
@@ -181,10 +181,6 @@ public class SelezioneDatiFragment extends Fragment {
         risulNumd100.setMovementMethod(new ScrollingMovementMethod());
         risultatoTot.setMovementMethod(new ScrollingMovementMethod());
 
-        /*if(sharedpreferences != null) {
-            setDiDadiCaricato = loadArray(ARRAY, getContext());
-            svuotaIDadi(setDiDadiCaricato);
-        }*/
 
         ImageView imaged4 = (ImageView) view.findViewById(R.id.d4);
         imaged4.setOnClickListener(new View.OnClickListener() {
@@ -403,12 +399,6 @@ public class SelezioneDatiFragment extends Fragment {
             setDiDadiCaricato = loadArray(ARRAY, getContext());
             svuotaIDadi(setDiDadiCaricato);
         }
-
-        //sharP = getContext().getSharedPreferences(PREFERENCE2, 0);
-       // SharedPreferences.Editor edit = sharP.edit();
-       // edit.putInt(SHARP, 1).apply();
-
-
         Log.d("SelezioneDatiFragment: ", "onResume");
     }
 
@@ -543,10 +533,15 @@ public class SelezioneDatiFragment extends Fragment {
     public void loadDice(String values) {
 
         Log.d("SelezioneDatiFragment: ", "loadDice");
-
+        if(db == null){
+            db = new OpenStorageHelper(getContext());
+        }
         sacchettaRecuperata = db.getSacchetta(Long.valueOf(values));
         setDiDadiCollection = db.getAllDicesByTag(Long.valueOf(values));
         sacchettaRecuperata.setSetDiDadi(setDiDadiCollection);
+        if(context == null){
+            context = getActivity();
+        }
         saveArray(sacchettaRecuperata.svuotaLaSacchetta(), ARRAY, context);
         db.close();
     }
