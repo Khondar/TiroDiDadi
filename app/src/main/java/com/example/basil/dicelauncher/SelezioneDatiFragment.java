@@ -2,6 +2,7 @@ package com.example.basil.dicelauncher;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
@@ -13,6 +14,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v7.app.AlertDialog;
 import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
@@ -185,7 +187,9 @@ public class SelezioneDatiFragment extends Fragment {
         cthulhu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                showSimplePopUp();
+                //Intent intent = new Intent(getActivity(), Pop.class);
+                //getActivity().startActivity(intent);
             }
         });
 
@@ -347,6 +351,37 @@ public class SelezioneDatiFragment extends Fragment {
             }
         });
 
+    }
+
+    private void showSimplePopUp() {
+
+        AlertDialog.Builder helpBuilder = new AlertDialog.Builder(getActivity());
+        //helpBuilder.setTitle("Team Alpha:");
+        //.setTypeface(type);
+        helpBuilder.setView(R.layout.popwindow);
+        TextView textView = (TextView) getView().findViewById(R.id.testo);
+        Button button = (Button) getView().findViewById(R.id.okButton);
+        //Typeface type = Typeface.createFromAsset(getActivity().getAssets(),"fonts/PrinceValiant.ttf");
+        //textView.setTypeface(type);
+        //button.setTypeface(type);
+        //helpBuilder.setMessage("Khondar\nEminenza Grigetta\nScimmia Caffeinomane");
+        /*button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });*/
+
+        helpBuilder.setPositiveButton("Ok",new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do nothing but close the dialog
+                    }
+                });
+
+        // Remember, create doesn't show the dialog
+        AlertDialog helpDialog = helpBuilder.create();
+        helpDialog.show();
     }
 
     @Override
