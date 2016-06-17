@@ -82,6 +82,7 @@ public class SelezioneDatiFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.selezione_dati_fragment_layout, container, false);
         Log.d("SelezioneDatiFragment: ", "onCreateView");
+        db= new OpenStorageHelper(getContext());
         return v;
     }
 
@@ -90,7 +91,7 @@ public class SelezioneDatiFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Log.d("SelezioneDatiFragment: ", "onViewCreated");
 
-        db = new OpenStorageHelper(getContext());
+        //db = new OpenStorageHelper(getContext());
 
         Typeface type = Typeface.createFromAsset(getActivity().getAssets(), "fonts/PrinceValiant.ttf");
 
@@ -420,6 +421,7 @@ public class SelezioneDatiFragment extends Fragment {
         //variabile = sharP.getInt(SHARP, 0);
 
         //if (variabile == 1) {
+        try{
             outState.putString("risultatod4", risultatod4.getText().toString());
             outState.putString("risultatod6", risultatod6.getText().toString());
             outState.putString("risultatod8", risultatod8.getText().toString());
@@ -450,7 +452,9 @@ public class SelezioneDatiFragment extends Fragment {
                 outState.putIntArray("risultati del 20", lancioD20.getElencoLanci());
             } catch (Exception e) {
             }
-       // }
+        }catch (Exception e){
+
+        }
 
     }
 
@@ -536,6 +540,8 @@ public class SelezioneDatiFragment extends Fragment {
     }
 
     public void loadDice(String values) {
+
+        Log.d("SelezioneDatiFragment: ", "loadDice");
 
         sacchettaRecuperata = db.getSacchetta(Long.valueOf(values));
         setDiDadiCollection = db.getAllDicesByTag(Long.valueOf(values));
