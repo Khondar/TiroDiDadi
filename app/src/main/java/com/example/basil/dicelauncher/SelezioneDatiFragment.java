@@ -82,7 +82,7 @@ public class SelezioneDatiFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.selezione_dati_fragment_layout, container, false);
         Log.d("SelezioneDatiFragment: ", "onCreateView");
-        db= new OpenStorageHelper(getContext());
+
         return v;
     }
 
@@ -91,7 +91,7 @@ public class SelezioneDatiFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Log.d("SelezioneDatiFragment: ", "onViewCreated");
 
-        //db = new OpenStorageHelper(getContext());
+        db = new OpenStorageHelper(getContext());
 
         Typeface type = Typeface.createFromAsset(getActivity().getAssets(), "fonts/PrinceValiant.ttf");
 
