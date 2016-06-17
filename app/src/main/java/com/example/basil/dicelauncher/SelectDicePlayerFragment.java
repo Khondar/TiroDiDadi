@@ -1,6 +1,7 @@
 package com.example.basil.dicelauncher;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
@@ -42,6 +43,8 @@ public class SelectDicePlayerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.caricamento_recyclerview, container, false);
+
+
 
         db = new OpenStorageHelper(getContext());
 
