@@ -43,8 +43,6 @@ public class SelezioneDatiFragment extends Fragment {
     public static final String FAIL = "com.SelezioneDatiFragment.fail";
     public static final String PREFERENCE = "com.SelezioneDatiFragment.preference";
     public static final String ARRAY="com.SelezioneDatiFragment.array";
-    public static final String PREFERENCE2 = "com.SelezioneDatiFragment.preference2";
-    public static final String SHARP = "com.SelezioneDatiFragment.Sharp";
     int variabile;
 
     List<Dice> setDiDadiCollection;
@@ -395,6 +393,7 @@ public class SelezioneDatiFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        sharedpreferences = getActivity().getSharedPreferences(PREFERENCE, 0);
         if(sharedpreferences != null) {
             setDiDadiCaricato = loadArray(ARRAY, getContext());
             svuotaIDadi(setDiDadiCaricato);
