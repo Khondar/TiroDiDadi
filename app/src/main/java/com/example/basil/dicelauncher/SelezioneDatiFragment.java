@@ -59,6 +59,7 @@ public class SelezioneDatiFragment extends Fragment {
 
     Button resetBotton;
     Dice dado = new Dice();
+    ImageView cthulhu;
 
     int[] setDadiSalvato = new int[7];
     final Sacchetta miaSacchetta = new Sacchetta();
@@ -178,6 +179,16 @@ public class SelezioneDatiFragment extends Fragment {
         risulNumd20.setMovementMethod(new ScrollingMovementMethod());
         risulNumd100.setMovementMethod(new ScrollingMovementMethod());
         risultatoTot.setMovementMethod(new ScrollingMovementMethod());
+
+        cthulhu= (ImageView) view.findViewById(R.id.popup);
+
+        cthulhu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
 
 
         ImageView imaged4 = (ImageView) view.findViewById(R.id.d4);
