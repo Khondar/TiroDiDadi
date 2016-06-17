@@ -42,6 +42,9 @@ public class SelezioneDatiFragment extends Fragment {
     public static final String FAIL = "com.SelezioneDatiFragment.fail";
     public static final String PREFERENCE = "com.SelezioneDatiFragment.preference";
     public static final String ARRAY="com.SelezioneDatiFragment.array";
+    public static final String PREFERENCE2 = "com.SelezioneDatiFragment.preference2";
+    public static final String SHARP = "com.SelezioneDatiFragment.Sharp";
+    int variabile;
 
     List<Dice> setDiDadiCollection;
 
@@ -71,6 +74,7 @@ public class SelezioneDatiFragment extends Fragment {
 
     int[] setDiDadiCaricato = new int[7];
     SharedPreferences sharedpreferences;
+    SharedPreferences sharP;
 
 
     @Override
@@ -397,6 +401,12 @@ public class SelezioneDatiFragment extends Fragment {
             setDiDadiCaricato = loadArray(ARRAY, getContext());
             svuotaIDadi(setDiDadiCaricato);
         }
+
+        sharP = getContext().getSharedPreferences(PREFERENCE2, 0);
+        SharedPreferences.Editor edit = sharP.edit();
+        edit.putInt(SHARP, 1).apply();
+
+
         Log.d("SelezioneDatiFragment: ", "onResume");
     }
 
@@ -406,41 +416,49 @@ public class SelezioneDatiFragment extends Fragment {
 
         Log.d("SelezioneDatiFragment: ", "onSaveInstance");
 
-        outState.putString("risultatod4", risultatod4.getText().toString());
-        outState.putString("risultatod6", risultatod6.getText().toString());
-        outState.putString("risultatod8", risultatod8.getText().toString());
-        outState.putString("risultatod10", risultatod10.getText().toString());
-        outState.putString("risultatod12", risultatod12.getText().toString());
-        outState.putString("risultatod100", risultatod100.getText().toString());
+        sharP = getContext().getSharedPreferences(PREFERENCE, 0);
+        variabile = sharP.getInt(SHARP, 0);
 
-        outState.putString("totaled4", totaled4.getText().toString());
-        outState.putString("totaled6", totaled6.getText().toString());
-        outState.putString("totaled8", totaled8.getText().toString());
-        outState.putString("totaled10", totaled10.getText().toString());
-        outState.putString("totaled12", totaled12.getText().toString());
-        outState.putString("totaled20", totaled20.getText().toString());
-        outState.putString("totaled100", totaled100.getText().toString());
+        if (variabile == 1) {
+            outState.putString("risultatod4", risultatod4.getText().toString());
+            outState.putString("risultatod6", risultatod6.getText().toString());
+            outState.putString("risultatod8", risultatod8.getText().toString());
+            outState.putString("risultatod10", risultatod10.getText().toString());
+            outState.putString("risultatod12", risultatod12.getText().toString());
+            outState.putString("risultatod100", risultatod100.getText().toString());
 
-        outState.putString("risulNumd4", risulNumd4.getText().toString());
-        outState.putString("risulNumd6", risulNumd6.getText().toString());
-        outState.putString("risulNumd8", risulNumd8.getText().toString());
-        outState.putString("risulNumd10", risulNumd10.getText().toString());
-        outState.putString("risulNumd12", risulNumd12.getText().toString());
-        outState.putString("risulNumd20", risulNumd20.getText().toString());
-        outState.putString("risulNumd100", risulNumd100.getText().toString());
+            outState.putString("totaled4", totaled4.getText().toString());
+            outState.putString("totaled6", totaled6.getText().toString());
+            outState.putString("totaled8", totaled8.getText().toString());
+            outState.putString("totaled10", totaled10.getText().toString());
+            outState.putString("totaled12", totaled12.getText().toString());
+            outState.putString("totaled20", totaled20.getText().toString());
+            outState.putString("totaled100", totaled100.getText().toString());
 
-        outState.putString("totaleTot", risultato.getText().toString());
-        outState.putString("totaleRes", risultatoTot.getText().toString());
+            outState.putString("risulNumd4", risulNumd4.getText().toString());
+            outState.putString("risulNumd6", risulNumd6.getText().toString());
+            outState.putString("risulNumd8", risulNumd8.getText().toString());
+            outState.putString("risulNumd10", risulNumd10.getText().toString());
+            outState.putString("risulNumd12", risulNumd12.getText().toString());
+            outState.putString("risulNumd20", risulNumd20.getText().toString());
+            outState.putString("risulNumd100", risulNumd100.getText().toString());
 
-        try {
-            outState.putIntArray("risultati del 20", lancioD20.getElencoLanci());
-        } catch (Exception e) {
+            outState.putString("totaleTot", risultato.getText().toString());
+            outState.putString("totaleRes", risultatoTot.getText().toString());
+
+            try {
+                outState.putIntArray("risultati del 20", lancioD20.getElencoLanci());
+            } catch (Exception e) {
+            }
         }
 
     }
 
     @Override
     public void onDestroy() {
+        sharP = getContext().getSharedPreferences(PREFERENCE2, 0);
+        SharedPreferences.Editor edit = sharP.edit();
+        edit.putInt(SHARP, 0).apply();
         super.onDestroy();
         Log.d("SelezioneDatiFragment: ", "onDestroy");
     }
