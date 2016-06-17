@@ -555,6 +555,7 @@ public class SelezioneDatiFragment extends Fragment {
             nD = Integer.parseInt(textView.getEditableText().toString());
         } catch (NumberFormatException e) {
             nD = 1;
+
         }
         return nD;
     }
