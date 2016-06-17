@@ -1,6 +1,7 @@
 package com.example.basil.dicelauncher;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,9 +19,11 @@ import android.support.v7.app.AlertDialog;
 import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -89,13 +92,13 @@ public class SelezioneDatiFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Log.d("SelezioneDatiFragment: ", "onViewCreated");
 
         db = new OpenStorageHelper(getContext());
 
-        Typeface type = Typeface.createFromAsset(getActivity().getAssets(), "fonts/PrinceValiant.ttf");
+        final Typeface type = Typeface.createFromAsset(getActivity().getAssets(), "fonts/PrinceValiant.ttf");
 
         nD4Text = (EditText) view.findViewById(R.id.editD4);
         nD6Text = (EditText) view.findViewById(R.id.editD6);
@@ -187,9 +190,15 @@ public class SelezioneDatiFragment extends Fragment {
         cthulhu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showSimplePopUp();
-                //Intent intent = new Intent(getActivity(), Pop.class);
-                //getActivity().startActivity(intent);
+                LayoutInflater layoutInflater = LayoutInflater.from(getContext());
+                View promptView = layoutInflater.inflate(R.layout.dialog_layout, null);
+                final AlertDialog dialog = new AlertDialog.Builder(context).create();
+
+                TextView teamText = (TextView) promptView.findViewById(R.id.team);
+
+                dialog.setView(promptView);
+
+                dialog.show();
             }
         });
 
@@ -351,38 +360,6 @@ public class SelezioneDatiFragment extends Fragment {
             }
         });
 
-    }
-
-    private void showSimplePopUp() {
-
-        AlertDialog.Builder helpBuilder = new AlertDialog.Builder(getActivity());
-        //helpBuilder.setTitle("Team Alpha:");
-        //.setTypeface(type);
-        helpBuilder.setView(R.layout.popwindow);
-        TextView textView = (TextView) getView().findViewById(R.id.testo);
-        Button button = (Button) getView().findViewById(R.id.okButton);
-        //Typeface type = Typeface.createFromAsset(getActivity().getAssets(),"fonts/PrinceValiant.ttf");
-        //textView.setTypeface(type);
-        //button.setTypeface(type);
-        //helpBuilder.setMessage("Khondar\nEminenza Grigetta\nScimmia Caffeinomane");
-        /*button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });*/
-
-        helpBuilder.setPositiveButton("Ok",new DialogInterface.OnClickListener() {
-
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Do nothing but close the dialog
-                    }
-                });
-
-        // Remember, create doesn't show the dialog
-        AlertDialog helpDialog = helpBuilder.create();
-
-        helpDialog.show();
     }
 
     @Override
