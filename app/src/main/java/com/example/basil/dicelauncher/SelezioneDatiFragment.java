@@ -402,9 +402,9 @@ public class SelezioneDatiFragment extends Fragment {
             svuotaIDadi(setDiDadiCaricato);
         }
 
-        sharP = getContext().getSharedPreferences(PREFERENCE2, 0);
-        SharedPreferences.Editor edit = sharP.edit();
-        edit.putInt(SHARP, 1).apply();
+        //sharP = getContext().getSharedPreferences(PREFERENCE2, 0);
+       // SharedPreferences.Editor edit = sharP.edit();
+       // edit.putInt(SHARP, 1).apply();
 
 
         Log.d("SelezioneDatiFragment: ", "onResume");
@@ -416,10 +416,10 @@ public class SelezioneDatiFragment extends Fragment {
 
         Log.d("SelezioneDatiFragment: ", "onSaveInstance");
 
-        sharP = getContext().getSharedPreferences(PREFERENCE, 0);
-        variabile = sharP.getInt(SHARP, 0);
+        //sharP = getContext().getSharedPreferences(PREFERENCE, 0);
+        //variabile = sharP.getInt(SHARP, 0);
 
-        if (variabile == 1) {
+        //if (variabile == 1) {
             outState.putString("risultatod4", risultatod4.getText().toString());
             outState.putString("risultatod6", risultatod6.getText().toString());
             outState.putString("risultatod8", risultatod8.getText().toString());
@@ -450,15 +450,15 @@ public class SelezioneDatiFragment extends Fragment {
                 outState.putIntArray("risultati del 20", lancioD20.getElencoLanci());
             } catch (Exception e) {
             }
-        }
+       // }
 
     }
 
     @Override
     public void onDestroy() {
-        sharP = getContext().getSharedPreferences(PREFERENCE2, 0);
-        SharedPreferences.Editor edit = sharP.edit();
-        edit.putInt(SHARP, 0).apply();
+        //sharP = getContext().getSharedPreferences(PREFERENCE2, 0);
+        //SharedPreferences.Editor edit = sharP.edit();
+        //edit.putInt(SHARP, 0).apply();
         super.onDestroy();
         Log.d("SelezioneDatiFragment: ", "onDestroy");
     }

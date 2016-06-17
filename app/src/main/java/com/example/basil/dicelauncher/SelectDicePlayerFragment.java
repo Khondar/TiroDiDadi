@@ -61,22 +61,22 @@ public class SelectDicePlayerFragment extends Fragment {
         return view;
     }
 
-    @Override
+    /*@Override
     public void onActivityCreated (Bundle state) {
         super.onActivityCreated(state);
 
         if(state != null)
             mListState = state.getParcelable("myState");
-    }
+    }*/
 
-    @Override
+    /*@Override
     public void onResume() {
         super.onResume();
 
         if (mListState != null) {
             mLayoutManager.onRestoreInstanceState(mListState);
         }
-    }
+    }*/
 
     protected void prepareSacchetteData() {
         sacchettaList = db.getAllSacchetta();
@@ -87,14 +87,14 @@ public class SelectDicePlayerFragment extends Fragment {
             db.deleteSacchetta(Long.valueOf(number));
         }
 
-    @Override
+    /*@Override
     public void onSaveInstanceState(Bundle state) {
         super.onSaveInstanceState(state);
 
         // Save list state
         mListState = mLayoutManager.onSaveInstanceState();
         state.putParcelable(LIST_STATE_KEY, mListState);
-    }
+    }*/
 
     }
 
