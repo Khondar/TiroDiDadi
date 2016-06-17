@@ -381,6 +381,7 @@ public class SelezioneDatiFragment extends Fragment {
 
         // Remember, create doesn't show the dialog
         AlertDialog helpDialog = helpBuilder.create();
+
         helpDialog.show();
     }
 
