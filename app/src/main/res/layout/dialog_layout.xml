@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#6dcfc612">
+    android:background="#6dcf8d12">
 
     <TextView
         android:id="@+id/team"
@@ -12,7 +12,18 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:layout_margin="10dp"
-        android:text="Team Alpha:\n Khondar \nEminenza grigetta \nScimmia caffeinomane"
+        android:text="Team Alpha:"
+        android:textSize="30dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/team2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:text="Khondar \n\nEminence Petit Grise  \n\nCoffee-Addicted Monkey"
         android:textSize="20dp"
         android:textStyle="bold"/>
 

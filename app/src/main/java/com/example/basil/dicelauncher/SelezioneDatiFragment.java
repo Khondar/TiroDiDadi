@@ -195,6 +195,9 @@ public class SelezioneDatiFragment extends Fragment {
                 final AlertDialog dialog = new AlertDialog.Builder(context).create();
 
                 TextView teamText = (TextView) promptView.findViewById(R.id.team);
+                TextView teamText2 = (TextView) promptView.findViewById(R.id.team2);
+                teamText.setTypeface(type);
+                teamText2.setTypeface(type);
 
                 dialog.setView(promptView);
 
