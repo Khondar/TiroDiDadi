@@ -64,6 +64,8 @@ public class SelectDicePlayerFragment extends Fragment {
         return view;
     }
 
+
+
     /*@Override
     public void onActivityCreated (Bundle state) {
         super.onActivityCreated(state);

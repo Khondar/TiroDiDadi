@@ -43,8 +43,6 @@ public class SelezioneDatiFragment extends Fragment {
     public static final String FAIL = "com.SelezioneDatiFragment.fail";
     public static final String PREFERENCE = "com.SelezioneDatiFragment.preference";
     public static final String ARRAY="com.SelezioneDatiFragment.array";
-    public static final String PREFERENCE2 = "com.SelezioneDatiFragment.preference2";
-    public static final String SHARP = "com.SelezioneDatiFragment.Sharp";
     int variabile;
 
     List<Dice> setDiDadiCollection;
@@ -61,6 +59,7 @@ public class SelezioneDatiFragment extends Fragment {
 
     Button resetBotton;
     Dice dado = new Dice();
+    ImageView cthulhu;
 
     int[] setDadiSalvato = new int[7];
     final Sacchetta miaSacchetta = new Sacchetta();
@@ -75,7 +74,7 @@ public class SelezioneDatiFragment extends Fragment {
 
     int[] setDiDadiCaricato = new int[7];
     SharedPreferences sharedpreferences;
-    SharedPreferences sharP;
+
 
 
     @Override
@@ -181,10 +180,16 @@ public class SelezioneDatiFragment extends Fragment {
         risulNumd100.setMovementMethod(new ScrollingMovementMethod());
         risultatoTot.setMovementMethod(new ScrollingMovementMethod());
 
-        /*if(sharedpreferences != null) {
-            setDiDadiCaricato = loadArray(ARRAY, getContext());
-            svuotaIDadi(setDiDadiCaricato);
-        }*/
+        cthulhu= (ImageView) view.findViewById(R.id.popup);
+
+        cthulhu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
 
         ImageView imaged4 = (ImageView) view.findViewById(R.id.d4);
         imaged4.setOnClickListener(new View.OnClickListener() {
@@ -399,15 +404,15 @@ public class SelezioneDatiFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        if(sharedpreferences != null) {
-            setDiDadiCaricato = loadArray(ARRAY, getContext());
-            svuotaIDadi(setDiDadiCaricato);
+        try{
+        sharedpreferences = getActivity().getSharedPreferences(PREFERENCE, 0);
+            if(sharedpreferences != null) {
+                setDiDadiCaricato = loadArray(ARRAY, getContext());
+                svuotaIDadi(setDiDadiCaricato);
+                sharedpreferences.edit().clear().commit();
+            }
         }
-
-        //sharP = getContext().getSharedPreferences(PREFERENCE2, 0);
-       // SharedPreferences.Editor edit = sharP.edit();
-       // edit.putInt(SHARP, 1).apply();
-
+        catch (Exception e){}
 
         Log.d("SelezioneDatiFragment: ", "onResume");
     }
@@ -418,10 +423,6 @@ public class SelezioneDatiFragment extends Fragment {
 
         Log.d("SelezioneDatiFragment: ", "onSaveInstance");
 
-        //sharP = getContext().getSharedPreferences(PREFERENCE, 0);
-        //variabile = sharP.getInt(SHARP, 0);
-
-        //if (variabile == 1) {
         try{
             outState.putString("risultatod4", risultatod4.getText().toString());
             outState.putString("risultatod6", risultatod6.getText().toString());
@@ -461,9 +462,6 @@ public class SelezioneDatiFragment extends Fragment {
 
     @Override
     public void onDestroy() {
-        //sharP = getContext().getSharedPreferences(PREFERENCE2, 0);
-        //SharedPreferences.Editor edit = sharP.edit();
-        //edit.putInt(SHARP, 0).apply();
         super.onDestroy();
         Log.d("SelezioneDatiFragment: ", "onDestroy");
     }
@@ -543,10 +541,15 @@ public class SelezioneDatiFragment extends Fragment {
     public void loadDice(String values) {
 
         Log.d("SelezioneDatiFragment: ", "loadDice");
-
+        if(db == null){
+            db = new OpenStorageHelper(getContext());
+        }
         sacchettaRecuperata = db.getSacchetta(Long.valueOf(values));
         setDiDadiCollection = db.getAllDicesByTag(Long.valueOf(values));
         sacchettaRecuperata.setSetDiDadi(setDiDadiCollection);
+        if(context == null){
+            context = getActivity();
+        }
         saveArray(sacchettaRecuperata.svuotaLaSacchetta(), ARRAY, context);
         db.close();
     }

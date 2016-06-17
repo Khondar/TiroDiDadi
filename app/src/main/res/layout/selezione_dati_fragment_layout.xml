@@ -25,7 +25,18 @@
             android:textColor="#ffffff"
             android:textSize="15dp"/>
 
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/popup"
+                android:src="@drawable/cthulhu"
+                android:clickable="true"/>
+
+
+
         </LinearLayout>
+
 
         <TextView
             android:layout_width="0dp"

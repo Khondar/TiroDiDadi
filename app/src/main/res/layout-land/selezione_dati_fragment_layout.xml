@@ -262,18 +262,43 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="7">
+                android:layout_weight="7"
+                android:orientation="horizontal">
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Reset"
-                    android:id="@+id/reset"
-                    android:gravity="center"
-                    android:background="@drawable/bottonerossopatch"
-                    android:textColor="#ffffff"
-                    android:textAllCaps="false"
-                    android:textSize="15dp"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/popup"
+                        android:src="@drawable/cthulhu"
+                        android:clickable="true" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Reset"
+                        android:id="@+id/reset"
+                        android:gravity="center"
+                        android:background="@drawable/bottonerossopatch"
+                        android:textColor="#ffffff"
+                        android:textAllCaps="false"
+                        android:textSize="15dp"/>
+
+                </LinearLayout>
+
+
+
 
             </LinearLayout>
 
@@ -303,8 +328,6 @@
             android:layout_height="0dp"
             android:orientation="horizontal"
             android:layout_weight="1">
-
-            <!--Questo è un commento-->
 
             <EditText
                 android:id="@+id/editD12"
