@@ -2,6 +2,7 @@ package com.example.basil.dicelauncher;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -31,6 +32,9 @@ public class SelectDicePlayerFragment extends Fragment {
     Context context;
     public final static String DELETE = "com.SelectDicePlayerFragment.delete";
     public final static String LOAD = "com.SelectDicePlayerFragment.load";
+    public final static String LIST_STATE_KEY = "com.SelectDicePlayerFragment.listStateKey";
+    RecyclerView.LayoutManager mLayoutManager;
+    Parcelable mListState;
 
     OpenStorageHelper db;
 
@@ -43,7 +47,7 @@ public class SelectDicePlayerFragment extends Fragment {
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
 
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
+        mLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
@@ -57,6 +61,23 @@ public class SelectDicePlayerFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onActivityCreated (Bundle state) {
+        super.onActivityCreated(state);
+
+        if(state != null)
+            mListState = state.getParcelable("myState");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if (mListState != null) {
+            mLayoutManager.onRestoreInstanceState(mListState);
+        }
+    }
+
     protected void prepareSacchetteData() {
         sacchettaList = db.getAllSacchetta();
         db.close();
@@ -66,5 +87,15 @@ public class SelectDicePlayerFragment extends Fragment {
             db.deleteSacchetta(Long.valueOf(number));
         }
 
+    @Override
+    public void onSaveInstanceState(Bundle state) {
+        super.onSaveInstanceState(state);
+
+        // Save list state
+        mListState = mLayoutManager.onSaveInstanceState();
+        state.putParcelable(LIST_STATE_KEY, mListState);
     }
+
+    }
+
 

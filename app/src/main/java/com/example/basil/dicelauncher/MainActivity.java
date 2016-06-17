@@ -205,6 +205,11 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentDadi, dadi, "dadi").addToBackStack(null).commit();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentMenu, menu, "menu").addToBackStack(null).commit();
                     edit.putInt(SHARP, 1).commit();
+                    break;
+                case PlayerNameFragment.BACK:
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentMenu, menu, "menu").addToBackStack(null).commit();
+                    edit.putInt(SHARP, 1).commit();
+                    break;
                 default:
                     break;
             }

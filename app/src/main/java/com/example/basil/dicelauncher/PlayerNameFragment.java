@@ -24,6 +24,7 @@ public class PlayerNameFragment extends Fragment {
     String name;
     Context context;
     public static final String NAME = "com.PlayerNameFragment.name";
+    public static final String BACK = "com.PlayerNameFragment.back";
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -50,6 +51,8 @@ public class PlayerNameFragment extends Fragment {
         textView.setTypeface(type);
         final EditText insertName = (EditText) view.findViewById(R.id.playerName);
         insertName.setTypeface(type);
+        Button backButton = (Button) view.findViewById(R.id.returnBack);
+        backButton.setTypeface(type);
 
         playerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,15 +62,22 @@ public class PlayerNameFragment extends Fragment {
                 }else{
                     name = insertName.getEditableText().toString();
                 }
-
-                //Intent insertName = new Intent(getActivity().getBaseContext(), MainActivity.class);
-                //insertName.putExtra("name", name);
-                //getActivity().startActivity(insertName);
-
                 Intent intent = new Intent();
                 intent.setAction(DiceAndRollBroadcast.Action.ACTION_ROLL_DICE);
                 intent.putExtra(DiceAndRollBroadcast.Extras.BUTTOM_TAG, NAME);
                 intent.putExtra(DiceAndRollBroadcast.Extras.MESSAGE_TAG, name);
+                LocalBroadcastManager.getInstance(getView().getContext()).sendBroadcast(intent);
+
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setAction(DiceAndRollBroadcast.Action.ACTION_ROLL_DICE);
+                intent.putExtra(DiceAndRollBroadcast.Extras.BUTTOM_TAG, BACK);
+                intent.putExtra(DiceAndRollBroadcast.Extras.MESSAGE_TAG, "");
                 LocalBroadcastManager.getInstance(getView().getContext()).sendBroadcast(intent);
 
             }
