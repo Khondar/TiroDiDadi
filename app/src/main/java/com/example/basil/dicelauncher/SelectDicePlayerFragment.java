@@ -27,15 +27,10 @@ public class SelectDicePlayerFragment extends Fragment {
 
 
     private List<Sacchetta> sacchettaList;
-    private List<Dice> diceList;
     private RecyclerView recyclerView;
     private SacchettaAdatper mAdapter;
     Context context;
-    public final static String DELETE = "com.SelectDicePlayerFragment.delete";
-    public final static String LOAD = "com.SelectDicePlayerFragment.load";
-    public final static String LIST_STATE_KEY = "com.SelectDicePlayerFragment.listStateKey";
     RecyclerView.LayoutManager mLayoutManager;
-    Parcelable mListState;
 
     OpenStorageHelper db;
 
@@ -64,25 +59,6 @@ public class SelectDicePlayerFragment extends Fragment {
         return view;
     }
 
-
-
-    /*@Override
-    public void onActivityCreated (Bundle state) {
-        super.onActivityCreated(state);
-
-        if(state != null)
-            mListState = state.getParcelable("myState");
-    }*/
-
-    /*@Override
-    public void onResume() {
-        super.onResume();
-
-        if (mListState != null) {
-            mLayoutManager.onRestoreInstanceState(mListState);
-        }
-    }*/
-
     protected void prepareSacchetteData() {
         sacchettaList = db.getAllSacchetta();
         db.close();
@@ -91,15 +67,6 @@ public class SelectDicePlayerFragment extends Fragment {
     public void cancella (String number){
             db.deleteSacchetta(Long.valueOf(number));
         }
-
-    /*@Override
-    public void onSaveInstanceState(Bundle state) {
-        super.onSaveInstanceState(state);
-
-        // Save list state
-        mListState = mLayoutManager.onSaveInstanceState();
-        state.putParcelable(LIST_STATE_KEY, mListState);
-    }*/
 
     }
 
