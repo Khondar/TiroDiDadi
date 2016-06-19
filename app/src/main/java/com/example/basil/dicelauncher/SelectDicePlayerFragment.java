@@ -39,7 +39,7 @@ public class SelectDicePlayerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.caricamento_recyclerview, container, false);
 
-
+//database
 
         db = new OpenStorageHelper(getContext());
 
